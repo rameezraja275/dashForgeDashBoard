@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { setModel } from "./action"
 import { Link } from "react-router-dom"
+import FeatherIcon from 'feather-icons-react';
 
 class CopyFile extends Component {
 
@@ -35,7 +36,7 @@ class CopyFile extends Component {
                     <ul className="nav nav-sidebar flex-column tx-13"> 
                       {
                           Folders.map( (item)=> (
-                                <li className="nav-item"><Link to="" className="nav-link"><i data-feather="folder"></i>{ item.name}</Link></li>
+                                <li className="nav-item"><Link to="" className="nav-link"><FeatherIcon icon="folder"></FeatherIcon>{ item.name}</Link></li>
                           ))
                       }
                     </ul>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import FileCard from './file-card'
 import FolderCard from './folder-card'
+import FeatherIcon from 'feather-icons-react';
 
 class Content extends Component {
     state = {
@@ -63,9 +64,9 @@ class Content extends Component {
                 <div className="filemgr-content-header">
                     <h4 className="mg-b-0">All Files</h4>
                     <nav className="nav d-none d-sm-flex mg-l-auto">
-                        <Link to="" className="nav-link"><i data-feather="list"></i></Link>
-                        <Link to="" className="nav-link"><i data-feather="alert-circle"></i></Link>
-                        <Link to="" className="nav-link"><i data-feather="settings"></i></Link>
+                        <Link to="" className="nav-link"><FeatherIcon icon="list"></FeatherIcon></Link>
+                        <Link to="" className="nav-link"><FeatherIcon icon="alert-circle"></FeatherIcon></Link>
+                        <Link to="" className="nav-link"><FeatherIcon icon="settings"></FeatherIcon></Link>
                     </nav>
                 </div>
                 <div className="filemgr-content-body">

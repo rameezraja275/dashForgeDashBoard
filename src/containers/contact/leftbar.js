@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import FeatherIcon from 'feather-icons-react';
 
 class Leftbar extends Component {
 
@@ -7,23 +8,23 @@ class Leftbar extends Component {
         return (
             <div className="contact-navleft">
                 <nav className="nav flex-column">
-                    <Link to="#tabContact" className="nav-link active" data-toggle="tab">
-                        <span data-toggle="tooltip" title="All Contacts" data-placement="right"><i data-feather="users"></i></span>
-                    </Link>
-                    <Link to="#tabPhoneCall" className="nav-link" data-toggle="tab">
-                        <span data-toggle="tooltip" title="Recently Contacted" data-placement="right"><i data-feather="phone-call"></i></span>
-                    </Link>
+                    <a href="#tabContact" className="nav-link active" data-toggle="tab">
+                        <span data-toggle="tooltip" title="All Contacts" data-placement="right"><FeatherIcon icon="users"></FeatherIcon></span>
+                    </a>
+                    <a href="#tabPhoneCall" className="nav-link" data-toggle="tab">
+                        <span data-toggle="tooltip" title="Recently Contacted" data-placement="right"><FeatherIcon icon="phone-call"></FeatherIcon></span>
+                    </a>
                     <Link to="#tabFavorites" className="nav-link" data-toggle="tab">
-                        <span data-toggle="tooltip" title="Favorites" data-placement="right"><i data-feather="star"></i></span>
+                        <span data-toggle="tooltip" title="Favorites" data-placement="right"><FeatherIcon icon="star"></FeatherIcon></span>
                     </Link>
                     <Link to="#tabTags" className="nav-link" data-toggle="tab">
-                        <span data-toggle="tooltip" title="Contact Labels" data-placement="right"><i data-feather="tag"></i></span>
+                        <span data-toggle="tooltip" title="Contact Labels" data-placement="right"><FeatherIcon icon="tag"></FeatherIcon></span>
                     </Link>
-                    <Link to="#tabExport" className="nav-link" data-toggle="tab">
-                        <span data-toggle="tooltip" title="Export Contacts" data-placement="right"><i data-feather="upload"></i></span>
-                    </Link>
+                    <a href="#tabExport" className="nav-link" data-toggle="tab">
+                        <span data-toggle="tooltip" title="Export Contacts" data-placement="right"><FeatherIcon icon="upload"></FeatherIcon></span>
+                    </a>
                     <Link to="" className="nav-link">
-                        <span data-toggle="tooltip" title="Contact Settings" data-placement="right"><i data-feather="settings"></i></span>
+                        <span data-toggle="tooltip" title="Contact Settings" data-placement="right"><FeatherIcon icon="settings"></FeatherIcon></span>
                     </Link>
                 </nav>
             </div>

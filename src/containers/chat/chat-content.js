@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
+import FeatherIcon from 'feather-icons-react';
 
 const MessageCard = (props) => {
 
@@ -55,24 +56,24 @@ class ChatContent extends Component {
                     </div>
                     <div class="d-flex">
                         <nav id="channelNav">
-                            <a href="#modalInvitePeople" data-toggle="modal"><span data-toggle="tooltip" title="Invite People"><i data-feather="user-plus"></i></span></a>
+                            <a href="#modalInvitePeople" data-toggle="modal"><span data-toggle="tooltip" title="Invite People"><FeatherIcon icon="user-plus"></FeatherIcon></span></a>
                             <a id="showMemberList" href="" data-toggle="tooltip" title="Member list" class="d-flex align-items-center">
-                                <i data-feather="users"></i>
+                                <FeatherIcon icon="users"></FeatherIcon>
                                 <span class="tx-medium mg-l-5">25</span>
                             </a>
                         </nav>
                         <nav id="directNav" class="d-none">
-                            <a href="" data-toggle="tooltip" title="Call User"><i data-feather="phone"></i></a>
-                            <a href="" data-toggle="tooltip" title="User Details"><i data-feather="info"></i></a>
-                            <a href="" data-toggle="tooltip" title="Add to Favorites"><i data-feather="star"></i></a>
-                            <a href="" data-toggle="tooltip" title="Flag User"><i data-feather="flag"></i></a>
+                            <a href="" data-toggle="tooltip" title="Call User"><FeatherIcon icon="phone"></FeatherIcon></a>
+                            <a href="" data-toggle="tooltip" title="User Details"><FeatherIcon icon="info"></FeatherIcon></a>
+                            <a href="" data-toggle="tooltip" title="Add to Favorites"><FeatherIcon icon="star"></FeatherIcon></a>
+                            <a href="" data-toggle="tooltip" title="Flag User"><FeatherIcon icon="flag"></FeatherIcon></a>
                         </nav>
                         <div class="search-form mg-l-15 d-none d-sm-flex">
                             <input type="search" class="form-control" placeholder="Search" />
-                            <button class="btn" type="button"><i data-feather="search"></i></button>
+                            <button class="btn" type="button"><FeatherIcon icon="search"></FeatherIcon></button>
                         </div>
                         <nav class="mg-sm-l-10">
-                            <a href="" data-toggle="tooltip" title="Channel Settings" data-placement="left"><i data-feather="more-vertical"></i></a>
+                            <a href="" data-toggle="tooltip" title="Channel Settings" data-placement="left"><FeatherIcon icon="more-vertical"></FeatherIcon></a>
                         </nav>
                     </div>
                 </div>
@@ -106,12 +107,12 @@ class ChatContent extends Component {
                 </div>
 
                 <div className="chat-content-footer">
-                    <Link to="" data-toggle="tooltip" title="Add File" className="chat-plus"><i data-feather="plus"></i></Link>
+                    <Link to="" data-toggle="tooltip" title="Add File" className="chat-plus"><FeatherIcon icon="plus"></FeatherIcon></Link>
                     <input type="text" className="form-control align-self-center bd-0" placeholder="Message" />
                     <nav>
-                        <Link to="" data-toggle="tooltip" title="Add GIF"><i data-feather="image"></i></Link>
-                        <Link to="" data-toggle="tooltip" title="Add Gift"><i data-feather="gift"></i></Link>
-                        <Link to="" data-toggle="tooltip" title="Add Smiley"><i data-feather="smile"></i></Link>
+                        <Link to="" data-toggle="tooltip" title="Add GIF"><FeatherIcon icon="image"></FeatherIcon></Link>
+                        <Link to="" data-toggle="tooltip" title="Add Gift"><FeatherIcon icon="gift"></FeatherIcon></Link>
+                        <Link to="" data-toggle="tooltip" title="Add Smiley"><FeatherIcon icon="smile"></FeatherIcon></Link>
                     </nav>
                 </div>
             </div>

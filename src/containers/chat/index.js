@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import ChatContent from './chat-content';
 import ChannelList from './ChannelList';
 import ChatList from './ChatList';
+import FeatherIcon from 'feather-icons-react';
+import $ from 'jquery';
+import ChatJquery from './jqueryChat'
 
 const UserInfo = (props) => {
     const { image, name, onlineStatus } = props.data
@@ -18,8 +21,8 @@ const UserInfo = (props) => {
                 <h6 className="tx-semibold mg-b-0">{name}</h6>
             </div>
             <div className="d-flex align-items-center">
-                <Link to=""><i data-feather="mic"></i></Link>
-                <Link to=""><i data-feather="settings"></i></Link>
+                <Link to=""><FeatherIcon icon="mic"></FeatherIcon></Link>
+                <Link to=""><FeatherIcon icon="settings"></FeatherIcon></Link>
             </div>
         </div>
     )
@@ -30,16 +33,19 @@ const UserInfo = (props) => {
 class Chat extends Component {
 
     componentDidMount = () => {
+        $( ChatJquery() )
+
+
         const componentName = this.props.match.path;
-        switch( componentName ){
+        switch (componentName) {
             case "/textmessaging":
-                    // call actions for Text Message here 
+                // call actions for Text Message here 
                 break;
             case "/websitechat":
-                    // call actions for websitechat here 
+                // call actions for websitechat here 
                 break;
             case "/whatsapp":
-                    // call actions for whatsapp here 
+                // call actions for whatsapp here 
                 break;
         }
     }
@@ -84,7 +90,7 @@ class Chat extends Component {
     render() {
         const { Chats, Channels, User } = this.state
         const componentName = this.props.match.path;
-        console.log( componentName );
+        console.log(componentName);
         return (
             <div className="chat-wrapper chat-wrapper-two">
                 <div className="chat-sidebar">
@@ -94,24 +100,24 @@ class Chat extends Component {
                                 <div className="avatar avatar-sm mg-r-8"><span className="avatar-initial rounded-circle">T</span></div>
                                 <span className="tx-color-01 tx-semibold">TeamName</span>
                             </div>
-                            <span><i data-feather="chevron-down"></i></span>
+                            <span><FeatherIcon icon="chevron-down"></FeatherIcon></span>
                         </Link>
                         <div className="dropdown-menu dropdown-menu-right tx-13">
-                            <Link to="" className="dropdown-item"><i data-feather="user-plus"></i> Invite People</Link>
-                            <a className="dropdown-item"><i data-feather="plus-square"></i> Create Channel</a>
-                            <Link to="" className="dropdown-item"><i data-feather="server"></i> Server Settings</Link>
-                            <Link to="" className="dropdown-item"><i data-feather="bell"></i> Notification Settings</Link>
-                            <Link to="" className="dropdown-item"><i data-feather="zap"></i> Privacy Settings</Link>
+                            <Link to="" className="dropdown-item"><FeatherIcon icon="user-plus"></FeatherIcon> Invite People</Link>
+                            <a className="dropdown-item"><FeatherIcon icon="plus-square"></FeatherIcon> Create Channel</a>
+                            <Link to="" className="dropdown-item"><FeatherIcon icon="server"></FeatherIcon> Server Settings</Link>
+                            <Link to="" className="dropdown-item"><FeatherIcon icon="bell"></FeatherIcon> Notification Settings</Link>
+                            <Link to="" className="dropdown-item"><FeatherIcon icon="zap"></FeatherIcon> Privacy Settings</Link>
                             <div className="dropdown-divider"></div>
-                            <Link to="" className="dropdown-item"><i data-feather="edit-3"></i> Edit Team Details</Link>
-                            <Link to="" className="dropdown-item"><i data-feather="shield-off"></i> Hide Muted Channels</Link>
+                            <Link to="" className="dropdown-item"><FeatherIcon icon="edit-3"></FeatherIcon> Edit Team Details</Link>
+                            <Link to="" className="dropdown-item"><FeatherIcon icon="shield-off"></FeatherIcon> Hide Muted Channels</Link>
                         </div>
                     </div>
 
 
                     <div className="chat-sidebar-body">
-                        { componentName == "/WebsiteChat" && <ChannelList Channels={Channels} /> }
-                        <ChatList Chats={Chats}/>
+                        {componentName == "/WebsiteChat" && <ChannelList Channels={Channels} />}
+                        <ChatList Chats={Chats} />
                     </div>
 
                     <UserInfo data={User} />
@@ -126,8 +132,8 @@ class Chat extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      
-    }
-  }
 
-export default connect(mapStateToProps, { })(Chat);
+    }
+}
+
+export default connect(mapStateToProps, {})(Chat);

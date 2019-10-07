@@ -2,14 +2,70 @@ import React, { Component } from 'react'
 import LeftBar from './leftbar';
 import ContactList from './contact-list'
 import ContactInfo from './contact-info'
+import $ from 'jquery';
+import ConatctJquery from './contactsJquery'
 
 class Conatct extends Component {
+    state = {
+        Conatcts: [
+            {
+                FirstName: "Abid",
+                MiddleName: "Christensen",
+                LastName: "Johnson",
+                MobilePhone: "+57 4265743594",
+                HomePhone: "+12 3454334",
+                WorkPhone: "+34 45253452",
+                EmailAddress: "me@gmail.com",
+                Company: "ThemePixle",
+                JobPosition: "President",
+                HomeAddress: "4658 Kenwood Place Pompano Beach, FL 33060, United States",
+                WorkAdress: "819 Waldeck Street Farmers Branch, TX 75244, United States",
+                PersonalWebsite: "http://themepixels.me",
+                Notes: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+                Social: {
+                    Facebook: "facebook.com",
+                    twitter: "twitter.com",
+                    instagram: "instagram.com",
+                    github: "github.com"
+                },
+                onlineStatus: false
+            },
+            {
+                FirstName: "Sher",
+                MiddleName: "Christensen",
+                LastName: "Johnson",
+                MobilePhone: "+57 4265743594",
+                HomePhone: "+12 3454334",
+                WorkPhone: "+34 45253452",
+                EmailAddress: "me@gmail.com",
+                Company: "ThemePixle",
+                JobPosition: "President",
+                HomeAddress: "4658 Kenwood Place Pompano Beach, FL 33060, United States",
+                WorkAdress: "819 Waldeck Street Farmers Branch, TX 75244, United States",
+                PersonalWebsite: "http://themepixels.me",
+                Notes: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+                Social: {
+                    Facebook: "facebook.com",
+                    twitter: "twitter.com",
+                    instagram: "instagram.com",
+                    github: "github.com"
+                },
+                onlineStatus: true
+            }
+        ]
+    }
+
+    componentDidMount = () => {
+        $( ConatctJquery() )
+
+    }
 
     render() {
+        const contacts = this.state.Conatcts
         return (
             <div class="contact-wrapper contact-wrapper-two">
                 <LeftBar />
-                <ContactList />
+                <ContactList Contacts={contacts} />
                 <ContactInfo />
             </div>
         )

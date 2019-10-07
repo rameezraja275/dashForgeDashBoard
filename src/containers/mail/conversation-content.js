@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import FeatherIcon from 'feather-icons-react';
 
 class Conversation extends Component {
 
@@ -7,7 +8,7 @@ class Conversation extends Component {
     return (
       <div className="mail-content">
         <div className="mail-content-header d-none">
-          <Link to="" id="mailContentClose" className="link-02 d-none d-lg-block d-xl-none mg-r-20"><i data-feather="arrow-left"></i></Link>
+          <Link to="" id="mailContentClose" className="link-02 d-none d-lg-block d-xl-none mg-r-20"><FeatherIcon icon="arrow-left"></FeatherIcon></Link>
           <div className="media">
             <div className="avatar avatar-sm"><img src="../https://via.placeholder.com/600" className="rounded-circle" alt="" /></div>
             <div className="media-body mg-l-10">
@@ -16,16 +17,16 @@ class Conversation extends Component {
             </div>
           </div>
           <nav className="nav nav-icon-only mg-l-auto">
-            <Link to="" data-toggle="tooltip" title="Archive" className="nav-link d-none d-sm-block"><i data-feather="archive"></i></Link>
-            <Link to="" data-toggle="tooltip" title="Report Spam" className="nav-link d-none d-sm-block"><i data-feather="slash"></i></Link>
-            <Link to="" data-toggle="tooltip" title="Mark Unread" className="nav-link d-none d-sm-block"><i data-feather="mail"></i></Link>
-            <Link to="" data-toggle="tooltip" title="Add Label" className="nav-link d-none d-sm-block"><i data-feather="folder"></i></Link>
-            <Link to="" data-toggle="tooltip" title="Add Tag" className="nav-link d-none d-sm-block"><i data-feather="tag"></i></Link>
+            <Link to="" data-toggle="tooltip" title="Archive" className="nav-link d-none d-sm-block"><FeatherIcon icon="archive"></FeatherIcon></Link>
+            <Link to="" data-toggle="tooltip" title="Report Spam" className="nav-link d-none d-sm-block"><FeatherIcon icon="slash"></FeatherIcon></Link>
+            <Link to="" data-toggle="tooltip" title="Mark Unread" className="nav-link d-none d-sm-block"><FeatherIcon icon="mail"></FeatherIcon></Link>
+            <Link to="" data-toggle="tooltip" title="Add Label" className="nav-link d-none d-sm-block"><FeatherIcon icon="folder"></FeatherIcon></Link>
+            <Link to="" data-toggle="tooltip" title="Add Tag" className="nav-link d-none d-sm-block"><FeatherIcon icon="tag"></FeatherIcon></Link>
             <span className="nav-divider d-none d-sm-block"></span>
-            <Link to="" data-toggle="tooltip" title="Mark Important" className="nav-link d-none d-sm-block"><i data-feather="star"></i></Link>
-            <Link to="" data-toggle="tooltip" title="Trash" className="nav-link d-none d-sm-block"><i data-feather="trash"></i></Link>
-            <Link to="" data-toggle="tooltip" title="Print" className="nav-link d-none d-sm-block"><i data-feather="printer"></i></Link>
-            <Link to="" data-toggle="tooltip" title="Options" className="nav-link d-sm-none"><i data-feather="more-vertical"></i></Link>
+            <Link to="" data-toggle="tooltip" title="Mark Important" className="nav-link d-none d-sm-block"><FeatherIcon icon="star"></FeatherIcon></Link>
+            <Link to="" data-toggle="tooltip" title="Trash" className="nav-link d-none d-sm-block"><FeatherIcon icon="trash"></FeatherIcon></Link>
+            <Link to="" data-toggle="tooltip" title="Print" className="nav-link d-none d-sm-block"><FeatherIcon icon="printer"></FeatherIcon></Link>
+            <Link to="" data-toggle="tooltip" title="Options" className="nav-link d-sm-none"><FeatherIcon icon="more-vertical"></FeatherIcon></Link>
           </nav>
         </div>
         <div className="mail-content-body d-none">

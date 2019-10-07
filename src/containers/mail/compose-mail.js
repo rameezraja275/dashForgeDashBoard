@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import FeatherIcon from 'feather-icons-react';
 
 class Compose extends Component{
 
@@ -11,14 +12,14 @@ class Compose extends Component{
                 <h6 className="mail-compose-title tx-white">New Message</h6>
                 <nav className="nav nav-icon-only">
                   <Link id="mailComposeMinimize" to="" className="nav-link nav-link-minimize d-none d-lg-block">
-                    <i data-feather="minus"></i>
-                    <i data-feather="square"></i>
+                    <FeatherIcon icon="minus"></FeatherIcon>
+                    <FeatherIcon icon="square"></FeatherIcon>
                   </Link>
                   <Link id="mailComposeShrink" to="" className="nav-link nav-link-shrink d-none d-lg-block">
-                    <i data-feather="minimize-2"></i>
-                    <i data-feather="maximize-2"></i>
+                    <FeatherIcon icon="minimize-2"></FeatherIcon>
+                    <FeatherIcon icon="maximize-2"></FeatherIcon>
                   </Link>
-                  <Link id="mailComposeClose" to="" className="nav-link nav-link-close"><i data-feather="x"></i></Link>
+                  <Link id="mailComposeClose" to="" className="nav-link nav-link-close"><FeatherIcon icon="x"></FeatherIcon></Link>
                 </nav>
               </div>
               <div className="mail-compose-body">

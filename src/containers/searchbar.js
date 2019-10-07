@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import FeatherIcon from 'feather-icons-react';
  
 class SearchBar extends Component {
     render() {
         return (
             <div className="content-header">
                 <div className="content-search">
-                    <i data-feather="search"></i>
+                    <FeatherIcon icon="search"></FeatherIcon>
                     <input type="search" className="form-control" placeholder="Search mail" />
                 </div>
                 <nav className="nav">
-                    <Link to="" className="nav-link"><i data-feather="help-circle"></i></Link>
-                    <Link to="" className="nav-link"><i data-feather="grid"></i></Link>
-                    <Link to="" className="nav-link"><i data-feather="align-left"></i></Link>
+                    <Link to="" className="nav-link"><FeatherIcon icon="help-circle"></FeatherIcon></Link>
+                    <Link to="" className="nav-link"><FeatherIcon icon="grid"></FeatherIcon></Link>
+                    <Link to="" className="nav-link"><FeatherIcon icon="align-left"></FeatherIcon></Link>
                 </nav>
             </div>
         );

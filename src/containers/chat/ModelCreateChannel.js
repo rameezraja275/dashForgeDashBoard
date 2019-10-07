@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FeatherIcon from 'feather-icons-react';
 
 class CreateChannel extends Component {
 
@@ -9,7 +10,7 @@ class CreateChannel extends Component {
                     <div class="modal-content">
                         <div class="modal-body pd-20">
                             <button type="button" class="close pos-absolute t-15 r-15" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true"><i data-feather="x" class="wd-20"></i></span>
+                                <span aria-hidden="true"><FeatherIcon icon="x" class="wd-20"></FeatherIcon></span>
                             </button>
 
                             <h6 class="tx-uppercase tx-spacing-1 tx-semibold mg-b-20">Create Channel</h6>

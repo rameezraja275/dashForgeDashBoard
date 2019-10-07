@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { setModel } from "./action"
 import { Link } from "react-router-dom"
+import FeatherIcon from 'feather-icons-react';
 
 class ShareFile extends Component {
 
@@ -29,8 +30,8 @@ class ShareFile extends Component {
                                 <hr />
                                 <label className="d-block">More:</label>
                                 <nav className="nav nav-social">
-                                    <Link to="" className="nav-link"><i data-feather="facebook"></i></Link>
-                                    <Link to="" className="nav-link"><i data-feather="twitter"></i></Link>
+                                    <Link to="" className="nav-link"><FeatherIcon icon>="facebook"></FeatherIcon></Link>
+                                    <Link to="" className="nav-link"><FeatherIcon icon>="twitter"></FeatherIcon></Link>
                                 </nav>
                             </div>
                         </div>

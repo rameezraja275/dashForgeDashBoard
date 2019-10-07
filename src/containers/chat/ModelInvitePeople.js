@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FeatherIcon from 'feather-icons-react';
 
 class InvitePeople extends Component {
 
@@ -9,7 +10,7 @@ class InvitePeople extends Component {
                     <div class="modal-content">
                         <div class="modal-body pd-20 pd-sm-30">
                             <button type="button" class="close pos-absolute t-20 r-20" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true"><i data-feather="x" class="wd-20"></i></span>
+                                <span aria-hidden="true"><FeatherIcon icon="x" class="wd-20"></FeatherIcon></span>
                             </button>
 
                             <h6 class="tx-18 tx-sm-20 mg-b-5">Invite People</h6>
