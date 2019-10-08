@@ -6,11 +6,12 @@ import FileManager from './containers/fileManager';
 import Calendar from './containers/calendar'
 import Chat from './containers/chat'
 import Contact from './containers/contact'
+import HelpDesk from './containers/helpDesk'
 
 export default(
     <Switch>
-        <Route path="/analytics" component={WebAnalytics} />
-        {/* <Route path="/hepldesk" component={} /> */}
+        <Route path="/" component={WebAnalytics} />
+        <Route path="/helpdesk" component={ HelpDesk } />
         <Route path="/calendar" component={Calendar} />
         <Route path="/WebsiteChat" component={Chat} />
         <Route path="/whatsapp" component={Chat} />
@@ -18,12 +19,11 @@ export default(
         <Route path="/contacts" component={Contact} />
         <Route path="/filemanager" component={FileManager} />
         <Route path="/mail" component={Mail} />
-        {/* <Route path="/profileview" component={} />
-        <Route path="/connections" component={} />
-        <Route path="/group" component={} />
-        <Route path="/events" component={} />
-        <Route path="/timeline" component={} />
-        <Route path="/components" component={} />
-        <Route path="/collections" component={} /> */}
+
+        <Route path="/facebook" component={Chat} />
+        <Route path="/instagram" component={Chat} />
+        <Route path="/twitter" component={Chat} />
+        <Route path="/teams" component={Chat} />
+        
     </Switch>
 )

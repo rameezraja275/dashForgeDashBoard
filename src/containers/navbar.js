@@ -56,7 +56,7 @@ class NavBar extends Component {
           </div>
           <ul className="nav nav-aside">
             <li className="nav-label">Insights</li>
-            <li className={active == "analytics" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "analytics" })}><Link to="/analytics" className="nav-link"><FeatherIcon icon="globe"></FeatherIcon> <span>Website Analytics</span></Link ></li>
+            <li className={active == "analytics" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "analytics" })}><Link to="/" className="nav-link"><FeatherIcon icon="globe"></FeatherIcon> <span>Website Analytics</span></Link ></li>
             <li className={active == "helpdesk" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "helpdesk" })}><Link to="/helpdesk" className="nav-link"><FeatherIcon icon="life-buoy"></FeatherIcon> <span>Helpdesk Management</span></Link ></li>
             <li className="nav-label mg-t-25">Simple Applications</li>
             <li className={active == "contacts" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "contacts" })}><Link to="/contacts" className="nav-link"><FeatherIcon icon="users"></FeatherIcon> <span>Contacts</span></Link ></li>
@@ -73,7 +73,7 @@ class NavBar extends Component {
             <li className={active == "twitter" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "twitter" })}><Link to="/twitter" className="nav-link"><FeatherIcon icon="twitter"></FeatherIcon> <span>Twitter</span></Link ></li>
 
             <li className="nav-label mg-t-25">Team Mates</li>
-            <li className={active == "teamA" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "teamA" })}><Link to="/teamA" className="nav-link"><FeatherIcon icon="calendar"></FeatherIcon> <span>Team A</span></Link ></li>
+            <li className={active == "teams" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "teams" })}><Link to="/teams" className="nav-link"><FeatherIcon icon="calendar"></FeatherIcon> <span>Team A</span></Link ></li>
 
 
           </ul>

@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import $ from 'jquery';
-import moment from 'moment';
 import FullCalendar from 'fullcalendar-reactwrapper';
 
 class Calendar extends Component {
@@ -43,7 +41,7 @@ class Calendar extends Component {
                     {
                         title: 'Click for Google',
                         url: 'http://google.com/',
-                        start: '2017-05-28'
+                        start: '2017-09-19'
                     }
                 ],		
         }
@@ -56,7 +54,7 @@ class Calendar extends Component {
                     header={{
                         left: 'prev,next today myCustomButton',
                         center: 'title',
-                        right: 'month,basicWeek,basicDay'
+                        right: 'month,basicWeek,basicDay,list'
                     }}
                     defaultDate={'2017-09-12'}
                     navLinks={true} // can click day/week names to navigate views

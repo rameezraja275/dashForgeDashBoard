@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class MainContent extends Component {
   render() {
     return (
-        <div className="content-body pd-0">
+        <div className="content-body">
+        {/* <div className="content-body pd-0"> */}
             {this.props.children}
         </div>
     );
