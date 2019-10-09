@@ -12,11 +12,13 @@ class NavBar extends Component {
   }
 
   componentDidMount = () => {
+   
     $( jqueryNav() )
   }
 
   render() {
     const active = this.state.active;
+    console.log("nav ", this)
     return (
       <aside className="aside aside-fixed">
         <div className="aside-header">
@@ -57,6 +59,7 @@ class NavBar extends Component {
           <ul className="nav nav-aside">
             <li className="nav-label">Insights</li>
             <li className={active == "analytics" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "analytics" })}><Link to="/" className="nav-link"><FeatherIcon icon="globe"></FeatherIcon> <span>Website Analytics</span></Link ></li>
+            <li className={active == "salemonitoring" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "salemonitoring" })}><Link to="/salemonitoring" className="nav-link"><FeatherIcon icon="shopping-bag"></FeatherIcon> <span>Sale Monitorings</span></Link ></li>
             <li className={active == "helpdesk" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "helpdesk" })}><Link to="/helpdesk" className="nav-link"><FeatherIcon icon="life-buoy"></FeatherIcon> <span>Helpdesk Management</span></Link ></li>
             <li className="nav-label mg-t-25">Simple Applications</li>
             <li className={active == "contacts" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "contacts" })}><Link to="/contacts" className="nav-link"><FeatherIcon icon="users"></FeatherIcon> <span>Contacts</span></Link ></li>

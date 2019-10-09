@@ -50,9 +50,9 @@ class HelpDesk extends Component {
                     <div className="col-lg-4 mg-t-10 mg-lg-t-0">
                         <div className="row row-xs">
                             <Time title="Time to Resolve Complaint" description="The average time taken to resolve complaints." 
-                                time="7m:32m" totalTime="8m:0s" achieved="56%"/>
+                                time="7m:32m" totalTime="8m:0s" achieved="56%" id={0}/>
                             <Time title="Time to Resolve Complaint" description="The average time taken to resolve complaints." 
-                                time="7m:32m" totalTime="8m:0s" achieved="86%"/>
+                                time="7m:32m" totalTime="8m:0s" achieved="86%" id={1}/>
                             <Complaints />
                             <Ratings />
                             <Transaction />

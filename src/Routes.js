@@ -7,10 +7,12 @@ import Calendar from './containers/calendar'
 import Chat from './containers/chat'
 import Contact from './containers/contact'
 import HelpDesk from './containers/helpDesk'
+import SaleMonitoring from './containers/salesMonitoring'
 
 export default(
     <Switch>
-        <Route path="/" component={WebAnalytics} />
+        <Route exact path="/" component={WebAnalytics} />
+        <Route path="/salemonitoring" component={ SaleMonitoring } />
         <Route path="/helpdesk" component={ HelpDesk } />
         <Route path="/calendar" component={Calendar} />
         <Route path="/WebsiteChat" component={Chat} />
@@ -19,11 +21,9 @@ export default(
         <Route path="/contacts" component={Contact} />
         <Route path="/filemanager" component={FileManager} />
         <Route path="/mail" component={Mail} />
-
         <Route path="/facebook" component={Chat} />
         <Route path="/instagram" component={Chat} />
         <Route path="/twitter" component={Chat} />
         <Route path="/teams" component={Chat} />
-        
     </Switch>
 )
