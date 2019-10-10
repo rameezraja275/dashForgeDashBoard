@@ -51,21 +51,21 @@ export default function () {
         // showing contact information when clicking one of the list
         // for mobile interaction only
         if (window.matchMedia('(max-width: 991px)').matches) {
-            $('body').addClass('contact-content-show');
+            $('body').addClass('app-contact contact-content-show');
             $('body').removeClass('contact-content-visible');
 
             $('#mainMenuOpen').addClass('d-none');
-            $('#contactContentHide').removeClass('d-none');
+            $('#mailSidebar').removeClass('d-none');
         }
     })
 
 
     // going back to contact list
     // for mobile interaction only
-    $('#contactContentHide').on('click touch', function (e) {
+    $('#mailSidebar').on('click touch', function (e) {
         e.preventDefault();
 
-        $('body').removeClass('contact-content-show contact-options-show');
+        $('body').removeClass('app-contact contact-content-show contact-options-show');
         $('body').addClass('contact-content-visible');
 
         $('#mainMenuOpen').removeClass('d-none');

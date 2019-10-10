@@ -12,9 +12,11 @@ class FileManager extends Component {
     }
     render() {
         return (
+            <div className="content-body pd-0">
             <div className="filemgr-wrapper filemgr-wrapper-two">
                 <Nav />
                 <Content />
+            </div>
             </div>
         );
     }

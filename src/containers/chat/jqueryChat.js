@@ -83,16 +83,16 @@ export default function () {
 
     function showChatContent() {
         $('#mainMenuOpen').addClass('d-none');
-        $('#chatContentClose').removeClass('d-none');
+        $('#mailSidebar').removeClass('d-none');
 
-        $('body').addClass('chat-content-show');
+        $('body').addClass('app-chat chat-content-show');
     }
 
     function hideChatContent() {
-        $('#chatContentClose').addClass('d-none');
+        $('#mailSidebar').addClass('d-none');
         $('#mainMenuOpen').removeClass('d-none');
 
-        $('body').removeClass('chat-content-show');
+        $('body').removeClass('app-chat chat-content-show');
     }
 
     $('#showMemberList').on('click', function (e) {
@@ -101,7 +101,7 @@ export default function () {
         $('body').toggleClass('show-sidebar-right');
     })
 
-    $('#chatContentClose').on('click', function (e) {
+    $('#mailSidebar').on('click', function (e) {
         e.preventDefault()
         hideChatContent();
     })

@@ -12,28 +12,33 @@ import ModelShareFile from './containers/fileManager/modelShareFile'
 import ModelCopyNMove from './containers/fileManager/modelCopyNmove'
 import ToastDownlaod from './containers/fileManager/downloadToast'
 
+import $ from 'jquery'
+import appJquery from './appJquery'
+
 class App extends Component {
+
+  componentDidMount = () => {
+    $( appJquery() )
+  }
   render() {
     return (
       <BrowserRouter>
-          <Navbar />
-          <div className="content ht-100v pd-0">
-            <Search />  
-            <MainContent >
-              { Routes }
-            </MainContent>
-          </div>    
-          <Compose />
-          <ModalViewDetails />
-          <ModelCreateChannel />
-          <ModelInvitePeople />
-          <ModelShareFile />
-          <ModelCopyNMove />
-
-          <div class="pos-fixed b-10 r-10">
-            <ToastDownlaod />
-          </div>
-      </BrowserRouter>   
+        <Navbar />
+        <div className="content ht-100v pd-0">
+          <Search />
+          {Routes}
+        </div>
+        <Compose />
+        <ModalViewDetails />
+        <ModelCreateChannel />
+        <ModelInvitePeople />
+        <ModelShareFile />
+        <ModelCopyNMove />
+        
+        <div class="pos-fixed b-10 r-10">
+          <ToastDownlaod />
+        </div>
+      </BrowserRouter>
     );
   }
 }

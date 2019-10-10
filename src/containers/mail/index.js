@@ -13,10 +13,12 @@ class Mail extends Component {
 
   render() {
     return (
+      <div className="content-body pd-0">
       <div className="mail-wrapper mail-wrapper-two">
         <MailNav />
         <ConversationList />
         <Conversation />
+      </div>
       </div>
     );
   }

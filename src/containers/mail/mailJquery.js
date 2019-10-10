@@ -33,7 +33,7 @@ export default function () {
       $('.mail-content-body').removeClass('d-none');
 
       if (window.matchMedia('(max-width: 1199px)').matches) {
-        $('body').addClass('mail-content-show');
+        $('body').addClass('app-mail mail-content-show');
       }
 
       if (window.matchMedia('(min-width: 768px)').matches) {
@@ -90,14 +90,14 @@ export default function () {
       $('#mailCompose').toggleClass('minimize')
     })
 
+    $('#mailSidebar').on('click', function (e) {
 
-    $('#mailSidebar').on('click touchstart', function (e) {
-      e.preventDefault()
+      e.preventDefault();
 
-      if ($('body').hasClass('mail-content-show')) {
-        $('body').removeClass('mail-content-show');
+      if ($('body').hasClass('app-mail mail-content-show')) {
+        $('body').removeClass('app-mail mail-content-show');
       } else {
-        $('body').addClass('mail-sidebar-show');
+        $('body').addClass('app-mail mail-sidebar-show');
 
         $('#mailSidebar').addClass('d-none');
         $('#mainMenuOpen').removeClass('d-none');
@@ -110,7 +110,14 @@ export default function () {
     })
 
     $(document).on('click touchstart', function (e) {
+
       e.stopPropagation();
+
+      var el = $(e.target);
+
+      if( el.is('.sidebar-toggler') || el.parents('.sidebar-toggler:eq(0)').length > 0 ) {
+        return;
+      }
 
       // closing of sidebar menu when clicking outside of it
       if (!$(e.target).closest('.burger-menu').length) {

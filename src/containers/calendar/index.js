@@ -48,6 +48,7 @@ class Calendar extends Component {
     
     render() {
         return (
+            <div className="content-body pd-0">
             <div id="calendar" class="calendar-content-body">
                 <FullCalendar
                     id="your-custom-ID"
@@ -62,6 +63,7 @@ class Calendar extends Component {
                     eventLimit={true} // allow "more" link when too many events
                     events={this.state.events}
                 />
+            </div>
             </div>
         )
     }

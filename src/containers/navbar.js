@@ -4,6 +4,8 @@ import FeatherIcon from 'feather-icons-react';
 import $ from 'jquery';
 import jqueryNav from './jqueryNav'
 
+import PerfectScrollbar from 'perfect-scrollbar'
+import feather from 'feather-icons'
 
 class NavBar extends Component {
 
@@ -12,22 +14,20 @@ class NavBar extends Component {
   }
 
   componentDidMount = () => {
-   
     $( jqueryNav() )
   }
 
   render() {
     const active = this.state.active;
-    console.log("nav ", this)
     return (
       <aside className="aside aside-fixed">
         <div className="aside-header">
           <Link to="/" className="aside-logo">dash<span>forge</span></Link >
-          <Link className="aside-menu-link">
+          <Link className="aside-menu-link sidebar-toggler">
             <FeatherIcon icon="menu"></FeatherIcon>
             <FeatherIcon icon="x"></FeatherIcon>
           </Link >
-          <Link to="" id="mailSidebar" className="burger-menu d-md-none"><FeatherIcon icon="arrow-left"></FeatherIcon></Link >
+          <Link id="mailSidebar" className="burger-menu d-none"><FeatherIcon icon="arrow-left"></FeatherIcon></Link >
         </div>
         <div className="aside-body">
           <div className="aside-loggedin">
@@ -40,10 +40,10 @@ class NavBar extends Component {
               </div>
             </div>
             <div className="aside-loggedin-user">
-              <Link to="#loggedinMenu" className="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
+              <a href="#loggedinMenu" className="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
                 <h6 className="tx-semibold mg-b-0">Katherine Pechon</h6>
                 <FeatherIcon icon="chevron-down"></FeatherIcon>
-              </Link >
+              </a >
               <p className="tx-color-03 tx-12 mg-b-0">Administrator</p>
             </div>
             <div className="collapse" id="loggedinMenu">

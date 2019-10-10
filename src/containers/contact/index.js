@@ -56,17 +56,19 @@ class Conatct extends Component {
     }
 
     componentDidMount = () => {
-        $( ConatctJquery() )
+        $(ConatctJquery())
 
     }
 
     render() {
         const contacts = this.state.Conatcts
         return (
+            <div className="content-body pd-0">
             <div class="contact-wrapper contact-wrapper-two">
                 <LeftBar />
                 <ContactList Contacts={contacts} />
                 <ContactInfo />
+            </div>
             </div>
         )
     }

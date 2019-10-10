@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FeatherIcon from 'feather-icons-react'
 
 const ListItem = (props) => {
     const { name, id } = props 
@@ -11,10 +12,10 @@ const ListItem = (props) => {
             </div>
             <div class="mg-l-auto d-flex align-self-center">
                 <nav class="nav nav-icon-only">
-                    <a href="" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
-                    <a href="" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
-                    <a href="" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                    <a href="" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
+                    <a href="" class="nav-link d-none d-sm-block"><FeatherIcon icon="mail"></FeatherIcon></a>
+                    <a href="" class="nav-link d-none d-sm-block"><FeatherIcon icon="slash"></FeatherIcon></a>
+                    <a href="" class="nav-link d-none d-sm-block"><FeatherIcon icon="user"></FeatherIcon></a>
+                    <a href="" class="nav-link d-sm-none"><FeatherIcon icon="more-vertical"></FeatherIcon></a>
                 </nav>
             </div>
         </li>

@@ -92,6 +92,7 @@ class Chat extends Component {
         const componentName = this.props.match.path;
         console.log(componentName);
         return (
+            <div className="content-body pd-0">
             <div className="chat-wrapper chat-wrapper-two">
                 <div className="chat-sidebar">
                     <div className="chat-sidebar-header">
@@ -125,6 +126,7 @@ class Chat extends Component {
                 </div>
 
                 <ChatContent />
+            </div>
             </div>
         )
     }
