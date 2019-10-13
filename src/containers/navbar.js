@@ -4,8 +4,6 @@ import FeatherIcon from 'feather-icons-react';
 import $ from 'jquery';
 import jqueryNav from './jqueryNav'
 
-import PerfectScrollbar from 'perfect-scrollbar'
-import feather from 'feather-icons'
 
 class NavBar extends Component {
 

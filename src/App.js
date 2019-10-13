@@ -14,27 +14,31 @@ import ToastDownlaod from './containers/fileManager/downloadToast'
 
 import $ from 'jquery'
 import appJquery from './appJquery'
+import RightSideBar from './containers/rightSideBar';
+import Drawer from './containers/rightSideBar/drawer'
 
 class App extends Component {
 
   componentDidMount = () => {
-    $( appJquery() )
+    $(appJquery())
   }
   render() {
     return (
       <BrowserRouter>
-        <Navbar />
-        <div className="content ht-100v pd-0">
-          <Search />
-          {Routes}
-        </div>
+          <Navbar />
+          <div className="content ht-100v pd-0" style={{paddingRight : "60px"}}>
+            <Search />
+            {Routes}
+          </div>
+          <RightSideBar />
+        <Drawer /> 
         <Compose />
         <ModalViewDetails />
         <ModelCreateChannel />
         <ModelInvitePeople />
         <ModelShareFile />
         <ModelCopyNMove />
-        
+
         <div class="pos-fixed b-10 r-10">
           <ToastDownlaod />
         </div>

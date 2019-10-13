@@ -1,0 +1,331 @@
+@import url(~antd/dist/antd.css);
+.RightSideBAr {
+  background-color: #ffffff;
+  width: 60px;
+  border-left: 1px solid #e2e5ed;
+  position: absolute;
+  padding: 14px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; }
+  .RightSideBAr .btn-wrapper {
+    position: relative;
+    width: 30px;
+    margin-bottom: 20px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 150ms ease 0s; }
+    .RightSideBAr .btn-wrapper .btn-rightbar {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center; }
+      .RightSideBAr .btn-wrapper .btn-rightbar .fas {
+        font-size: 19px;
+        color: rgba(27, 46, 75, 0.65); }
+    .RightSideBAr .btn-wrapper :hover {
+      width: 100%;
+      height: 100%;
+      background-color: #cac9c9; }
+    .RightSideBAr .btn-wrapper .active {
+      width: 100%;
+      height: 100%;
+      background-color: #0168fa; }
+      .RightSideBAr .btn-wrapper .active .fas {
+        font-size: 15px;
+        color: white; }
+
+.drawer {
+  height: 100%;
+  width: 350px;
+  position: absolute;
+  top: 0px;
+  right: 60px; }
+  .drawer h4 h6 {
+    margin: 0px;
+    padding: 0px;
+    color: rgba(27, 46, 75, 0.65);
+    display: inline; }
+  .drawer p {
+    margin: 0px;
+    padding: 0px;
+    color: rgba(27, 46, 75, 0.65); }
+  .drawer ul {
+    list-style-type: none;
+    padding: 0px; }
+  .drawer .get-started {
+    background-color: #ffffff;
+    border-left: 1px solid #e2e5ed;
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+    .drawer .get-started .head {
+      padding: 15px; }
+      .drawer .get-started .head h4 {
+        margin: 0px;
+        color: #77787a;
+        font-size: 16px;
+        font-weight: 500; }
+    .drawer .get-started hr {
+      margin: 0px; }
+    .drawer .get-started .body {
+      padding: 15px;
+      flex: 1 1 100%; }
+      .drawer .get-started .body .tracker {
+        height: 5px;
+        background: #f5f6fa;
+        border-radius: 10px; }
+        .drawer .get-started .body .tracker p {
+          font-size: 12px;
+          color: #9b9c9e; }
+      .drawer .get-started .body .greetings {
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: -0.45px;
+        margin: 60px 16px 16px; }
+        .drawer .get-started .body .greetings h4 {
+          color: #3e3e40;
+          font-weight: 700; }
+        .drawer .get-started .body .greetings p {
+          color: #9b9c9e; }
+      .drawer .get-started .body .guideCard {
+        display: flex;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        padding: 5px 10px;
+        margin-top: 10px;
+        align-content: center;
+        height: 62px;
+        background-color: white;
+        border-radius: 16px;
+        border-image: initial; }
+        .drawer .get-started .body .guideCard .icon {
+          align-self: center;
+          width: 30px;
+          height: 30px;
+          color: white;
+          background-color: #0168fa;
+          display: flex;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          align-items: center;
+          overflow: hidden;
+          border-radius: 15px; }
+          .drawer .get-started .body .guideCard .icon svg {
+            width: 16px; }
+        .drawer .get-started .body .guideCard .text {
+          display: flex;
+          margin: 5px 10px;
+          flex-direction: column;
+          justify-content: center; }
+          .drawer .get-started .body .guideCard .text h4 {
+            align-self: end;
+            color: #0168fa;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow-wrap: normal;
+            overflow: hidden;
+            margin-bottom: 0px; }
+          .drawer .get-started .body .guideCard .text p {
+            color: #77787a;
+            font-size: 12px;
+            display: inline-block;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow-wrap: normal;
+            overflow: hidden; }
+      .drawer .get-started .body .taskDropdown {
+        padding: 10px 20px; }
+        .drawer .get-started .body .taskDropdown h6 {
+          font-weight: 600;
+          font-size: 12px;
+          color: #9b9c9e; }
+        .drawer .get-started .body .taskDropdown p {
+          font-size: 14px;
+          color: #9b9c9e; }
+        .drawer .get-started .body .taskDropdown .line-through {
+          text-decoration-line: line-through; }
+    .drawer .get-started .footer {
+      font-size: 12px;
+      color: #77787a;
+      height: 40px;
+      width: 100%;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      padding: 0px 15px;
+      text-transform: none; }
+      .drawer .get-started .footer .footer-link-wrapper {
+        display: flex;
+        flex-direction: row;
+        height: 25px;
+        line-height: 25px;
+        align-items: center; }
+        .drawer .get-started .footer .footer-link-wrapper i {
+          margin-right: 10px; }
+  .drawer .calendar {
+    background-color: #ffffff;
+    border-left: 1px solid #e2e5ed;
+    height: 100%; }
+    .drawer .calendar .head {
+      padding: 15px; }
+      .drawer .calendar .head h4 {
+        margin: 0px;
+        color: #77787a;
+        font-size: 16px;
+        font-weight: 500; }
+    .drawer .calendar hr {
+      margin: 0px; }
+    .drawer .calendar .body {
+      padding: 15px; }
+      .drawer .calendar .body p {
+        color: #7b8994;
+        font-size: 15px; }
+      .drawer .calendar .body .btn-wapper {
+        margin: 10px 0px;
+        display: flex;
+        flex-direction: column; }
+        .drawer .calendar .body .btn-wapper .ant-btn {
+          margin: 10px 0px;
+          background-color: #ffff;
+          border: 1px solid #e8eaed;
+          border-radius: 15px; }
+          .drawer .calendar .body .btn-wapper .ant-btn i {
+            float: left; }
+        .drawer .calendar .body .btn-wapper .blue-text {
+          color: blue; }
+        .drawer .calendar .body .btn-wapper .red-text {
+          color: red; }
+      .drawer .calendar .body .subtitle .questions p {
+        display: inline; }
+      .drawer .calendar .body .subtitle .link {
+        color: #77787a;
+        text-decoration: underline; }
+      .drawer .calendar .body .subtitle .policy i {
+        font-size: 5px;
+        padding: 0px 5px; }
+  .drawer .shortcuts {
+    background-color: #ffffff;
+    border-left: 1px solid #e2e5ed;
+    height: 100%; }
+    .drawer .shortcuts .head {
+      padding: 15px; }
+      .drawer .shortcuts .head h4 {
+        margin: 0px;
+        color: #77787a;
+        font-size: 16px;
+        font-weight: 500; }
+    .drawer .shortcuts hr {
+      margin: 0px; }
+    .drawer .shortcuts .body {
+      padding: 15px; }
+      .drawer .shortcuts .body h4 {
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #bdbdbd;
+        letter-spacing: 0.1em;
+        line-height: 2;
+        margin: 0px;
+        padding: 0px; }
+      .drawer .shortcuts .body .shortcut {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #bdbdbd;
+        margin-bottom: 10px; }
+        .drawer .shortcuts .body .shortcut .shortcut-title {
+          font-size: 12px;
+          color: black;
+          align-items: center;
+          display: flex; }
+        .drawer .shortcuts .body .shortcut .keyMarkUp {
+          border: 1px solid #bdbdbd;
+          padding: 5px;
+          border-radius: 6px;
+          margin-bottom: 8px; }
+          .drawer .shortcuts .body .shortcut .keyMarkUp p {
+            font-size: 12px;
+            color: black; }
+  .drawer .integration {
+    background-color: #ffffff;
+    border-left: 1px solid #e2e5ed;
+    height: auto;
+    min-height: 100%; }
+    .drawer .integration .head {
+      padding: 15px; }
+      .drawer .integration .head .title {
+        margin: 0px;
+        color: #77787a;
+        font-size: 16px;
+        font-weight: 500; }
+      .drawer .integration .head .search {
+        margin-top: 15px; }
+        .drawer .integration .head .search .search-input {
+          border: 1px solid grey;
+          border-radius: 6px;
+          width: 100%;
+          padding: 4px 9px; }
+    .drawer .integration hr {
+      margin: 0px; }
+    .drawer .integration .body {
+      padding: 15px; }
+      .drawer .integration .body .card {
+        display: flex;
+        flex-direction: row;
+        padding: 15px;
+        align-items: center;
+        margin-bottom: 10px;
+        height: 62px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
+        border-radius: 16px; }
+        .drawer .integration .body .card .icon-wrapper {
+          align-self: center;
+          display: flex;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          align-items: center;
+          color: white;
+          background-color: #0168fa;
+          padding: 5px;
+          border-radius: 15px; }
+          .drawer .integration .body .card .icon-wrapper i {
+            font-size: 17px;
+            margin: 3px; }
+        .drawer .integration .body .card .text {
+          flex: 1;
+          padding-left: 15px; }
+        .drawer .integration .body .card .pin {
+          color: #367fee;
+          padding: 5px;
+          border-radius: 50%; }
+      .drawer .integration .body .add-new .add-new-head {
+        margin: 15px 0px;
+        display: flex; }
+        .drawer .integration .body .add-new .add-new-head p {
+          flex: 1;
+          display: inline; }
+        .drawer .integration .body .add-new .add-new-head .link {
+          color: #367fee;
+          margin-right: 5px; }

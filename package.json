@@ -28,7 +28,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/scss/dashforge.scss src/index.css --watch",
+    "build-css": "node-sass-chokidar src/index.scss src/index.css --watch",
     "start": "react-scripts start",
     "app": "npm-run-all -p build-css start",
     "build": "react-scripts build",

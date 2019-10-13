@@ -46,7 +46,7 @@ export default function(){
   $('.nav-item').on('click', function(e){
     
     if(window.matchMedia('(min-width: 992px)').matches) {
-      $(this).closest('.aside').toggleClass('minimize');
+      $(this).closest('.aside').addClass('minimize');
     } 
 
     asideBody.update()
@@ -62,7 +62,6 @@ export default function(){
   })
 
   $('body').on('mouseenter', '.minimize .aside-body', function(e){
-    console.log('e');
     $(this).parent().addClass('maximize');
   })
 
