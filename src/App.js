@@ -22,6 +22,8 @@ class App extends Component {
   componentDidMount = () => {
     $(appJquery())
   }
+
+
   render() {
     return (
       <BrowserRouter>

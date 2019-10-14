@@ -79,16 +79,24 @@
       if (window.matchMedia('(min-width: 1200px)').matches) {
         $('.aside').addClass('minimize');
       }
-    })
 
+      if (window.matchMedia("(max-width: 700px)").matches) {
+        $(".RightSideBAr").css( "display", "none");
+        $(".content ").css( "padding", "0px");
+      }
+    })
+    
     $(function(){
         'use strict'
-
         if(window.matchMedia('(min-width: 768px)').matches) {
           $('body').addClass('show-sidebar-right');
-          $('#showMemberList').addClass('active');
+          $('#showMemberList').addClass('active');  
         }
       })
+
+
+
+
   </script>
 
 </body>

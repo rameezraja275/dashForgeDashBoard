@@ -31,7 +31,7 @@ class RightSideBar extends Component {
                     </div>
                 </div>
                 <div class="btn-wrapper">
-                    <div className={content === 3 ? "btn-rightbar active" : "btn-rightbar" } onClick={() => this.showDrawer(2)}>
+                    <div className={content === 3 ? "btn-rightbar active" : "btn-rightbar" } onClick={content === 3 ? () => { this.onClose() } : () => { this.showDrawer(3) }}>
                         <i class="fas fa-address-book"></i>
                     </div>
                 </div>

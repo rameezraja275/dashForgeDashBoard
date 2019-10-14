@@ -4,6 +4,7 @@ import GetStarted from './getStarted'
 import Calendar from './calendaRightbar'
 import Shortcuts from './shortcuts'
 import Integration from './integration'
+import Contacts from './contacts'
 
 const DrawerContent = (props) => {
     switch (props.contentNumber) {
@@ -11,6 +12,8 @@ const DrawerContent = (props) => {
             return <GetStarted />
         case 2:
             return <Calendar />
+        case 3:
+            return <Contacts />
         case 4:
             return <Shortcuts />
         case 5:

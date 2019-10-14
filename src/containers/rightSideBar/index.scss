@@ -41,9 +41,11 @@
     }
 
     :hover {
-      width: 100%;
-      height: 100%;
       background-color: #cac9c9;
+      .fas {
+        font-size: 15px;
+        color: white;
+      }
     }
 
     .active {
@@ -51,6 +53,7 @@
       height: 100%;
       background-color: #0168fa;
       .fas {
+		background-color: #0168fa;
         font-size: 15px;
         color: white;
       }
@@ -64,6 +67,10 @@
   position: absolute;
   top: 0px;
   right: 60px;
+  z-index: 1;
+  background-color: #ffffff;
+	border-left: 1px solid #e2e5ed;
+	height: 100%;
 
   h4 h6 {
     margin: 0px;
@@ -236,10 +243,247 @@
     }
   }
 
+  .contacts{
+	.head {
+      padding: 15px;
+      h4 {
+        margin: 0px;
+        color: rgb(119, 120, 122);
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+	.body{
+		hr {
+		  margin: 0px;
+		}
+		.dropdown{
+			.dropdown-head{
+				    background: #f8f8f8;
+					border-top: 1px solid #eee;
+					border-left: 0;
+					border-right: 0;
+					height: 36px;
+					display: flex;
+					justify-content: space-between;
+					flex-direction: row;
+					align-items: center;
+					flex: 1;
+					cursor: pointer;
+						.dropdown-title{
+							margin: 0;
+							padding: 0px 15px;
+							border: 0;
+							outline: 0;
+							font-weight: inherit;
+							font-style: inherit;
+							font-family: inherit;
+							font-size: 100%;
+							.toggle-btn{
+								display: inline;
+									background: transparent;
+									border: 0;
+									margin: 0;
+									padding: 0;
+									border-radius: 0;
+								    height: 14px;
+									width: 14px;
+									background-repeat: no-repeat;
+									background-size: 14px;
+									background-position: 50%;
+									margin-right: 8px;
+							}
+							.dropdown-counter{
+								padding-left:2px;
+								font-weight: 400;
+								color: #9b9c9e;
+							}
+							
+						}
+
+						.dropdown-action{
+							padding: 8px 20px;
+							font-weight: 600;
+							font-size: 13px;
+							color: #367fee;
+						}	
+			}
+			.dropdown-body{
+				.overview{
+					border-top: 1px solid #eee;
+					background: #fff;
+					.image{
+						padding-top: 50px;
+						display: flex;
+						justify-content: center;
+						align-content: center;
+						
+						img{
+							width: 60px;
+								height: 60px;
+								border-radius: 25px;
+								background-size: cover;
+								background-position: 50%;
+								margin: 0 auto;
+								margin-bottom: 10px;
+								position: relative;    
+						}
+					}
+					.email-wrapper{
+						    display: flex;
+						-webkit-flex-direction: column;
+						flex-direction: column;
+						list-style-type: none;
+						margin: 24px 26px;
+						.label{
+							font-weight: 700;
+							font-size: 10px;
+							color: #c7c7c7;
+							margin-bottom: 3px;
+							text-transform: uppercase;
+						}
+						.email{
+							color: black;
+						}
+					}
+				}
+			
+			
+				.card{
+					border-bottom: 1px solid #f0f0f0;
+					background: #fff;
+					padding: 10px 20px;
+					.card-head{   
+							display: flex;	
+							flex-direction: row;
+							align-items: center;
+							.avatar{
+								width: 18px;
+								height: 18px;
+								background: #fff;
+								border-radius: 50%;
+								background-size: cover;
+								background-position: 50%;
+								margin-right: 8px;
+							}
+							.user-name{
+								flex: 1;
+								margin: 0px;
+								font-weight: 600;
+								font-size: 13px;
+								color: #303133;
+								white-space: nowrap;
+								overflow: hidden;
+								text-overflow: ellipsis;
+							}
+							.more{
+								    display: inline-block;
+									width: 16px;
+									height: 16px;
+									position: relative;
+									margin-right: 10px;
+									margin-bottom: 1px;
+									color: #bcbcbc;
+									transition: color .3s ease,opacity .3s ease;
+							}
+							.card-time{
+								   font-size: 10px;
+								font-weight: 500;
+								color: #c7c7c7;
+								text-transform: uppercase;
+							}
+					}
+					
+					.card-content{
+					    font-size: 13px;
+						line-height: 1.5;
+						color: #303133;
+						margin-top: 4px;
+						.ant-input{
+							border: none;
+							padding: 0px;
+							background: #fff;
+							min-height: 60px;
+							font-size: 14px;
+							line-height: 1.5;
+							color: #212121;
+							outline: 0;
+						}
+						
+						.ant-input:focus {
+							border: none;
+							box-shadow: none;
+						}
+						
+						.ant-btn-primary{
+							width: 100%;
+						}
+					}
+				}
+				
+				.edit-from{
+					padding: 15px;
+					.image-input-wrapper{
+						align-items: center;
+						display: flex;
+						justify-content: center;
+						margin: 15px 0px;
+						.imagelabel{
+							.imageinput{
+								display: none;
+							}
+							    background-color: rgb(155, 156, 158);
+								border-radius: 50%;
+								display: inline-block;
+								padding: 16px 24px;
+								cursor: pointer;
+						}
+					}
+					.ant-btn{
+						margin-top: 10px;
+						width: 100%;
+					}
+					.input-wrapper{
+							display: inline-block;
+							border: 1px solid #c1c1c1;;
+							border-radius: 5px;
+							width: 100%;
+							font-size: 15px;
+							color: #212121;
+							background: #fff;
+							margin-top:10px;
+							padding:5px 10px;
+							.input{
+								padding:0px;
+								outline: none;
+								  border: none;
+								  display:block;
+								  height:16px;
+							}
+							
+							.input:focus{
+								border:none;
+								box-shadow: none;
+							}
+							
+							.inputlabel{
+								display: block;
+								font-size: 9px;
+								margin:0px;
+								color: #c1c1c1;
+								font-weight: 500px;
+								text-transform: uppercase;
+							}
+					}
+						
+				}
+			}
+		}
+	}
+  }
+  
   .calendar {
-    background-color: #ffffff;
-    border-left: 1px solid #e2e5ed;
-    height: 100%;
     .head {
       padding: 15px;
       h4 {
