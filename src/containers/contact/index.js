@@ -4,6 +4,7 @@ import ContactList from './contact-list'
 import ContactInfo from './contact-info'
 import $ from 'jquery';
 import ConatctJquery from './contactsJquery'
+import Export from './export'
 
 class Conatct extends Component {
     state = {
@@ -57,16 +58,24 @@ class Conatct extends Component {
 
     componentDidMount = () => {
         $(ConatctJquery())
+    }
 
+    renderTab = (dataType) => {
+        this.setState({
+            dataType
+        })
     }
 
     render() {
         const contacts = this.state.Conatcts
+        const dataType = this.state.dataType
         return (
             <div className="content-body pd-0">
             <div class="contact-wrapper contact-wrapper-two">
-                <LeftBar />
-                <ContactList Contacts={contacts} />
+                <LeftBar renderTab = { this.renderTab }/> 
+                {
+                    dataType == "export" ? <Export /> : <ContactList Contacts={contacts} type={ dataType } />
+                }    
                 <ContactInfo />
             </div>
             </div>

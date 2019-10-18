@@ -13,6 +13,7 @@ class NavBar extends Component {
 
   componentDidMount = () => {
     $( jqueryNav() )
+    
   }
 
   render() {
@@ -61,14 +62,15 @@ class NavBar extends Component {
             <li className={active == "helpdesk" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "helpdesk" })}><Link to="/helpdesk" className="nav-link"><FeatherIcon icon="life-buoy"></FeatherIcon> <span>Helpdesk Management</span></Link ></li>
             <li className="nav-label mg-t-25">Simple Applications</li>
             <li className={active == "contacts" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "contacts" })}><Link to="/contacts" className="nav-link"><FeatherIcon icon="users"></FeatherIcon> <span>Contacts</span></Link ></li>
-            <li className={active == "textmessaging" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "textmessaging" })}><Link to="/textmessaging" params={{ render: "textChat" }} className="nav-link"><FeatherIcon icon="message-square"></FeatherIcon> <span>Text Messaging</span></Link ></li>
             <li className={active == "mail" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "mail" })}><Link to="/mail" className="nav-link"><FeatherIcon icon="mail"></FeatherIcon> <span>Mail</span></Link></li>
-            <li className={active == "websitechat" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "websitechat" })}><Link to="/websitechat" params={{ render: "WebsiteChat" }} className="nav-link"><FeatherIcon icon="message-square"></FeatherIcon> <span>Website Chat</span></Link ></li>
-            <li className={active == "whatsapp" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "whatsapp" })}><Link to="/whatsapp" params={{ render: "Whatsapp" }} className="nav-link"><FeatherIcon icon="message-circle"></FeatherIcon> <span>WhatsApp</span></Link ></li>
+            
             <li className={active == "filemanager" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "filemanager" })}><Link to="/filemanager" className="nav-link"><FeatherIcon icon="file-text"></FeatherIcon> <span>File Manager</span></Link ></li>
             <li className={active == "calendar" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "calendar" })}><Link to="/calendar" className="nav-link"><FeatherIcon icon="calendar"></FeatherIcon> <span>Calendar</span></Link ></li>
 
             <li className="nav-label mg-t-25">Social Support</li>
+            <li className={active == "whatsapp" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "whatsapp" })}><Link to="/whatsapp" params={{ render: "Whatsapp" }} className="nav-link"><FeatherIcon icon="message-circle"></FeatherIcon> <span>WhatsApp</span></Link ></li>
+            <li className={active == "textmessaging" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "textmessaging" })}><Link to="/textmessaging" params={{ render: "textChat" }} className="nav-link"><FeatherIcon icon="message-square"></FeatherIcon> <span>SMS</span></Link ></li>
+            <li className={active == "websitechat" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "websitechat" })}><Link to="/websitechat" params={{ render: "WebsiteChat" }} className="nav-link"><FeatherIcon icon="message-square"></FeatherIcon> <span>Chat</span></Link ></li>
             <li className={active == "facebook" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "facebook" })}><Link to="/facebook" className="nav-link"><FeatherIcon icon="facebook"></FeatherIcon> <span>Facebook</span></Link ></li>
             <li className={active == "instagram" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "instagram" })}><Link to="/instagram" className="nav-link"><FeatherIcon icon="instagram"></FeatherIcon> <span>Instagram</span></Link ></li>
             <li className={active == "twitter" ? "nav-item active" : "nav-item"} onClick={() => this.setState({ active: "twitter" })}><Link to="/twitter" className="nav-link"><FeatherIcon icon="twitter"></FeatherIcon> <span>Twitter</span></Link ></li>

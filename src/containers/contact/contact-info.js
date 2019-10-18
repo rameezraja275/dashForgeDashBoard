@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import FeatherIcon from 'feather-icons-react';
-
+import { setModel } from './actions' 
 
 const InfoField = (props) => {
     const { label, value, size, classname } = props
@@ -46,8 +46,8 @@ class ContactInfo extends Component {
                                 <div class="d-flex align-items-center justify-content-between mg-b-25">
                                     <h6 class="mg-b-0">Personal Details</h6>
                                     <div class="d-flex">
-                                        <a href="#modalEditContact" data-toggle="modal" class="btn btn-sm btn-white d-flex align-items-center mg-r-5"><FeatherIcon icon="edit-2"></FeatherIcon><span class="d-none d-sm-inline mg-l-5"> Edit</span></a>
-                                        <a href="#modalDeleteContact" data-toggle="modal" class="btn btn-sm btn-white d-flex align-items-center"><FeatherIcon icon="trash"></FeatherIcon><span class="d-none d-sm-inline mg-l-5"> Delete</span></a>
+                                        <button onClick={ () => this.props.setModel("edit") }data-toggle="modal" class="btn btn-sm btn-white d-flex align-items-center mg-r-5"><FeatherIcon icon="edit-2"></FeatherIcon><span class="d-none d-sm-inline mg-l-5"> Edit</span></button>
+                                        <button href="#modalDeleteContact" data-toggle="modal" class="btn btn-sm btn-white d-flex align-items-center"><FeatherIcon icon="trash"></FeatherIcon><span class="d-none d-sm-inline mg-l-5"> Delete</span></button>
                                     </div>
                                 </div>
     
@@ -125,4 +125,4 @@ const mapStateToProps = (state) => {
     }
   }
   
-export default connect(mapStateToProps, { })(ContactInfo);
+export default connect(mapStateToProps, { setModel })(ContactInfo);

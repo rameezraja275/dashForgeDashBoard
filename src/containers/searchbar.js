@@ -8,7 +8,7 @@ class SearchBar extends Component {
             <div className="content-header">
                 <div className="content-search">
                     <FeatherIcon icon="search"></FeatherIcon>
-                    <input type="search" className="form-control" placeholder="Search mail" />
+                    <input type="search" className="form-control" placeholder="Search" />
                 </div>
                 <nav className="nav">
                     <Link to="" className="nav-link"><FeatherIcon icon="help-circle"></FeatherIcon></Link>

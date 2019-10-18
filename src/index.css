@@ -55,7 +55,7 @@
   position: absolute;
   top: 0px;
   right: 60px;
-  z-index: 1;
+  z-index: 10000;
   background-color: #ffffff;
   border-left: 1px solid #e2e5ed;
   height: 100%; }
@@ -516,3 +516,119 @@
         .drawer .integration .body .add-new .add-new-head .link {
           color: #367fee;
           margin-right: 5px; }
+
+.react-calendar {
+  border: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important; }
+  .react-calendar .react-calendar__month-view__weekdays__weekday > abbr {
+    text-decoration: none !important; }
+  .react-calendar .react-calendar__month-view__days__day--weekend {
+    color: grey; }
+
+.fc-scroller {
+  height: 440px !important; }
+  .fc-scroller .react-calendar__month-view__days__day--weekend {
+    color: #757575 !important; }
+
+.visible2 {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  top: initial !important;
+  left: initial !important;
+  right: initial !important;
+  bottom: initial !important;
+  overflow: auto !important;
+  z-index: 9999 !important;
+  /*border: 3px solid tan !important;*/
+  box-shadow: 0 0 0 3px inset tan !important; }
+
+.visible3 {
+  display: block !important;
+  visibility: visible !important;
+  position: relative !important;
+  top: 55px !important;
+  left: initial !important;
+  right: initial !important;
+  bottom: initial !important;
+  z-index: 9999 !important;
+  width: 100%; }
+
+.visible3 .calendar-sidebar-header {
+  display: none; }
+
+.content-body > .calendar-sidebar.revealCal {
+  display: block !important;
+  visibility: visible !important;
+  position: relative !important;
+  top: 55px !important;
+  left: initial !important;
+  right: initial !important;
+  bottom: initial !important;
+  z-index: 9999 !important;
+  width: 100%; }
+
+.content-body > .calendar-sidebar.revealCal #calendarSidebarBody {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  top: 37px !important;
+  left: initial !important;
+  right: initial !important;
+  bottom: initial !important;
+  overflow: auto !important;
+  z-index: 9999 !important; }
+
+.revealFullCalBtn {
+  display: none; }
+
+@media (max-width: 500px) {
+  .revealFullCalBtn {
+    display: inline-block;
+    margin: 0px 16px !important;
+    font-size: 21px; } }
+
+.media-body-text {
+  border-radius: 25px;
+  padding: 10px;
+  width: fit-content;
+  color: white; }
+
+.chat-head-white-item {
+  color: white; }
+
+.background-image {
+  background-size: 53px;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: center; }
+
+.ghost-mode > textarea {
+  background-color: #333333;
+  color: white; }
+
+.ant-mentions-dropdown-menu-item:hover {
+  background-color: #333333;
+  color: white; }
+
+.my-message {
+  flex-direction: row-reverse;
+  align-items: center; }
+  .my-message .media-body {
+    flex: 0;
+    min-width: max-content;
+    padding-right: 20px;
+    margin-left: 0px; }
+    .my-message .media-body .media-body-text {
+      width: max-content; }
+
+.ghost-message .media-body-text {
+  background-color: #333333 !important; }
+
+.ant-mentions-dropdown-menu-item > span {
+  margin: 5px 8px; }
+
+.ant-mentions-dropdown-menu-item {
+  display: flex; }

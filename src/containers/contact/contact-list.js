@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
-import { contactDetails } from './actions'
+import { contactDetails, setModel } from './actions'
 import FeatherIcon from 'feather-icons-react';
 
 const ContactCard = (props) => {
@@ -9,7 +9,6 @@ const ContactCard = (props) => {
     let avatar = "";
 
     onlineStatus ? avatar = "avatar avatar-sm avatar-online" : avatar = "avatar avatar-sm avatar-offline"
-
     props.itemNumber == 0 && props.contactDetails(props.data) 
     return (
         <div className="media" onClick={ () => props.contactDetails(props.data) }>
@@ -30,6 +29,7 @@ class ConatctList extends Component {
 
     render() {
         const Conatcts = this.props.Contacts;
+        const type = this.props.type;
         return (
             <div className="contact-sidebar">
                 <div className="contact-sidebar-header">
@@ -37,15 +37,15 @@ class ConatctList extends Component {
                     <div className="search-form">
                         <input type="search" className="form-control" placeholder="Search contacts" />
                     </div>
-                    <Link to="#modalNewContact" className="btn btn-xs btn-icon btn-primary" data-toggle="modal">
+                    <div className="btn btn-xs btn-icon btn-primary" data-toggle="modal" onClick={ () => this.props.setModel() } >
                         <span data-toggle="tooltip" title="Add New Contact"><FeatherIcon icon="user-plus"></FeatherIcon></span>
-                    </Link>
+                    </div>
                 </div>
                 <div className="contact-sidebar-body">
                     <div className="tab-content">
                         <div id="tabContact" className="tab-pane fade active show">
                             <div className="pd-y-20 pd-x-10 contact-list">
-                                <label id="contactA" className="contact-list-divider">A</label>
+                                <label id="contact-label" className="contact-list-divider">{type}</label>
                                 {
                                     Conatcts.map((item,key)=>(
                                         <ContactCard data={item} itemNumber={key} contactDetails={ this.props. contactDetails }/>
@@ -63,4 +63,4 @@ class ConatctList extends Component {
     }
 }
 
-export default connect(null, { contactDetails })(ConatctList);
+export default connect(null, { contactDetails, setModel })(ConatctList);

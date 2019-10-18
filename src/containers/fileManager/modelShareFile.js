@@ -11,7 +11,7 @@ class ShareFile extends Component {
         const modelName = this.props.modelName
         if (modelName == "modalShare") {
             return <div className="modal fade effect-scale show" id="modalShare" tabindex="-1" role="dialog" aria-hidden="true"
-                style={{ display: "block", paddingRight: "17px" }}>
+                style={{ display: "block", paddingRight: "17px",backgroundColor: "rgba(15, 21, 32, 0.7)" }}>
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-body pd-20 pd-sm-30">

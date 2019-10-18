@@ -8,24 +8,24 @@ class Leftbar extends Component {
         return (
             <div className="contact-navleft">
                 <nav className="nav flex-column">
-                    <a href="#tabContact" className="nav-link active" data-toggle="tab">
+                    <div className="nav-link active" data-toggle="tab" onClick={ () => this.props.renderTab("all") }>
                         <span data-toggle="tooltip" title="All Contacts" data-placement="right"><FeatherIcon icon="users"></FeatherIcon></span>
-                    </a>
-                    <a href="#tabPhoneCall" className="nav-link" data-toggle="tab">
+                    </div>
+                    <div className="nav-link" data-toggle="tab" onClick={ () => this.props.renderTab("recent") }>
                         <span data-toggle="tooltip" title="Recently Contacted" data-placement="right"><FeatherIcon icon="phone-call"></FeatherIcon></span>
-                    </a>
-                    <Link to="#tabFavorites" className="nav-link" data-toggle="tab">
+                    </div>
+                    <div className="nav-link" data-toggle="tab" onClick={ () => this.props.renderTab("favorites") }>
                         <span data-toggle="tooltip" title="Favorites" data-placement="right"><FeatherIcon icon="star"></FeatherIcon></span>
-                    </Link>
-                    <Link to="#tabTags" className="nav-link" data-toggle="tab">
+                    </div>
+                    <div to="#tabTags" className="nav-link" data-toggle="tab" onClick={ () => this.props.renderTab("label") }>
                         <span data-toggle="tooltip" title="Contact Labels" data-placement="right"><FeatherIcon icon="tag"></FeatherIcon></span>
-                    </Link>
-                    <a href="#tabExport" className="nav-link" data-toggle="tab">
+                    </div>
+                    <div className="nav-link" data-toggle="tab" onClick={ () => this.props.renderTab("export") }>
                         <span data-toggle="tooltip" title="Export Contacts" data-placement="right"><FeatherIcon icon="upload"></FeatherIcon></span>
-                    </a>
-                    <Link to="" className="nav-link">
+                    </div>
+                    <div className="nav-link">
                         <span data-toggle="tooltip" title="Contact Settings" data-placement="right"><FeatherIcon icon="settings"></FeatherIcon></span>
-                    </Link>
+                    </div>
                 </nav>
             </div>
         )

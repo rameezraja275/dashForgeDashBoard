@@ -19,7 +19,7 @@ class CopyFile extends Component {
         const Folders = this.state.Folders
         if (modelName == "Copy" || modelName == "Move") {
             return <div className="modal fade effect-scale show" id="modalCopy" tabindex="-1" role="dialog" aria-hidden="true"
-            style={{ display: "block", paddingRight: "17px" }}>
+            style={{ display: "block", paddingRight: "17px" ,backgroundColor: "rgba(15, 21, 32, 0.7)"}}>
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
                 <div className="modal-body pd-20 pd-sm-30">
