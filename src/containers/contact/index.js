@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../config/commanActions'
 import LeftBar from './leftbar';
 import ContactList from './contact-list'
 import ContactInfo from './contact-info'
@@ -58,6 +60,7 @@ class Conatct extends Component {
 
     componentDidMount = () => {
         $(ConatctJquery())
+        this.props.setCurrentRoute("contacts");
     }
 
     renderTab = (dataType) => {
@@ -83,4 +86,4 @@ class Conatct extends Component {
     }
 }
 
-export default Conatct;
+export default connect(null, { setCurrentRoute })(Conatct);;

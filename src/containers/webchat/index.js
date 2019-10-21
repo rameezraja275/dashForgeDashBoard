@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../config/commanActions'
 import { Link } from "react-router-dom";
 import $ from 'jquery';
 import { Mentions } from 'antd';
@@ -15,6 +16,7 @@ class WebChat extends Component {
 
     componentDidMount = () => {
         $(ChatJquery())
+        this.props.setCurrentRoute("websitechat");
     }
 
     state = {
@@ -114,9 +116,9 @@ class WebChat extends Component {
                     <div className="chat-content">
                         <ChatHead User={User} backgroundColor={'#0000FF'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
                         <div className="chat-content-body">
-                            <div className="chat-group background-image" style={{ backgroundImage: "url('./webchat.png')" }} >
+                            <div className="chat-group background-image webchat" style={{ backgroundImage: "url('./webchat.png')" }} >
 
-                                <div className="chat-group-divider">February 20, 2019</div>
+                                {/* <div className="chat-group-divider">February 20, 2019</div> */}
                                 {
                                     Chats.map((item) => (
                                         <MessageCard data={item} backgroundColor={'#0000FF'} />
@@ -166,4 +168,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(WebChat);
+export default connect(mapStateToProps, { setCurrentRoute })(WebChat);

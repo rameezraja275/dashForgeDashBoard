@@ -1,0 +1,35 @@
+
+.aside {
+  &.minimize {
+    .sidebar-footer {
+      display: none;
+    }
+
+    .aside-body {
+      height: calc(100% - 59px);
+    }
+  }
+
+  .aside-body {
+    height: calc(100% - 118px);
+  }
+
+    .sidebar-footer{
+      display: flex;
+      justify-content: space-between;
+      flex: 1 1;
+      padding: 10px 20px;
+      border-top: 1px solid rgba(72, 94, 144, 0.16);
+      border-right: 1px solid rgba(72, 94, 144, 0.16);
+      background: #ffffff;
+        .icon-wrapper {
+          .button-icon {
+            color: rgb(255, 255, 255);
+            background-color: #0168fa;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 9px;
+            padding: 8px;
+            border-radius: 100px;
+          }
+        }
+    }
+}

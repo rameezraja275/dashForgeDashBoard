@@ -12,13 +12,11 @@ const MessageCard = (props) => {
         <React.Fragment>
             {
                 <div className={classes}>
-                    <div className={avatar}>
+                    {sender != "me" && <div className={avatar}>
                         <span className="avatar-initial rounded-circle">{nameInitial}</span>
-                    </div>
-                    <div className="media-body">
-                        <h6>{name} <small>{time}</small></h6>
-
-                        <p className="media-body-text" style={{ backgroundColor: backgroundColor }}>{body}</p>
+                    </div>}
+                    <div className="media-body" >
+                        <p data-toggle="tooltip" title={time} className="media-body-text" style={{ backgroundColor: backgroundColor }}>{body}</p>
                     </div>
                 </div>
             }

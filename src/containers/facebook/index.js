@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../config/commanActions'
 import { Link } from "react-router-dom";
 import $ from 'jquery';
 import { Mentions } from 'antd';
@@ -15,6 +16,7 @@ class Facebook extends Component {
 
     componentDidMount = () => {
         $(ChatJquery())
+        this.props.setCurrentRoute("facebook");
     }
 
     state = {
@@ -32,7 +34,7 @@ class Facebook extends Component {
                 newMessages: 2,
                 userOnline: true,
                 name: "Sher ali",
-                time: "2:00pm",
+                time: "November 24, 2019 at 2:00pm",
                 body: "hey how are you ",
                 nameInitial: "S",
                 onlineStatus: true,
@@ -41,7 +43,7 @@ class Facebook extends Component {
             {
                 sender: "me",
                 name: "Rameez Raja",
-                time: "2:00pm",
+                time: "November 24, 2019 at 2:00pm",
                 body: "I am fine",
                 nameInitial: "R",
                 onlineStatus: false,
@@ -52,7 +54,7 @@ class Facebook extends Component {
                 newMessages: 2,
                 userOnline: true,
                 name: "Sher Ali Gulam",
-                time: "2:00pm",
+                time: "November 24, 2019 at 2:00pm",
                 body: "Good",
                 nameInitial: "S",
                 onlineStatus: true,
@@ -114,9 +116,9 @@ class Facebook extends Component {
                     <div className="chat-content">
                         <ChatHead User={User} backgroundColor={'#3b5997'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
                         <div className="chat-content-body">
-                            <div className="chat-group background-image" style={{ backgroundImage: "url('./facebook.png')" }} >
+                            <div className="chat-group background-image facebook" style={{ backgroundImage: "url('./facebook.png')" }} >
 
-                                <div className="chat-group-divider">February 20, 2019</div>
+                                {/* <div className="chat-group-divider">February 20, 2019</div> */}
                                 {
                                     Chats.map((item) => (
                                         <MessageCard data={item} backgroundColor={'#3b5997'} />
@@ -166,4 +168,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(Facebook);
+export default connect(mapStateToProps, { setCurrentRoute })(Facebook);

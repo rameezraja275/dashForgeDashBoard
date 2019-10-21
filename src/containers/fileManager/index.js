@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../config/commanActions'
 import Nav from './nav';
 import Content from './content'
 import $ from 'jquery';
@@ -8,7 +10,7 @@ class FileManager extends Component {
 
     componentDidMount = () => {
         $(FileJquery)
-          
+        this.props.setCurrentRoute("filemanager");
     }
     render() {
         return (
@@ -22,4 +24,4 @@ class FileManager extends Component {
     }
 }
 
-export default FileManager;
+export default connect(null, { setCurrentRoute })(FileManager);

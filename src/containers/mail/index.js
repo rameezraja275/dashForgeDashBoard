@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../config/commanActions'
 import MailNav from './mail-nav'
 import ConversationList from './conversation-list'
 import Conversation from './conversation-content'
@@ -9,6 +11,7 @@ class Mail extends Component {
 
   componentDidMount = () => {
     $( MailJquery() )
+    this.props.setCurrentRoute("mail");
   }
 
   render() {
@@ -24,4 +27,4 @@ class Mail extends Component {
   }
 }
 
-export default Mail;
+export default connect(null, { setCurrentRoute })(Mail);

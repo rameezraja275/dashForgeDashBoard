@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import FeatherIcon from 'feather-icons-react';
  
 class SearchBar extends Component {
@@ -11,9 +10,9 @@ class SearchBar extends Component {
                     <input type="search" className="form-control" placeholder="Search" />
                 </div>
                 <nav className="nav">
-                    <Link to="" className="nav-link"><FeatherIcon icon="help-circle"></FeatherIcon></Link>
-                    <Link to="" className="nav-link"><FeatherIcon icon="grid"></FeatherIcon></Link>
-                    <Link to="" className="nav-link"><FeatherIcon icon="align-left"></FeatherIcon></Link>
+                    <div className="nav-link"><FeatherIcon icon="help-circle"></FeatherIcon></div>
+                    <div className="nav-link"><FeatherIcon icon="grid"></FeatherIcon></div>
+                    <div className="nav-link right-bar-toggle-btn" onClick={ this.props.toogleRightSideBar }><FeatherIcon icon="align-left"></FeatherIcon></div>
                 </nav>
             </div>
         );

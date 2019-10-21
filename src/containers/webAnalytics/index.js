@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Head from './head'
 import AudienceMeter from './webSiteAudience'
 import Sessions from './channelSessions'
@@ -10,8 +11,13 @@ import Visits from './Visits'
 import PageVisit from './pagesVisit'
 import BrowserUsed from './browserUsed'
 import Summary from './summaryTable'
+import { setCurrentRoute } from '../../config/commanActions'
 
 class WebAnalytics extends Component {
+
+    componentDidMount = () => {
+        this.props.setCurrentRoute("analytics");
+    }
 
     render() {
         return (
@@ -41,4 +47,4 @@ class WebAnalytics extends Component {
     }
 }
 
-export default WebAnalytics
+export default connect(null, { setCurrentRoute })(WebAnalytics);

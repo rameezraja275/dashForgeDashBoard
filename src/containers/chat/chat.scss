@@ -1,55 +1,104 @@
-.media-body-text{
-    border-radius: 25px;
-    padding: 10px;
-    width: fit-content;
-    color: white;
-}
+.chat-sidebar{
+			.chat-sidebar-buttons{
+			    display: flex;
+				background: #e5e9f2;
+				padding: 5px;
+				border-radius: 5px;
+				margin-bottom: 15px;
+				.ant-btn{
+					margin: 0px 5px;
+					width: 100%;
+					background: #e5e9f2;
+					border:none;
+					&:after{
+						animation: 0s !important;
+					}
+					&:hover{
+						background: white;
+						color: grey;
+					}
+				}
+		}
+	}
 
-.chat-head-white-item{
-    color: white;
-}
+.chat-content {
 
-.background-image{
-    background-size: 53px;
+	
+
+  .media {
+    display: flex;
+    align-items: center;
+	.media-body{
+		
+		margin-left: 10px;
+		
+		.media-body-text {
+			border-radius: 25px;
+			width: fit-content;
+			color: white;
+			padding: 5px 13px;
+			
+			
+		 }
+	}
+	
+	.avatar-sm{
+		width: 28px;
+		height: 28px;
+	}
+  }
+
+  
+
+  .chat-head-white-item {
+    color: white;
+  }
+
+  .background-image {
+    background-size: 180px;
     background-repeat: no-repeat;
     background-origin: content-box;
     background-position: center;
-}
+  }
 
-.ghost-mode > textarea {
+  .facebook, .webchat{
+    background-size: 80px;
+  }
+
+  .ghost-mode > textarea {
     background-color: #333333;
     color: white;
-}
+  }
 
-.ant-mentions-dropdown-menu-item:hover {
+  .ant-mentions-dropdown-menu-item:hover {
     background-color: #333333;
     color: white;
-}
+  }
 
-.my-message{
+  .my-message {
     flex-direction: row-reverse;
     align-items: center;
-    .media-body{
-        flex: 0;
-        min-width: max-content;
-        padding-right: 20px;
-        margin-left: 0px;
-        .media-body-text{
-            width: max-content;   
-        }
+    .media-body {
+      flex: 0;
+      min-width: max-content;
+      margin-left: 0px;
+      .media-body-text {
+        width: max-content;
+      }
     }
-}
+  }
 
-.ghost-message{
-    .media-body-text{
-        background-color: #333333 !important;
+  .ghost-message {
+    .media-body-text {
+      background-color: #333333 !important;
     }
-}
+  }
 
-.ant-mentions-dropdown-menu-item > span{
+  .ant-mentions-dropdown-menu-item > span {
     margin: 5px 8px;
-}
+  }
 
-.ant-mentions-dropdown-menu-item{
+  .ant-mentions-dropdown-menu-item {
     display: flex;
+  }
 }

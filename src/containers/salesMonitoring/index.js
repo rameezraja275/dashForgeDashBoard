@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import FeatherIcon from 'feather-icons-react'
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../config/commanActions'
 import InfoCard from './infoCard'
 import RevenueGrowth from './RevenueGrowth'
 import AccountRetention from './accountRetention'
@@ -10,6 +12,10 @@ import NewCustomer from './newCustomer'
 import RealTimeSale from './realTimeSales'
 
 class SalesMonitoring extends Component {
+
+  componentDidMount = () => {
+    this.props.setCurrentRoute("salemonitoring");
+  }
 
   render() {
     return (
@@ -52,4 +58,4 @@ class SalesMonitoring extends Component {
   }
 }
 
-export default SalesMonitoring
+export default connect(null, { setCurrentRoute })( SalesMonitoring);

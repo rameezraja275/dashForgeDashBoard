@@ -1,0 +1,16 @@
+import producer from 'immer';
+
+const initialState = {
+    currentRoute : null,
+};
+
+export default (state = initialState, action) => {
+
+  return producer(state, draft => {
+    switch (action.type) {
+      case "CURRENT_ROUTE":
+        draft.currentRoute = action.payload;
+        break;
+    }
+  });
+}

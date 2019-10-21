@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../config/commanActions'
 import FeatherIcon from 'feather-icons-react';
 import $ from 'jquery';
 import CurrentStatus from './currentStatus'
@@ -16,6 +18,7 @@ class HelpDesk extends Component {
 
     componentDidMount = () => {
         $(HelpdeskJquery())
+        this.props.setCurrentRoute("helpdesk");
     }
 
     render() {
@@ -66,4 +69,4 @@ class HelpDesk extends Component {
     }
 }
 
-export default HelpDesk 
+export default connect(null, { setCurrentRoute })(HelpDesk );

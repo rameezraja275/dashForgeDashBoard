@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../config/commanActions'
 import { Link } from "react-router-dom";
 import $ from 'jquery';
 import { Mentions } from 'antd';
@@ -15,6 +16,7 @@ class Whatsapp extends Component {
 
     componentDidMount = () => {
         $(ChatJquery())
+        this.props.setCurrentRoute("whatsapp");
     }
 
     state = {
@@ -116,7 +118,7 @@ class Whatsapp extends Component {
                         <div className="chat-content-body">
                             <div className="chat-group background-image" style={{ backgroundImage: "url('./whatsapp.png')" }} >
 
-                                <div className="chat-group-divider">February 20, 2019</div>
+                                {/* <div className="chat-group-divider">February 20, 2019</div> */}
                                 {
                                     Chats.map((item) => (
                                         <MessageCard data={item} backgroundColor={'#0b5e55'} />
@@ -166,4 +168,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(Whatsapp);
+export default connect(mapStateToProps, { setCurrentRoute })(Whatsapp);

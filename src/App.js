@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import Navbar from './containers/navbar';
+import Navbar from './containers/navBar';
 import MainContent from './containers/main-content';
 import Search from "./containers/searchbar";
 import Compose from './containers/mail/compose-mail';
@@ -24,20 +24,31 @@ import ModelEventDetail from './containers/calendar/eventDescription'
 
 class App extends Component {
 
+  state = {
+    RightSideBarStatus : true
+  }
+
   componentDidMount = () => {
     $(appJquery())
   }
 
+  toogleRightSideBar = () => {
+    const { RightSideBarStatus } = this.state
+    this.setState({
+      RightSideBarStatus : !RightSideBarStatus
+    })
+  }
 
   render() {
+    const { RightSideBarStatus } = this.state
     return (
       <BrowserRouter>
           <Navbar />
-          <div className="content ht-100v pd-0" style={{paddingRight : "60px"}}>
-            <Search />
+          <div className="content ht-100v pd-0" style={{paddingRight : RightSideBarStatus ? "60px" : "0px" }}>
+            <Search toogleRightSideBar={ this.toogleRightSideBar }/>
             {Routes}
           </div>
-          <RightSideBar />
+          { RightSideBarStatus ? <RightSideBar /> : null }
         <Drawer /> 
         <Compose />
         <ModalViewDetails />
