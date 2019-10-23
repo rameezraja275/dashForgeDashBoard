@@ -18,8 +18,9 @@ class RightSideBar extends Component {
 
     render() {
         const content = this.props.contentNumber
+        const styleBackground = { background: "#F7F8FA" }
         return (
-            <div className="RightSideBAr">
+            <div className="RightSideBAr" style={ styleBackground }>
                 <div class="btn-wrapper">
                     <div className={content === 1 ? "btn-rightbar active" : "btn-rightbar" } onClick={content === 1 ? () => { this.onClose() } : () => { this.showDrawer(1) }}>
                         <i class="fas fa-rocket"></i>

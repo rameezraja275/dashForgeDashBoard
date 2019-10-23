@@ -18,10 +18,16 @@
   background: #ffffff; }
   .aside .sidebar-footer .icon-wrapper .button-icon {
     color: white;
-    background-color: #0168fa;
+    background-color: rgba(54, 68, 90, 0.65);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 9px;
     padding: 8px;
     border-radius: 100px; }
+  .aside .sidebar-footer .icon-wrapper .opened-tab {
+    background-color: #0168fa; }
+
+@media (max-width: 1224px) {
+  .RightSideBAr {
+    display: none; } }
 
 .RightSideBAr {
   background-color: #ffffff;
@@ -646,7 +652,7 @@
     height: 28px; }
 
 .chat-content .chat-head-white-item {
-  color: white; }
+  color: white !important; }
 
 .chat-content .background-image {
   background-size: 180px;

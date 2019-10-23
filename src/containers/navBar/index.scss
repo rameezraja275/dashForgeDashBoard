@@ -25,10 +25,13 @@
         .icon-wrapper {
           .button-icon {
             color: rgb(255, 255, 255);
-            background-color: #0168fa;
+            background-color: rgba(54, 68, 90, 0.65);
             box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 9px;
             padding: 8px;
             border-radius: 100px;
+          }
+          .opened-tab{
+            background-color: #0168fa;;
           }
         }
     }

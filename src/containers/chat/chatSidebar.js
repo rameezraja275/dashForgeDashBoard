@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import FeatherIcon from 'feather-icons-react';
 import { Button } from 'antd'
 import ChatList from './ChatList';
+import ChannelListing from './channels/ChannelList'
 import UserInfo from './userInfo'
 
 class ChatSideBar extends Component {
@@ -12,7 +13,7 @@ class ChatSideBar extends Component {
     }
 
     render() {
-        const { Chats, User } = this.props
+        const { Chats, User, Channels, ChannelList } = this.props
         const { currentTab } = this.state
 
         const styleForCurrentTab = {
@@ -46,12 +47,14 @@ class ChatSideBar extends Component {
 
                 <div className="chat-sidebar-body">
                     <div className="flex-fill pd-y-20 pd-x-10 bd-t">
-                        <div className="chat-sidebar-buttons">
+                        { !Channels && <div className="chat-sidebar-buttons">
                             <Button className="chat-sidebar-button" onClick={(e)=>{ this.setState({ currentTab: "direct" }) }} style={ currentTab == "direct" ? styleForCurrentTab : null } >Direct</Button>
                             <Button className="chat-sidebar-button" onClick={(e)=>{ this.setState({ currentTab: "group" }) }} style={ currentTab == "group" ? styleForCurrentTab : null } >Groups</Button>
-                        </div>
-                        <p className="tx-10 tx-uppercase tx-medium tx-color-03 tx-sans tx-spacing-1 pd-l-10 mg-b-10">Direct Messages</p>
-                        <ChatList Chats={Chats} />
+                        </div>}
+
+                        {
+                            Channels == true ? <ChannelListing Channels={ChannelList}/> : <ChatList Chats={Chats} />
+                        }
                     </div>
                 </div>
 

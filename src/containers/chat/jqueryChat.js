@@ -25,29 +25,29 @@ export default function () {
     ///// UI INTERACTION /////
 
     // channel click
-    // $('#allChannels a').on('click', function (e) {
-    //     e.preventDefault()
-    //     $(this).addClass('active');
-    //     $(this).siblings().removeClass('active');
+    $('#allChannels div').on('click', function (e) {
+        e.preventDefault()
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
 
-    //     $('#chatDirectMsg .active').removeClass('active');
+        $('#chatDirectMsg .active').removeClass('active');
 
-    //     // replace channel title
-    //     var href = $(this).attr('href');
-    //     $('#channelTitle').text(href);
+        // // replace channel title
+        var href = $(this).attr('href');
+        $('#channelTitle').text(href);
 
-    //     // view channel title
-    //     $('#channelTitle').removeClass('d-none');
-    //     $('#directTitle').addClass('d-none');
+        // view channel title
+        $('#channelTitle').removeClass('d-none');
+        $('#directTitle').addClass('d-none');
 
-    //     // view channel nav icon
-    //     $('#channelNav').removeClass('d-none');
-    //     $('#directNav').addClass('d-none');
+        // view channel nav icon
+        $('#channelNav').removeClass('d-none');
+        $('#directNav').addClass('d-none');
 
-    //     if (window.matchMedia('(max-width: 991px)').matches) {
-    //         showChatContent();
-    //     }
-    // })
+        if (window.matchMedia('(max-width: 991px)').matches) {
+            showChatContent();
+        }
+    })
 
     // direct message click
     $('#chatDirectMsg .media').on('click', function (e) {

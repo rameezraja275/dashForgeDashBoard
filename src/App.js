@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Navbar from './containers/navBar';
-import MainContent from './containers/main-content';
 import Search from "./containers/searchbar";
 import Compose from './containers/mail/compose-mail';
 import { BrowserRouter } from 'react-router-dom';
-import Routes from './Routes';
+import Routes from './config/Routes';
 import ModalViewDetails from './containers/fileManager/modelViewDetails'
 import ModelCreateChannel from './containers/chat/ModelCreateChannel'
 import ModelInvitePeople from './containers/chat/ModelInvitePeople'
@@ -70,7 +69,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("data" , state)
   return {
     modelOpenContact: state.contact.modelOpen,
     modelType : state.calendar.modelType

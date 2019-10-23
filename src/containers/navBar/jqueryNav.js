@@ -43,15 +43,13 @@ export default function(){
     asideBody.update()
   });
 
-  $('.nav-item').on('click', function(e){
+  $('.nav-item-apps').on('click', function(e){
     
     if(window.matchMedia('(min-width: 992px)').matches) {
-     $(this).closest('.aside').addClass('minimize');
+      $('aside').addClass('minimize');
     }else {
       $('body').toggleClass('show-aside');
     }
-
-
     asideBody.update()
   })
 

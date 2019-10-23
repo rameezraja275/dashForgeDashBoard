@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CalendarTimePicker from 'react-calendar';
+import FeatherIcon from 'feather-icons-react';
 
 class SideBar extends Component {
 
@@ -13,7 +14,7 @@ class SideBar extends Component {
                             <input type="search" class="form-control" placeholder="Search calendar" />
                         </div>
                         <div class="btn btn-sm btn-primary btn-icon calendar-add" onClick={ () => this.props.setModel(new Date())}>
-                            <div data-toggle="tooltip" title="Create New Event"><i data-feather="plus"></i></div>
+                            <div data-toggle="tooltip" title="Create New Event"><FeatherIcon icon="plus"></FeatherIcon></div>
                         </div>
                     </div>
                     <div id="calendarSidebarBody" class="calendar-sidebar-body">

@@ -3,8 +3,9 @@ import FeatherIcon from 'feather-icons-react';
  
 class SearchBar extends Component {
     render() {
+        const styleBackground = { background: "#F7F8FA" }
         return (
-            <div className="content-header">
+            <div className="content-header" style={ styleBackground }>
                 <div className="content-search">
                     <FeatherIcon icon="search"></FeatherIcon>
                     <input type="search" className="form-control" placeholder="Search" />
