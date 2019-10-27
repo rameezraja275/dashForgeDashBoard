@@ -2,6 +2,7 @@ import producer from 'immer';
 
 const initialState = {
     currentRoute : null,
+    darkMode : false
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +12,9 @@ export default (state = initialState, action) => {
       case "CURRENT_ROUTE":
         draft.currentRoute = action.payload;
         break;
-    }
+      case "DARK_MODE":
+        draft.darkMode = !state.darkMode;
+        break;
+    } 
   });
 }

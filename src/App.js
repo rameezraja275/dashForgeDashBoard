@@ -40,12 +40,14 @@ class App extends Component {
 
   render() {
     const { RightSideBarStatus } = this.state
+    this.props.darkMode ? document.body.classList.add('dark-mode') : 
+      document.body.classList.remove('dark-mode')
     return (
-      <BrowserRouter>
+      <BrowserRouter >
           <Navbar />
           <div className="content ht-100v pd-0" style={{paddingRight : RightSideBarStatus ? "60px" : "0px" }}>
-            <Search toogleRightSideBar={ this.toogleRightSideBar }/>
-            {Routes}
+            <Search toogleRightSideBar={ this.toogleRightSideBar } status={RightSideBarStatus}/>
+            <Routes />
           </div>
           { RightSideBarStatus ? <RightSideBar /> : null }
         <Drawer /> 
@@ -71,8 +73,10 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     modelOpenContact: state.contact.modelOpen,
-    modelType : state.calendar.modelType
+    modelType : state.calendar.modelType,
+    darkMode: state.commonReducer.darkMode
   }
 }
 
 export default connect(mapStateToProps, {  })(App);
+

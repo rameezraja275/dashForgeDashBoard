@@ -91,44 +91,69 @@ export default function () {
     })
 
     $('#mailSidebar').on('click', function (e) {
-
+      console.log("yai hai ");
       e.preventDefault();
 
-      if ($('body').hasClass('app-mail mail-content-show')) {
-        $('body').removeClass('app-mail mail-content-show');
+      if ($('body').hasClass('mail-content-show')) {
+        $('body').removeClass('mail-content-show');
       } else {
-        $('body').addClass('app-mail mail-sidebar-show');
+        $('body').addClass('mail-sidebar-show');
 
         $('#mailSidebar').addClass('d-none');
         $('#mainMenuOpen').removeClass('d-none');
       }
 
       if (window.matchMedia('(min-width: 768px)').matches) {
-        $('#mailSidebar').addClass('d-md-none');
-        $('#mainMenuOpen').addClass('d-md-flex');
+        $('#mainMenuOpen').addClass('d-none');
+        $('#mailSidebar').removeClass('d-none');
       }
     })
 
+    // $('.aside-menu-link').on('click', function(e){
+    //   e.preventDefault();
+  
+    //   $('#mainMenuOpen').addClass('d-none');
+    //   $('#mailSidebar').removeClass('d-none');
+
+     
+    //   $('body').addClass('app-mail show-aside');
+    // });
+
+    if (window.matchMedia('(max-width: 991px)').matches) {
+      $('#mainMenuOpen').addClass('d-none');
+      $('#mailSidebar').removeClass('d-none');
+
+      // $('body').addClass('filemgr-sidebar-show');
+    }
+
+    $('.aside-menu-link').on('click', function(e){
+      e.preventDefault();
+      if (window.matchMedia('(max-width: 991px)').matches) {
+      $('#mainMenuOpen').addClass('d-none');
+      $('#mailSidebar').removeClass('d-none');
+      }
+    });
+
     $(document).on('click touchstart', function (e) {
 
-      e.stopPropagation();
+      // e.stopPropagation();
 
-      var el = $(e.target);
+      // var el = $(e.target);
 
-      if( el.is('.sidebar-toggler') || el.parents('.sidebar-toggler:eq(0)').length > 0 ) {
-        return;
-      }
+      // if( el.is('.sidebar-toggler') || el.parents('.sidebar-toggler:eq(0)').length > 0 ) {
+      //   return;
+      // }
 
       // closing of sidebar menu when clicking outside of it
-      if (!$(e.target).closest('.burger-menu').length) {
-        var sb = $(e.target).closest('.mail-sidebar').length;
-        if (!sb) {
-          $('body').removeClass('mail-sidebar-show');
-
-          $('#mailSidebar').removeClass('d-none');
-          $('#mainMenuOpen').addClass('d-none');
-        }
-      }
+      // if(!$(e.target).closest('.burger-menu').length) {
+      //   var sb = $(e.target).closest('.mail-sidebar').length;
+      //   if(!sb) {
+      //     $('body').removeClass('mail-sidebar-show');
+  
+      //     $('#mailMenu').removeClass('d-none');
+      //     $('#mainMenuOpen').addClass('d-none');
+      //   }
+      // }
     });
 
     // closing mail content in lg breakpoint only

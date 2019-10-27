@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import PerfectScrollbar from 'perfect-scrollbar';
+import { object } from 'prop-types';
 
 export default function () {
     'use strict'
@@ -17,9 +18,9 @@ export default function () {
     });
 
     // chat sidebar right scrollbar
-    new PerfectScrollbar('.chat-sidebar-right', {
-        suppressScrollX: true
-    });
+    // new PerfectScrollbar('.chat-sidebar-right', {
+    //     suppressScrollX: true
+    // });
 
 
     ///// UI INTERACTION /////
@@ -113,5 +114,19 @@ export default function () {
             $('.chat-sidebar').removeClass('d-none');
         }
     })
+
+
+
+$(function(){
+    console.log(typeof document.getElementById('mentionTextarea') == object);
+    if(typeof document.getElementById('mentionTextarea') === object){
+     document.getElementById('mentionTextarea').addEventListener("keydown", function (e) {
+         alert('asd');
+     });
+    }//*/
+// document.getElementById('mentionTextarea').mouseover(function(){
+// alert('tes');
+// });
+});
 
 }

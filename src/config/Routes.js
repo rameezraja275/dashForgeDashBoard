@@ -14,24 +14,27 @@ import Channels from '../containers/chat/channels'
 import Contact from '../containers/contact'
 import HelpDesk from '../containers/helpDesk'
 import SaleMonitoring from '../containers/salesMonitoring'
-import Settings from '../containers/settings' 
+import Settings from '../containers/settings'
 
-export default(
-    <Switch>
-        <Route exact path="/" component={WebAnalytics} />
-        <Route path="/salemonitoring" component={ SaleMonitoring } />
-        <Route path="/helpdesk" component={HelpDesk} />
-        <Route path="/calendar" component={Calendar} />
-        <Route path="/WebsiteChat" component={WebChat} />
-        <Route path="/whatsapp" component={Whatsapp} />
-        <Route path="/textMessaging" component={SMS} />
-        <Route path="/contacts" component={Contact} />
-        <Route path="/filemanager" component={FileManager} />
-        <Route path="/mail" component={Mail} />
-        <Route path="/facebook" component={Facebook} />
-        <Route path="/instagram" component={Instagram} />
-        <Route path="/twitter" component={Twitter} />
-        <Route path="/channels" component={Channels} />
-        <Route path="/settings" component={Settings} />
-    </Switch>
-)
+const Routes = () => {
+    const ROOT_URL = ""
+    return (<Switch>
+        <Route exact path={ROOT_URL + "/"} component={HelpDesk} />
+        <Route path={ROOT_URL + "/salemonitoring"} component={SaleMonitoring} />
+        <Route path={ROOT_URL + "/analytics"} component={WebAnalytics} />
+        <Route path={ROOT_URL + "/calendar"} component={Calendar} />
+        <Route path={ROOT_URL + "/WebsiteChat"} component={WebChat} />
+        <Route path={ROOT_URL + "/whatsapp"} component={Whatsapp} />
+        <Route path={ROOT_URL + "/textMessaging"} component={SMS} />
+        <Route path={ROOT_URL + "/contacts"} component={Contact} />
+        <Route path={ROOT_URL + "/filemanager"} component={FileManager} />
+        <Route path={ROOT_URL + "/mail"} component={Mail} />
+        <Route path={ROOT_URL + "/facebook"} component={Facebook} />
+        <Route path={ROOT_URL + "/instagram"} component={Instagram} />
+        <Route path={ROOT_URL + "/twitter"} component={Twitter} />
+        <Route path={ROOT_URL + "/teamdiscussions"} component={Channels} />
+        <Route path={ROOT_URL + "/settings"} component={Settings} />
+    </Switch>)
+}
+
+export default Routes

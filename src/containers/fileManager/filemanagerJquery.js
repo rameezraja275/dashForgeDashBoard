@@ -12,11 +12,26 @@ export default function(){
     new PerfectScrollbar('.filemgr-content-body', {
       suppressScrollX: true
     });
+
+    if (window.matchMedia('(max-width: 991px)').matches) {
+      $('#mainMenuOpen').addClass('d-none');
+      $('#mailSidebar').removeClass('d-none');
+
+      // $('body').addClass('filemgr-sidebar-show');
+    }
   
-    $('#filemgrMenu').on('click', function(e){
+    $('.aside-menu-link').on('click', function(e){
+      e.preventDefault();
+      if (window.matchMedia('(max-width: 991px)').matches) {
+      $('#mainMenuOpen').addClass('d-none');
+      $('#mailSidebar').removeClass('d-none');
+      }
+    });
+
+    $('#mailSidebar').on('click', function(e){
       e.preventDefault();
   
-      $('body').addClass('filemgr-sidebar-show');
+      $('body').addClass('app-filemgr filemgr-sidebar-show');
   
       $(this).addClass('d-none');
       $('#mainMenuOpen').removeClass('d-none');

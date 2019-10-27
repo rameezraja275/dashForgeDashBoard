@@ -1,27 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setCurrentRoute } from '../../../config/commanActions'
-import { Link } from "react-router-dom";
 import $ from 'jquery';
-import { Mentions } from 'antd';
-import FeatherIcon from 'feather-icons-react';
 import ChatSideBar from '../chatSidebar'
 import ChatHead from '../chatHead'
 import MessageCard from '../messageCard'
-import MemberList from '../memberList'
-import ChatContent from '../chat-content';
 import ChatJquery from '../jqueryChat'
+import ChatFooter from '../chatFooter';
+import Attachments from '../attachments';
 
 class Facebook extends Component {
 
     componentDidMount = () => {
         $(ChatJquery())
         this.props.setCurrentRoute("facebook");
+
     }
 
     state = {
-        message: "",
+        typedMessage: "",
         ghostMode: false,
+        toggleAttachment: false,
         User: {
             name: "Rameez Raja",
             onlineStatus: true,
@@ -58,7 +57,7 @@ class Facebook extends Component {
                 body: "Good",
                 nameInitial: "S",
                 onlineStatus: true,
-                ghostMessage: true
+                ghostMessage: false
             }
         ],
         ChatList: [
@@ -93,67 +92,84 @@ class Facebook extends Component {
         })
     }
 
-    onChange = (value) => {
-        console.log('Change:', value);
+    onChange = (e, value) => {
+    // console.log('Change:', e ,"" , value);
+        this.setState({
+            typedMessage : e
+        })
     }
 
     onSelect = (option) => {
         console.log('select', option);
     }
 
+    onKeyUp = (e) => {
+        const code = e.keyCode || e.which;
+        if (code === 16) {
+            e.preventDefault()
+            this.shiftKeyStatus = false
+        }
+    }
+
+    shiftKeyStatus = false;
+
+    onKeyPressed = (e) => {
+        const code = e.keyCode || e.which;
+        if (code === 16) {
+            e.preventDefault()
+            this.shiftKeyStatus = true
+        }
+        if (code === 13) {
+            e.preventDefault()
+            if( this.shiftKeyStatus == true ){
+                console.log("next line")
+                const { typedMessage } = this.state
+                this.setState({
+                    typedMessage : typedMessage + "\n"
+                })
+            }
+            else{
+                console.log("send text")
+            }
+            
+        }
+    }
+
+    toggleAttachment = () => {
+        const { toggleAttachment } = this.state
+        console.log("yoo ", toggleAttachment);
+        this.setState({
+            toggleAttachment: !toggleAttachment
+        })
+    }
+
     render() {
-        const { ChatList, User, Chats, ghostMode, message } = this.state
-        
-        console.log("hai hai beduu", ghostMode);
-        const { Option } = Mentions;
-        let classes = ghostMode ? "ghost-mode" : "normal-mode"
+        const { ChatList, User, Chats, ghostMode, typedMessage, toggleAttachment } = this.state
+
         return (
             <div className="content-body pd-0">
                 <div className="chat-wrapper chat-wrapper-two">
 
                     <ChatSideBar Chats={ChatList} User={User} />
-
                     <div className="chat-content">
                         <ChatHead User={User} backgroundColor={'#3b5997'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
                         <div className="chat-content-body">
                             <div className="chat-group background-image facebook" style={{ backgroundImage: "url('./facebook.png')" }} >
 
-                                {/* <div className="chat-group-divider">February 20, 2019</div> */}
                                 {
                                     Chats.map((item) => (
                                         <MessageCard data={item} backgroundColor={'#3b5997'} />
                                     ))
                                 }
+
+                                {
+                                    toggleAttachment && <Attachments />
+                                }
                             </div>
                         </div>
 
-                        <MemberList />
-
-                        <div className="chat-content-footer" style={{ backgroundColor: ghostMode && "#333333" }}>
-                            <Link data-toggle="tooltip" title="Add File" className="chat-plus"><FeatherIcon icon="plus"></FeatherIcon></Link>
-                            <Link onClick={ this.toggleMode } data-toggle="tooltip" title={ ghostMode ? "Group Mode" : "Ghost Mode"} className="chat-plus"><img src={ ghostMode ? "./assets/group.svg" : "./assets/ghost.svg" } width='20px'/></Link >
-                            {   !ghostMode ? <input type="text" className="form-control align-self-center bd-0" placeholder="Message" /> :
-                                <Mentions
-                                    style={{ width: '100%' }}
-                                    onChange={this.onChange}
-                                    onSelect={this.onSelect}
-                                    className={"form-control align-self-center bd-0 " + classes}
-                                    placeholder="Message"
-                                >
-                                    <Option value="Ameer Khan">
-                                        <div className="avatar avatar-sm avatar-online">
-                                            <span className="avatar-initial rounded-circle">A</span>
-                                        </div>
-                                        <span>Ameer Khan</span>
-                                    </Option>
-                                </Mentions>
-                            }
-                            <nav>
-                                <Link to="" data-toggle="tooltip" title="Add GIF"><FeatherIcon icon="image"></FeatherIcon></Link>
-                                <Link to="" data-toggle="tooltip" title="Add Gift"><FeatherIcon icon="gift"></FeatherIcon></Link>
-                                <Link to="" data-toggle="tooltip" title="Add Smiley"><img src={"./assets/smile.svg"} width='20px'/></Link>
-                            </nav>
-                        </div>
+                        <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
+                            onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />
                     </div>
 
                 </div>

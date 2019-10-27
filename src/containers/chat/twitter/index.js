@@ -11,6 +11,8 @@ import MessageCard from '../messageCard'
 import MemberList from '../memberList'
 import ChatContent from '../chat-content';
 import ChatJquery from '../jqueryChat'
+import ChatFooter from '../chatFooter';
+import Attachments from '../attachments';
 
 class Twitter extends Component {
 
@@ -20,8 +22,9 @@ class Twitter extends Component {
     }
 
     state = {
-        message: "",
+        typedMessage: "",
         ghostMode: false,
+        toggleAttachment: false,
         User: {
             name: "Rameez Raja",
             onlineStatus: true,
@@ -38,7 +41,7 @@ class Twitter extends Component {
                 body: "hey how are you ",
                 nameInitial: "S",
                 onlineStatus: true,
-                ghostMessage: true
+                ghostMessage: false
             },
             {
                 sender: "me",
@@ -58,7 +61,7 @@ class Twitter extends Component {
                 body: "Good",
                 nameInitial: "S",
                 onlineStatus: true,
-                ghostMessage: true
+                ghostMessage: false
             }
         ],
         ChatList: [
@@ -93,16 +96,59 @@ class Twitter extends Component {
         })
     }
 
-    onChange = (value) => {
-        console.log('Change:', value);
-    }
+    onChange = (e, value) => {
+        // console.log('Change:', e ,"" , value);
+            this.setState({
+                typedMessage : e
+            })
+        }
 
     onSelect = (option) => {
         console.log('select', option);
     }
 
+    onKeyUp = (e) => {
+        const code = e.keyCode || e.which;
+        if (code === 16) {
+            e.preventDefault()
+            this.shiftKeyStatus = false
+        }
+    }
+
+    shiftKeyStatus = false;
+
+    onKeyPressed = (e) => {
+        const code = e.keyCode || e.which;
+        if (code === 16) {
+            e.preventDefault()
+            this.shiftKeyStatus = true
+        }
+        if (code === 13) {
+            e.preventDefault()
+            if( this.shiftKeyStatus == true ){
+                console.log("next line")
+                const { typedMessage } = this.state
+                this.setState({
+                    typedMessage : typedMessage + "\n"
+                })
+            }
+            else{
+                console.log("send text")
+            }
+            
+        }
+    }
+
+    toggleAttachment = () => {
+        const { toggleAttachment } = this.state
+        console.log("yoo ", toggleAttachment);
+        this.setState({
+            toggleAttachment: !toggleAttachment
+        })
+    }
+
     render() {
-        const { ChatList, User, Chats, ghostMode, message } = this.state
+        const { ChatList, User, Chats, ghostMode, typedMessage, toggleAttachment } = this.state
         const componentName = this.props.match.path;
         console.log("hai hai beduu", ghostMode);
         const { Option } = Mentions;
@@ -124,36 +170,16 @@ class Twitter extends Component {
                                         <MessageCard data={item} backgroundColor={'#1ea1f3'} />
                                     ))
                                 }
+
+                                {
+                                    toggleAttachment && <Attachments />
+                                }
+
                             </div>
                         </div>
 
-                        <MemberList />
-
-                        <div className="chat-content-footer" style={{ backgroundColor: ghostMode && "#333333" }}>
-                            <Link data-toggle="tooltip" title="Add File" className="chat-plus"><FeatherIcon icon="plus"></FeatherIcon></Link>
-                            <Link onClick={ this.toggleMode } data-toggle="tooltip" title={ ghostMode ? "Group Mode" : "Ghost Mode"} className="chat-plus"><img src={ ghostMode ? "./assets/group.svg" : "./assets/ghost.svg" } width='20px'/></Link >
-                            {   !ghostMode ? <input type="text" className="form-control align-self-center bd-0" placeholder="Message" /> :
-                                <Mentions
-                                    style={{ width: '100%' }}
-                                    onChange={this.onChange}
-                                    onSelect={this.onSelect}
-                                    className={"form-control align-self-center bd-0 " + classes}
-                                    placeholder="Message"
-                                >
-                                    <Option value="Ameer Khan">
-                                        <div className="avatar avatar-sm avatar-online">
-                                            <span className="avatar-initial rounded-circle">A</span>
-                                        </div>
-                                        <span>Ameer Khan</span>
-                                    </Option>
-                                </Mentions>
-                            }
-                            <nav>
-                                <Link to="" data-toggle="tooltip" title="Add GIF"><FeatherIcon icon="image"></FeatherIcon></Link>
-                                <Link to="" data-toggle="tooltip" title="Add Gift"><FeatherIcon icon="gift"></FeatherIcon></Link>
-                                <Link to="" data-toggle="tooltip" title="Add Smiley"><img src={"./assets/smile.svg"} width='20px'/></Link>
-                            </nav>
-                        </div>
+                        <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
+                            onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />
                     </div>
 
                 </div>

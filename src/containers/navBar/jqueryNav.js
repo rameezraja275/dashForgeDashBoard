@@ -7,9 +7,16 @@ export default function(){
 
   window.$('[data-toggle="tooltip"]').tooltip()
 
-  const asideBody = new PerfectScrollbar('.aside-body', {
-    suppressScrollX: true
-  });
+  // const asideBody = new PerfectScrollbar('.aside-body', {
+  //   suppressScrollX: true
+  // });
+
+  // $('.aside-menu-link').on('click', function(e){
+  //   e.preventDefault();
+
+  //   $('#mainMenuOpen').addClass('d-none');
+  //   $('#mailSidebar').removeClass('d-none');
+  // });
 
   if($('.aside-backdrop').length === 0) {
     $('body').append('<div class="aside-backdrop"></div>');
@@ -24,11 +31,11 @@ export default function(){
       $('.aside').removeClass('minimize');
     }
 
-    asideBody.update()
+    // asideBody.update()
   }
 
-  mql.addListener(doMinimize);
-  doMinimize(mql);
+  // mql.addListener(doMinimize);
+  // doMinimize(mql);
 
   $('.aside-menu-link').on('click', function(e){
 
@@ -40,7 +47,7 @@ export default function(){
       $('body').toggleClass('show-aside');
     }
 
-    asideBody.update()
+    // asideBody.update()
   });
 
   $('.nav-item-apps').on('click', function(e){
@@ -50,7 +57,7 @@ export default function(){
     }else {
       $('body').toggleClass('show-aside');
     }
-    asideBody.update()
+    // asideBody.update()
   })
 
   $('.nav-aside .with-sub').on('click', '.nav-link', function(e){
@@ -59,7 +66,7 @@ export default function(){
     $(this).parent().siblings().removeClass('show');
     $(this).parent().toggleClass('show');
 
-    asideBody.update()
+    // asideBody.update()
   })
 
   $('body').on('mouseenter', '.minimize .aside-body', function(e){
@@ -69,7 +76,7 @@ export default function(){
   $('body').on('mouseleave', '.minimize .aside-body', function(e){
     $(this).parent().removeClass('maximize');
 
-    asideBody.update()
+    // asideBody.update()
   })
 
   $('body').on('click', '.aside-backdrop', function(e){

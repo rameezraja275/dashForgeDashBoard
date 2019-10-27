@@ -4,9 +4,8 @@ class NavFooter extends Component {
 
     render() {
         const { currenttab } = this.props
-        const styleBackground = { background: "#F7F8FA" }
         return (
-            <div className="sidebar-footer" style={ styleBackground }>
+            <div className="sidebar-footer" >
                 <div className="icon-wrapper" onClick={ () => this.props.changeTab("apps") }>
                     <div className={ currenttab == "apps" ? "button-icon opened-tab" : "button-icon"}>
                         <i class="fas fa-chart-bar"></i>

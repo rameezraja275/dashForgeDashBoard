@@ -4,3 +4,40 @@
 @import './containers/calendar/index.scss';
 @import './containers/chat/chat.scss';
 @import './containers/searchbar.scss';
+@import './containers/helpDesk/index.scss';
+
+.dark-mode{
+	.feather{
+		color: white;
+	}
+	.aside-header{
+		background: #3b4863 !important;
+	}
+	.aside-body{
+		background: #3b4863 !important;
+		.nav-link{
+			color: white;
+		}
+		h6{
+			color : white;
+		}
+		.aside-loggedin{
+			.aside-alert-link {
+				a{	color: white;	}
+			}
+		}	
+	}
+	.sidebar-footer{
+		background: #3b4863;
+	}
+	
+	.content-header{
+		background: #3b4863 !important;
+	}
+	.content-body{
+		background: #3b4863 !important;
+	}
+	.RightSideBAr{
+		background: #3b4863 !important;
+	}
+}

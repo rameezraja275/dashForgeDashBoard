@@ -1,63 +1,47 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import FeatherIcon from 'feather-icons-react';
 import $ from 'jquery';
 import jqueryNav from './jqueryNav'
 import NavFooter from './navFooter'
 
-const Insights = (props) => {
-  const { active } = props
-  return <React.Fragment>
-    <li className="nav-label mg-t-25">Insights</li>
-    <li className={active == "analytics" ? "nav-item active" : "nav-item"} ><Link to="/" className="nav-link"><FeatherIcon icon="globe"></FeatherIcon> <span>Website Analytics</span></Link ></li>
-    <li className={active == "salemonitoring" ? "nav-item active" : "nav-item"} ><Link to="/salemonitoring" className="nav-link"><FeatherIcon icon="shopping-bag"></FeatherIcon> <span>Sale Monitorings</span></Link ></li>
-    <li className={active == "helpdesk" ? "nav-item active" : "nav-item"} ><Link to="/helpdesk" className="nav-link"><FeatherIcon icon="life-buoy"></FeatherIcon> <span>Helpdesk Management</span></Link ></li>
-  </React.Fragment>
-}
-
-const Apps = (props) => {
-  const { active } = props
-  return <React.Fragment>
-    <li className="nav-label mg-t-25">Applications</li>
-    <li className={active == "contacts" ? "nav-item nav-item-apps active" : "nav-item nav-item-apps"} ><Link to="/contacts" className="nav-link"><FeatherIcon icon="users"></FeatherIcon> <span>Contacts</span></Link ></li>
-    <li className={active == "mail" ? "nav-item nav-item-apps active" : "nav-item nav-item-apps"} ><Link to="/mail" className="nav-link"><FeatherIcon icon="mail"></FeatherIcon> <span>Mail</span></Link></li>
-    <li className={active == "filemanager" ? "nav-item nav-item-apps active" : "nav-item nav-item-apps"} ><Link to="/filemanager" className="nav-link"><FeatherIcon icon="file-text"></FeatherIcon> <span>File Manager</span></Link ></li>
-    <li className={active == "calendar" ? "nav-item nav-item-apps active" : "nav-item nav-item-apps"} ><Link to="/calendar" className="nav-link"><FeatherIcon icon="calendar"></FeatherIcon> <span>Calendar</span></Link ></li>
-  </React.Fragment>
-}
-
-const Chats = (props) => {
-  const { active } = props
-  return <React.Fragment>
-    <li className="nav-label mg-t-25">Chats</li>
-    <li className={active == "whatsapp" ? "nav-item active" : "nav-item"} ><Link to="/whatsapp" params={{ render: "Whatsapp" }} className="nav-link"><FeatherIcon icon="message-circle"></FeatherIcon> <span>WhatsApp</span></Link ></li>
-    <li className={active == "textmessaging" ? "nav-item active" : "nav-item"} ><Link to="/textmessaging" params={{ render: "textChat" }} className="nav-link"><FeatherIcon icon="message-square"></FeatherIcon> <span>SMS</span></Link ></li>
-    <li className={active == "websitechat" ? "nav-item active" : "nav-item"} ><Link to="/websitechat" params={{ render: "WebsiteChat" }} className="nav-link"><FeatherIcon icon="send"></FeatherIcon> <span>Chat</span></Link ></li>
-    <li className={active == "facebook" ? "nav-item active" : "nav-item"} ><Link to="/facebook" className="nav-link"><FeatherIcon icon="facebook"></FeatherIcon> <span>Facebook</span></Link ></li>
-    <li className={active == "instagram" ? "nav-item active" : "nav-item"} ><Link to="/instagram" className="nav-link"><FeatherIcon icon="instagram"></FeatherIcon> <span>Instagram</span></Link ></li>
-    <li className={active == "twitter" ? "nav-item active" : "nav-item"} ><Link to="/twitter" className="nav-link"><FeatherIcon icon="twitter"></FeatherIcon> <span>Twitter</span></Link ></li>
-    <li className={active == "channels" ? "nav-item active" : "nav-item"} ><Link to="/channels" className="nav-link"><FeatherIcon icon="hash"></FeatherIcon> <span>Channels</span></Link ></li>
-  </React.Fragment>
-}
-
-const Others = (props) => {
-  const { active } = props
-  return <React.Fragment >
-    {/* <li className="nav-label mg-t-25">Team Mates</li> */}
-
-  </React.Fragment >
+const MenuItem = (props) => {
+  const { title, active, name } = props;
+  const [hover, onHover] = useState(false);
+  return (
+    <li className={active == name ? "nav-item active" : "nav-item"} onMouseEnter={() => onHover(true)} onMouseLeave={() => onHover(false)}>
+      <Link to={name != "helpdesk" ? "/" + name : "/"} className="nav-link">
+        {
+          active == name ? <img src={"./assets/icons/" + name + ".svg"} className="original-icon" /> :
+            hover ? <img src={"./assets/icons/" + name + ".svg"} className="original-icon" /> :
+              <img src={"./assets/icons/grey/" + name + ".svg"} className="original-icon" />
+        }
+        <span>{title}</span>
+      </Link >
+    </li>
+  )
 }
 
 class NavBar extends Component {
 
   state = {
-    currenttab: "apps"
+    currenttab: "apps",
+    openUserinfo: false
   }
 
   changeTab = (tab) => {
     this.setState({
       currenttab: tab
+    })
+  }
+
+  toggleUserInfo = () => {
+    const { openUserinfo } = this.state
+    console.log(openUserinfo)
+    this.setState({
+      openUserinfo: !openUserinfo
     })
   }
 
@@ -67,13 +51,20 @@ class NavBar extends Component {
 
   render() {
     const active = this.props.currentRoute
-    const { currenttab } = this.state
+    let classes = "aside aside-fixed"
+    if (window.innerWidth > 800) {
+      classes = "aside aside-fixed minimize"
+      if (active == "helpdesk" || active == "analytics" || active == "salemonitoring") {
+        classes = "aside aside-fixed"
+      }
+    }
 
-    const styleBackground = { background: "#F7F8FA" }
+    const { currenttab, openUserinfo } = this.state
+
     return (
-      <aside className="aside aside-fixed">
+      <aside className={classes}>
 
-        <div className="aside-header" style={ styleBackground }>
+        <div className="aside-header" >
           <Link to="/" className="aside-logo">dash<span>forge</span></Link >
           <Link className="aside-menu-link sidebar-toggler">
             <FeatherIcon icon="menu"></FeatherIcon>
@@ -82,7 +73,7 @@ class NavBar extends Component {
           <Link id="mailSidebar" className="burger-menu d-none"><FeatherIcon icon="arrow-left"></FeatherIcon></Link >
         </div>
 
-        <div className="aside-body" style={ styleBackground }>
+        <PerfectScrollbar className="aside-body" >
           <div className="aside-loggedin">
             <div className="d-flex align-items-center justify-content-start">
               <Link to="" className="avatar"><img src="https://via.placeholder.com/500" className="rounded-circle" alt="" /></Link >
@@ -92,47 +83,61 @@ class NavBar extends Component {
                 <Link to="" data-toggle="tooltip" title="Sign out"><FeatherIcon icon="log-out"></FeatherIcon></Link >
               </div>
             </div>
-            <div className="aside-loggedin-user">
-              <a href="#loggedinMenu" className="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
+            <div className="aside-loggedin-user" onClick={this.toggleUserInfo}>
+              <div className="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
                 <h6 className="tx-semibold mg-b-0">Katherine Pechon</h6>
                 <FeatherIcon icon="chevron-down"></FeatherIcon>
-              </a >
+              </div >
               <p className="tx-color-03 tx-12 mg-b-0">Administrator</p>
             </div>
-            <div className="collapse" id="loggedinMenu">
+            {openUserinfo && <div className="collapse" style={{ display: "block" }}>
               <ul className="nav nav-aside mg-b-0">
-                <li className="nav-item"><Link to="" className="nav-link"><FeatherIcon icon="edit"></FeatherIcon> <span>Edit Profile</span></Link ></li>
-                <li className="nav-item"><Link to="" className="nav-link"><FeatherIcon icon="user"></FeatherIcon> <span>View Profile</span></Link ></li>
-                <li className="nav-item"><Link to="" className="nav-link"><FeatherIcon icon="settings"></FeatherIcon> <span>Account Settings</span></Link ></li>
-                <li className="nav-item"><Link to="" className="nav-link"><FeatherIcon icon="help-circle"></FeatherIcon> <span>Help Center</span></Link ></li>
-                <li className="nav-item"><Link to="" className="nav-link"><FeatherIcon icon="log-out"></FeatherIcon> <span>Sign Out</span></Link ></li>
+                <li className="nav-item"><Link  className="nav-link"><FeatherIcon icon="edit"></FeatherIcon> <span>Edit Profile</span></Link ></li>
+                <li className="nav-item"><Link  className="nav-link"><FeatherIcon icon="user"></FeatherIcon> <span>View Profile</span></Link ></li>
+                <li className="nav-item"><Link  className="nav-link"><FeatherIcon icon="settings"></FeatherIcon> <span>Account Settings</span></Link ></li>
+                <li className="nav-item"><Link className="nav-link"><FeatherIcon icon="help-circle"></FeatherIcon> <span>Help Center</span></Link ></li>
+                <li className="nav-item"><Link className="nav-link"><FeatherIcon icon="log-out"></FeatherIcon> <span>Sign Out</span></Link ></li>
               </ul>
-            </div>
+            </div>}
           </div>
           <ul className="nav nav-aside">
             {currenttab == "apps" &&
               <React.Fragment>
-                <Insights active={active} />
-                <Apps active={active} />
-                <Chats active={active} />
+                <li className="nav-label mg-t-25">Insights</li>
+                <MenuItem title="Helpdesk Management" active={active} name="helpdesk" icon="life-buoy" />
+                <MenuItem title="Website Analytics" active={active} name="analytics" icon="globe" />
+                <MenuItem title="Sale Monitorings" active={active} name="salemonitoring" icon="shopping-bag" />
+                <li className="nav-label mg-t-25">Applications</li>
+                <MenuItem title="Mail" active={active} name="mail" icon="mail" />
+                <MenuItem title="Contacts" active={active} name="contacts" icon="users" />
+                <MenuItem title="Calendar" active={active} name="calendar" icon="calendar" />
+                <MenuItem title="File Manager" active={active} name="filemanager" icon="file-text" />
+                <li className="nav-label mg-t-25">Chats</li>
+                <MenuItem title="SMS" active={active} name="textmessaging" icon="message-square" />
+                <MenuItem title="WhatsApp" active={active} name="whatsapp" icon="message-circle" />
+                <MenuItem title="Facebook" active={active} name="facebook" icon="facebook" />
+                <MenuItem title="Instagram" active={active} name="instagram" icon="instagram" />
+                <MenuItem title="Twitter" active={active} name="twitter" icon="twitter" />
+                <MenuItem title="Chat" active={active} name="websitechat" icon="send" />
+                <MenuItem title="Team Discussions" active={active} name="teamdiscussions" icon="hash" />
               </React.Fragment>
             }
 
             {currenttab == "integartions" &&
-              <Others active={active}/>
+              <h2></h2>
             }
 
-            {currenttab == "sequence" && 
-              <Others active={active}/>
+            {currenttab == "sequence" &&
+              <h2></h2>
 
             }
 
-            {currenttab == "support" && 
-              <Others active={active}/>
+            {currenttab == "support" &&
+              <h2></h2>
             }
 
           </ul>
-        </div>
+        </PerfectScrollbar>
 
 
         <NavFooter changeTab={this.changeTab} currenttab={this.state.currenttab} />
@@ -144,7 +149,7 @@ class NavBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentRoute: state.commonReducer.currentRoute
+    currentRoute: state.commonReducer.currentRoute,
   }
 }
 
