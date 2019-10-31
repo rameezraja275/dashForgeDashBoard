@@ -11,8 +11,23 @@ class Mail extends Component {
 
   componentDidMount = () => {
     $( MailJquery() )
+    console.log("mail mount")
     this.props.setCurrentRoute("mail");
   }
+
+  componentWillUnmount = () => {
+    console.log("unmount mail")
+    $('.mail-group-body .media').off('click');
+    $('#mailComposeBtn').off('click');
+    $("#mailComposeClose").off('click');
+    $('#mailComposeShrink').off('click');
+    $('#mailComposeMinimize').off('click');
+
+    $('#mailSidebar').off('click');
+    // $(".aside-menu-link").off('click');
+    $(document).off('click touchstart');
+    $('#mailContentClose').off('click');
+}
 
   render() {
     return (

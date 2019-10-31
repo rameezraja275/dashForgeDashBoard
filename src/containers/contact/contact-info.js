@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import FeatherIcon from 'feather-icons-react';
 import { setModel } from './actions' 
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const InfoField = (props) => {
     const { label, value, size, classname } = props
@@ -39,7 +40,7 @@ class ContactInfo extends Component {
                         <a href="" id="contactOptions" class="text-secondary mg-l-auto d-xl-none"><FeatherIcon icon="more-horizontal"></FeatherIcon></a>
                     </div>
     
-                    <div class="contact-content-body">
+                    <PerfectScrollbar className="contact-content-body">
                         <div class="tab-content">
     
                             <div id="contactInformation" class="tab-pane show active pd-20 pd-xl-25">
@@ -80,9 +81,9 @@ class ContactInfo extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </PerfectScrollbar>
     
-                    <div class="contact-content-sidebar">
+                    <PerfectScrollbar className="contact-content-sidebar">
                         <div class="clearfix mg-b-25">
                             <div id="contactAvatar" class="pos-relative float-left">
                                 <div class="avatar avatar-xl"><span class="avatar-initial rounded-circle bg-gray-700 tx-normal">A</span></div>
@@ -109,7 +110,7 @@ class ContactInfo extends Component {
                             <a href="" class="nav-link"><FeatherIcon icon="slash"></FeatherIcon> Block this Contact</a>
                         </nav>
     
-                    </div>
+                    </PerfectScrollbar >
                 </div>
             )
         }

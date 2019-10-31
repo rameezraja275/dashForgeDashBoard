@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import FeatherIcon from 'feather-icons-react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class MailNav extends Component {
 
   render() {
     return (
       <div className="mail-sidebar">
-        <div className="mail-sidebar-body">
+        <PerfectScrollbar className="mail-sidebar-body">
           <div className="pd-20">
             <button id="mailComposeBtn" class="btn btn-primary btn-block tx-uppercase tx-10 tx-medium tx-sans tx-spacing-4">Compose</button>
           </div>
@@ -40,7 +41,7 @@ class MailNav extends Component {
               <Link to="" className="nav-link"><FeatherIcon Icon="tag"></FeatherIcon> <span>Twitter</span></Link >
             </nav>
           </div>
-        </div>
+        </PerfectScrollbar >
       </div>
     )
   }

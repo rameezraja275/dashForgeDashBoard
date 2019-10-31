@@ -10,7 +10,15 @@ class FileManager extends Component {
 
     componentDidMount = () => {
         $(FileJquery)
-        this.props.setCurrentRoute("filemanager");
+        this.props.setCurrentRoute("cloud");
+    }
+
+    componentWillUnmount = () => {
+        $('#mailSidebar').off('click');
+        // $('.aside-menu-link').off('click');
+        $(document).off('click touchstart');
+        $('.important').off('click');
+        $('.download').off('click');
     }
     render() {
         return (

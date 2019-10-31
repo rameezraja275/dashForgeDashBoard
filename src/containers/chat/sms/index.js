@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setCurrentRoute } from '../../../config/commanActions'
-import { Link } from "react-router-dom";
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import $ from 'jquery';
 import { Mentions } from 'antd';
 import FeatherIcon from 'feather-icons-react';
@@ -19,6 +19,14 @@ class SMS extends Component {
     componentDidMount = () => {
         $(ChatJquery())
         this.props.setCurrentRoute("textmessaging");
+    }
+
+    componentWillUnmount = () => {
+        $('#mailSidebar').off('click');
+        $("#showMemberList").off('click');
+        $("#chatDirectMsg .media").off('click');
+        $('#allChannels div').off('click');
+        // $('.aside-menu-link').off('click');
     }
 
     state = {
@@ -151,10 +159,6 @@ class SMS extends Component {
 
     render() {
         const { ChatList, User, Chats, ghostMode, typedMessage, toggleAttachment } = this.state
-        const componentName = this.props.match.path;
-        console.log("hai hai beduu", ghostMode);
-        const { Option } = Mentions;
-        let classes = ghostMode ? "ghost-mode" : "normal-mode"
         return (
             <div className="content-body pd-0">
                 <div className="chat-wrapper chat-wrapper-two">
@@ -163,7 +167,7 @@ class SMS extends Component {
 
                     <div className="chat-content">
                         <ChatHead User={User} backgroundColor={'#007aff'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
-                        <div className="chat-content-body">
+                        <PerfectScrollbar className="chat-content-body">
                             <div className="chat-group background-image" style={{ backgroundImage: "url('./imessage.png')" }} >
 
                                 {
@@ -177,7 +181,7 @@ class SMS extends Component {
                                 }
 
                             </div>
-                        </div>
+                        </PerfectScrollbar >
 
                         <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
                             onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />

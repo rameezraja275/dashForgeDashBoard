@@ -8,7 +8,7 @@ import jqueryNav from './jqueryNav'
 import NavFooter from './navFooter'
 
 const MenuItem = (props) => {
-  const { title, active, name } = props;
+  const { title, active, name, darkMode } = props;
   const [hover, onHover] = useState(false);
   return (
     <li className={active == name ? "nav-item active" : "nav-item"} onMouseEnter={() => onHover(true)} onMouseLeave={() => onHover(false)}>
@@ -16,7 +16,8 @@ const MenuItem = (props) => {
         {
           active == name ? <img src={"./assets/icons/" + name + ".svg"} className="original-icon" /> :
             hover ? <img src={"./assets/icons/" + name + ".svg"} className="original-icon" /> :
-              <img src={"./assets/icons/grey/" + name + ".svg"} className="original-icon" />
+            darkMode ? <img src={"./assets/icons/" + name + "-light.svg"} className="original-icon" /> :
+              <img src={"./assets/icons/" + name + "-dark.svg"} className="original-icon" />
         }
         <span>{title}</span>
       </Link >
@@ -28,22 +29,23 @@ class NavBar extends Component {
 
   state = {
     currenttab: "apps",
-    openUserinfo: false
+    // openUserinfo: false
   }
 
   changeTab = (tab) => {
+    console.log("yo")
     this.setState({
       currenttab: tab
     })
   }
 
-  toggleUserInfo = () => {
-    const { openUserinfo } = this.state
-    console.log(openUserinfo)
-    this.setState({
-      openUserinfo: !openUserinfo
-    })
-  }
+  // toggleUserInfo = () => {
+  //   const { openUserinfo } = this.state
+  //   console.log(openUserinfo)
+  //   this.setState({
+  //     openUserinfo: !openUserinfo
+  //   })
+  // }
 
   componentDidMount = () => {
     $(jqueryNav())
@@ -58,7 +60,7 @@ class NavBar extends Component {
         classes = "aside aside-fixed"
       }
     }
-
+    const { darkMode  } = this.props;
     const { currenttab, openUserinfo } = this.state
 
     return (
@@ -70,7 +72,9 @@ class NavBar extends Component {
             <FeatherIcon icon="menu"></FeatherIcon>
             <FeatherIcon icon="x"></FeatherIcon>
           </Link >
-          <Link id="mailSidebar" className="burger-menu d-none"><FeatherIcon icon="arrow-left"></FeatherIcon></Link >
+          <Link id="mailSidebar" className="burger-menu d-none">
+            <FeatherIcon icon="arrow-left"></FeatherIcon>
+          </Link >
         </div>
 
         <PerfectScrollbar className="aside-body" >
@@ -83,14 +87,17 @@ class NavBar extends Component {
                 <Link to="" data-toggle="tooltip" title="Sign out"><FeatherIcon icon="log-out"></FeatherIcon></Link >
               </div>
             </div>
-            <div className="aside-loggedin-user" onClick={this.toggleUserInfo}>
+            <div className="aside-loggedin-user" /*onClick={this.toggleUserInfo}*/>
               <div className="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
                 <h6 className="tx-semibold mg-b-0">Katherine Pechon</h6>
-                <FeatherIcon icon="chevron-down"></FeatherIcon>
+                <div  onClick={ () => this.changeTab("settings") }>
+                  <FeatherIcon icon="settings"></FeatherIcon>
+                </div>
+                
               </div >
               <p className="tx-color-03 tx-12 mg-b-0">Administrator</p>
             </div>
-            {openUserinfo && <div className="collapse" style={{ display: "block" }}>
+            {/* {openUserinfo && <div className="collapse" style={{ display: "block" }}>
               <ul className="nav nav-aside mg-b-0">
                 <li className="nav-item"><Link  className="nav-link"><FeatherIcon icon="edit"></FeatherIcon> <span>Edit Profile</span></Link ></li>
                 <li className="nav-item"><Link  className="nav-link"><FeatherIcon icon="user"></FeatherIcon> <span>View Profile</span></Link ></li>
@@ -98,28 +105,28 @@ class NavBar extends Component {
                 <li className="nav-item"><Link className="nav-link"><FeatherIcon icon="help-circle"></FeatherIcon> <span>Help Center</span></Link ></li>
                 <li className="nav-item"><Link className="nav-link"><FeatherIcon icon="log-out"></FeatherIcon> <span>Sign Out</span></Link ></li>
               </ul>
-            </div>}
+            </div>} */}
           </div>
           <ul className="nav nav-aside">
             {currenttab == "apps" &&
               <React.Fragment>
                 <li className="nav-label mg-t-25">Insights</li>
-                <MenuItem title="Helpdesk Management" active={active} name="helpdesk" icon="life-buoy" />
-                <MenuItem title="Website Analytics" active={active} name="analytics" icon="globe" />
-                <MenuItem title="Sale Monitorings" active={active} name="salemonitoring" icon="shopping-bag" />
+                <MenuItem title="Helpdesk Management" active={active} name="helpdesk" darkMode={darkMode} />
+                <MenuItem title="Website Analytics" active={active} name="analytics" darkMode={darkMode} />
+                <MenuItem title="Sale Monitorings" active={active} name="salemonitoring" darkMode={darkMode} />
                 <li className="nav-label mg-t-25">Applications</li>
-                <MenuItem title="Mail" active={active} name="mail" icon="mail" />
-                <MenuItem title="Contacts" active={active} name="contacts" icon="users" />
-                <MenuItem title="Calendar" active={active} name="calendar" icon="calendar" />
-                <MenuItem title="File Manager" active={active} name="filemanager" icon="file-text" />
+                <MenuItem title="Mail" active={active} name="mail" darkMode={darkMode} />
+                <MenuItem title="Contacts" active={active} name="contacts" darkMode={darkMode} />
+                <MenuItem title="Calendar" active={active} name="calendar" darkMode={darkMode} />
+                <MenuItem title="Cloud Storage" active={active} name="cloud" darkMode={darkMode}/>
                 <li className="nav-label mg-t-25">Chats</li>
-                <MenuItem title="SMS" active={active} name="textmessaging" icon="message-square" />
-                <MenuItem title="WhatsApp" active={active} name="whatsapp" icon="message-circle" />
-                <MenuItem title="Facebook" active={active} name="facebook" icon="facebook" />
-                <MenuItem title="Instagram" active={active} name="instagram" icon="instagram" />
-                <MenuItem title="Twitter" active={active} name="twitter" icon="twitter" />
-                <MenuItem title="Chat" active={active} name="websitechat" icon="send" />
-                <MenuItem title="Team Discussions" active={active} name="teamdiscussions" icon="hash" />
+                <MenuItem title="SMS" active={active} name="textmessaging" darkMode={darkMode} />
+                <MenuItem title="WhatsApp" active={active} name="whatsapp" darkMode={darkMode} />
+                <MenuItem title="Facebook" active={active} name="facebook" darkMode={darkMode} />
+                <MenuItem title="Instagram" active={active} name="instagram" darkMode={darkMode} />
+                <MenuItem title="Twitter" active={active} name="twitter" darkMode={darkMode} />
+                <MenuItem title="Chat" active={active} name="websitechat" darkMode={darkMode} />
+                <MenuItem title="Team Discussions" active={active} name="teamdiscussions" darkMode={darkMode} />
               </React.Fragment>
             }
 
@@ -136,6 +143,16 @@ class NavBar extends Component {
               <h2></h2>
             }
 
+            {currenttab == "settings" &&
+                <React.Fragment>
+                  <li className="nav-label mg-t-25">Settings</li>
+                  <MenuItem title="Personal Information" active={active} name="personalinformation" darkMode={darkMode} />
+                  <MenuItem title="Security" active={active} name="security" darkMode={darkMode} />
+                  <MenuItem title="Application Settings" active={active} name="applicationsettings" darkMode={darkMode} />
+                  <MenuItem title="Notification Settings" active={active} name="notificationsettings" darkMode={darkMode} />
+                </React.Fragment>
+            }
+
           </ul>
         </PerfectScrollbar>
 
@@ -150,6 +167,7 @@ class NavBar extends Component {
 const mapStateToProps = (state) => {
   return {
     currentRoute: state.commonReducer.currentRoute,
+    darkMode: state.commonReducer.darkMode
   }
 }
 

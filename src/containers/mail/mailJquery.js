@@ -5,21 +5,6 @@ import PerfectScrollbar from 'perfect-scrollbar';
 export default function () {
     'use strict'
 
-    // $('[data-toggle="tooltip"]').tooltip()
-
-    new PerfectScrollbar('.mail-sidebar-body', {
-      suppressScrollX: true
-    });
-
-    new PerfectScrollbar('.mail-group-body', {
-      suppressScrollX: true
-    });
-
-    new PerfectScrollbar('.mail-content-body', {
-      suppressScrollX: true
-    });
-
-
     // UI INTERACTION
     $('.mail-group-body .media').on('click', function (e) {
 
@@ -91,17 +76,21 @@ export default function () {
     })
 
     $('#mailSidebar').on('click', function (e) {
-      console.log("yai hai ");
       e.preventDefault();
 
+      console.log("mail jquery")
       if ($('body').hasClass('mail-content-show')) {
         $('body').removeClass('mail-content-show');
-      } else {
+        $('body').removeClass('mail-sidebar-show');
+      } else if ($('body').hasClass('mail-sidebar-show')) {
+        $('body').addClass('show-aside');
+      } else{
         $('body').addClass('mail-sidebar-show');
 
         $('#mailSidebar').addClass('d-none');
         $('#mainMenuOpen').removeClass('d-none');
-      }
+
+      } 
 
       if (window.matchMedia('(min-width: 768px)').matches) {
         $('#mainMenuOpen').addClass('d-none');
@@ -109,15 +98,15 @@ export default function () {
       }
     })
 
-    // $('.aside-menu-link').on('click', function(e){
-    //   e.preventDefault();
-  
-    //   $('#mainMenuOpen').addClass('d-none');
-    //   $('#mailSidebar').removeClass('d-none');
 
-     
-    //   $('body').addClass('app-mail show-aside');
-    // });
+    $('.aside-menu-link').on('click', function(e){
+      e.preventDefault();
+      console.log("aside menu link")
+      if (window.matchMedia('(max-width: 991px)').matches) {
+      $('#mainMenuOpen').addClass('d-none');
+      $('#mailSidebar').removeClass('d-none');
+      }
+    });
 
     if (window.matchMedia('(max-width: 991px)').matches) {
       $('#mainMenuOpen').addClass('d-none');
@@ -126,43 +115,44 @@ export default function () {
       // $('body').addClass('filemgr-sidebar-show');
     }
 
-    $('.aside-menu-link').on('click', function(e){
-      e.preventDefault();
-      if (window.matchMedia('(max-width: 991px)').matches) {
-      $('#mainMenuOpen').addClass('d-none');
-      $('#mailSidebar').removeClass('d-none');
-      }
-    });
 
     $(document).on('click touchstart', function (e) {
-
-      // e.stopPropagation();
-
+      e.stopPropagation();
       // var el = $(e.target);
-
       // if( el.is('.sidebar-toggler') || el.parents('.sidebar-toggler:eq(0)').length > 0 ) {
       //   return;
       // }
-
       // closing of sidebar menu when clicking outside of it
-      // if(!$(e.target).closest('.burger-menu').length) {
-      //   var sb = $(e.target).closest('.mail-sidebar').length;
-      //   if(!sb) {
-      //     $('body').removeClass('mail-sidebar-show');
-  
-      //     $('#mailMenu').removeClass('d-none');
-      //     $('#mainMenuOpen').addClass('d-none');
-      //   }
-      // }
+      if(!$(e.target).closest('.burger-menu').length) {
+        var sb = $(e.target).closest('.mail-sidebar').length;
+        if(!sb) {
+          $('body').removeClass('mail-sidebar-show');
+
+          $('#mailMenu').removeClass('d-none');
+          $('#mainMenuOpen').addClass('d-none');
+        }
+      }
     });
+
+    // $(document).on('click touchstart', function(e){
+    //   e.stopPropagation();
+    //   // closing of sidebar menu when clicking outside of it
+    //   if(!$(e.target).closest('.burger-menu').length) {
+    //     var sb = $(e.target).closest('.filemgr-sidebar').length;
+    //     if(!sb) {
+    //       $('body').removeClass('filemgr-sidebar-show');
+  
+    //       $('#mailMenu').removeClass('d-none');
+    //       $('#mainMenuOpen').addClass('d-none');
+    //     }
+    //   }
+    // });
 
     // closing mail content in lg breakpoint only
     $('#mailContentClose').on('click', function (e) {
       e.preventDefault()
       $('body').removeClass('mail-content-show');
     })
-
-
     // set one mail item as selected in xl breakpoint by default
     // for demo purpose only
     if (window.matchMedia('(min-width: 1200px)').matches) {

@@ -13,6 +13,7 @@ import Time from './time'
 import Complaints from './Complaints'
 import Ratings from './rating'
 import Transaction from './transactionHistory';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class HelpDesk extends Component {
 
@@ -23,7 +24,7 @@ class HelpDesk extends Component {
 
     render() {
         return (
-            <div className="content-body">
+            <PerfectScrollbar className="content-body">
                 <div className="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
                     <div className="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-30">
                         <div>
@@ -64,7 +65,7 @@ class HelpDesk extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </PerfectScrollbar>
         )
     }
 }

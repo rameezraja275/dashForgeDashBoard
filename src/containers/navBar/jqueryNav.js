@@ -5,6 +5,7 @@ export default function(){
 
   'use strict'
 
+  
   window.$('[data-toggle="tooltip"]').tooltip()
 
   // const asideBody = new PerfectScrollbar('.aside-body', {

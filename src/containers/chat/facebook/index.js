@@ -8,6 +8,7 @@ import MessageCard from '../messageCard'
 import ChatJquery from '../jqueryChat'
 import ChatFooter from '../chatFooter';
 import Attachments from '../attachments';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class Facebook extends Component {
 
@@ -15,6 +16,14 @@ class Facebook extends Component {
         $(ChatJquery())
         this.props.setCurrentRoute("facebook");
 
+    }
+
+    componentWillUnmount = () => {
+        $('#mailSidebar').off('click');
+        $("#showMemberList").off('click');
+        $("#chatDirectMsg .media").off('click');
+        $('#allChannels div').off('click');
+        // $('.aside-menu-link').off('click');
     }
 
     state = {
@@ -153,7 +162,7 @@ class Facebook extends Component {
                     <ChatSideBar Chats={ChatList} User={User} />
                     <div className="chat-content">
                         <ChatHead User={User} backgroundColor={'#3b5997'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
-                        <div className="chat-content-body">
+                        <PerfectScrollbar className="chat-content-body">
                             <div className="chat-group background-image facebook" style={{ backgroundImage: "url('./facebook.png')" }} >
 
                                 {
@@ -166,7 +175,7 @@ class Facebook extends Component {
                                     toggleAttachment && <Attachments />
                                 }
                             </div>
-                        </div>
+                        </PerfectScrollbar >
 
                         <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
                             onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />

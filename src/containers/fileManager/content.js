@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import FileCard from './file-card'
 import FolderCard from './folder-card'
 import FeatherIcon from 'feather-icons-react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class Content extends Component {
     state = {
@@ -69,7 +70,7 @@ class Content extends Component {
                         <Link to="" className="nav-link"><FeatherIcon icon="settings"></FeatherIcon></Link>
                     </nav>
                 </div>
-                <div className="filemgr-content-body">
+                <PerfectScrollbar className="filemgr-content-body">
                     <div className="pd-20 pd-lg-25 pd-xl-30">
 
                         <label className="d-block tx-medium tx-10 tx-uppercase tx-sans tx-spacing-1 tx-color-03 mg-b-15">Recently Accessed Files</label>
@@ -104,7 +105,7 @@ class Content extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </PerfectScrollbar >
             </div>
         )
     }

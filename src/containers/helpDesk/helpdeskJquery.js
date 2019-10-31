@@ -1,5 +1,4 @@
-import $ from 'jquery'
-import Chart from 'chart.js'
+
 import { df1, df2, df3} from './sampledata'
 
 

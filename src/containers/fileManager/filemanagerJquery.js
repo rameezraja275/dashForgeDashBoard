@@ -5,13 +5,6 @@ import feather from 'feather-icons';
 export default function(){
     'use strict'
   
-    new PerfectScrollbar('.filemgr-sidebar-body', {
-      suppressScrollX: true
-    });
-  
-    new PerfectScrollbar('.filemgr-content-body', {
-      suppressScrollX: true
-    });
 
     if (window.matchMedia('(max-width: 991px)').matches) {
       $('#mainMenuOpen').addClass('d-none');
@@ -30,7 +23,6 @@ export default function(){
 
     $('#mailSidebar').on('click', function(e){
       e.preventDefault();
-  
       $('body').addClass('app-filemgr filemgr-sidebar-show');
   
       $(this).addClass('d-none');

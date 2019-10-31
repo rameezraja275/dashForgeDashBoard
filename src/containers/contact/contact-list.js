@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import { contactDetails, setModel } from './actions'
 import FeatherIcon from 'feather-icons-react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const ContactCard = (props) => {
     const { FirstName, MobilePhone, onlineStatus } = props.data
@@ -41,7 +42,7 @@ class ConatctList extends Component {
                         <span data-toggle="tooltip" title="Add New Contact"><FeatherIcon icon="user-plus"></FeatherIcon></span>
                     </div>
                 </div>
-                <div className="contact-sidebar-body">
+                <PerfectScrollbar className="contact-sidebar-body">
                     <div className="tab-content">
                         <div id="tabContact" className="tab-pane fade active show">
                             <div className="pd-y-20 pd-x-10 contact-list">
@@ -57,7 +58,7 @@ class ConatctList extends Component {
 
 
                     </div>
-                </div>
+                </PerfectScrollbar >
             </div>
         )
     }

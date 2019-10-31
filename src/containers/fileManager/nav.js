@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import FeatherIcon from 'feather-icons-react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class Nav extends Component{
     
@@ -27,7 +28,7 @@ class Nav extends Component{
                             </div>
                         </div>
                     </div>
-                    <div className="filemgr-sidebar-body">
+                    <PerfectScrollbar className="filemgr-sidebar-body">
                         <div className="pd-t-20 pd-b-10 pd-x-10">
                             <label className="tx-sans tx-uppercase tx-medium tx-10 tx-spacing-1 tx-color-03 pd-l-10">My Drive</label>
                             <nav className="nav nav-sidebar tx-13">
@@ -62,7 +63,7 @@ class Nav extends Component{
                             </div>
                             <p className="tx-12">Get 2TB (2,000GB) of storage now and get 40% off. Offers ends soon. <Link to="">Learn more</Link></p>
                         </div>
-                    </div>
+                    </PerfectScrollbar >
                 </div>
         )
     }

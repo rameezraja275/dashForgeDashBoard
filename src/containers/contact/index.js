@@ -63,6 +63,14 @@ class Conatct extends Component {
         this.props.setCurrentRoute("contacts");
     }
 
+    componentWillUnmount = () => {
+        $('.contact-list .media').off('click');
+        $("#contactContentHide").off('click');
+        $("#contactOptions").off('click');
+        $('#mailSidebar').off('click');
+        // $('.aside-menu-link').off('click');
+    }
+
     renderTab = (dataType) => {
         this.setState({
             dataType

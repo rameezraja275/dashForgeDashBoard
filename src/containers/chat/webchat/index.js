@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setCurrentRoute } from '../../../config/commanActions'
-import { Link } from "react-router-dom";
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import $ from 'jquery';
 import { Mentions } from 'antd';
 import FeatherIcon from 'feather-icons-react';
@@ -19,6 +19,14 @@ class WebChat extends Component {
     componentDidMount = () => {
         $(ChatJquery())
         this.props.setCurrentRoute("websitechat");
+    }
+
+    componentWillUnmount = () => {
+        $('#mailSidebar').off('click');
+        $("#showMemberList").off('click');
+        $("#chatDirectMsg .media").off('click');
+        $('#allChannels div').off('click');
+        // $('.aside-menu-link').off('click');
     }
 
     state = {
@@ -161,7 +169,7 @@ class WebChat extends Component {
 
                     <div className="chat-content">
                         <ChatHead User={User} backgroundColor={'#0000FF'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
-                        <div className="chat-content-body">
+                        <PerfectScrollbar className="chat-content-body">
                             <div className="chat-group background-image webchat" style={{ backgroundImage: "url('./webchat.png')" }} >
 
                                 {/* <div className="chat-group-divider">February 20, 2019</div> */}
@@ -175,7 +183,7 @@ class WebChat extends Component {
                                     toggleAttachment && <Attachments />
                                 }
                             </div>
-                        </div>
+                        </PerfectScrollbar>
 
                         <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
                             onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />

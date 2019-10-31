@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import FeatherIcon from 'feather-icons-react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class Conversation extends Component {
 
@@ -29,7 +30,7 @@ class Conversation extends Component {
             <Link to="" data-toggle="tooltip" title="Options" className="nav-link d-sm-none"><FeatherIcon icon="more-vertical"></FeatherIcon></Link>
           </nav>
         </div>
-        <div className="mail-content-body d-none">
+        <PerfectScrollbar className="mail-content-body d-none">
           <div className="pd-20 pd-lg-25 pd-xl-30">
             <h5 className="mg-b-30">30 Seconds Survey to Your Next Job</h5>
 
@@ -65,7 +66,7 @@ class Conversation extends Component {
               <button className="btn btn-primary">Reply</button>
             </div>
           </div>
-        </div>
+        </PerfectScrollbar >
       </div>
     )
   }

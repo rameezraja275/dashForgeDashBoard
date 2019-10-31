@@ -4,7 +4,7 @@ import { setCurrentRoute } from '../../../config/commanActions'
 import { Link } from "react-router-dom";
 import $ from 'jquery';
 import { Mentions } from 'antd';
-import FeatherIcon from 'feather-icons-react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import ChatSideBar from '../chatSidebar'
 import ChatHead from '../chatHead'
 import MessageCard from '../messageCard'
@@ -20,6 +20,14 @@ class Channels extends Component {
     componentDidMount = () => {
         $(ChatJquery())
         this.props.setCurrentRoute("teamdiscussions");
+    }
+
+    componentWillUnmount = () => {
+        $('#mailSidebar').off('click');
+        $("#showMemberList").off('click');
+        $("#chatDirectMsg .media").off('click');
+        $('#allChannels div').off('click');
+        // $('.aside-menu-link').off('click');
     }
 
     state = {
@@ -176,7 +184,7 @@ class Channels extends Component {
                     <div className="chat-content">
                         <ChannelHead Channel={Channel} backgroundColor={'#3b5997'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
                         {/* <ChatHead User={User} backgroundColor={'#3b5997'} toggleMode={this.toggleMode} ghostMode={ghostMode} /> */}
-                        <div className="chat-content-body">
+                        <PerfectScrollbar className="chat-content-body">
                             <div className="chat-group background-image facebook" >
                                 {
                                     Chats.map((item) => (
@@ -188,7 +196,7 @@ class Channels extends Component {
                                     toggleAttachment && <Attachments />
                                 }
                             </div>
-                        </div>
+                        </PerfectScrollbar >
 
                         <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
                             onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />

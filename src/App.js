@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Navbar from './containers/navBar';
 import Search from "./containers/searchbar";
 import Compose from './containers/mail/compose-mail';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import Routes from './config/Routes';
 import ModalViewDetails from './containers/fileManager/modelViewDetails'
 import ModelCreateChannel from './containers/chat/ModelCreateChannel'
@@ -43,7 +43,7 @@ class App extends Component {
     this.props.darkMode ? document.body.classList.add('dark-mode') : 
       document.body.classList.remove('dark-mode')
     return (
-      <BrowserRouter >
+      <HashRouter >
           <Navbar />
           <div className="content ht-100v pd-0" style={{paddingRight : RightSideBarStatus ? "60px" : "0px" }}>
             <Search toogleRightSideBar={ this.toogleRightSideBar } status={RightSideBarStatus}/>
@@ -65,7 +65,7 @@ class App extends Component {
         <div class="pos-fixed b-10 r-10">
           <ToastDownlaod />
         </div>
-      </BrowserRouter>
+      </HashRouter >
     );
   }
 }

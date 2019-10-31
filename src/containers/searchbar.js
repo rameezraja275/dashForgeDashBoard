@@ -4,18 +4,28 @@ import { connect } from 'react-redux'
 import { setDarkMode } from '../config/commanActions'
  
 class SearchBar extends Component {
+
+    state = {
+        searchBar: true
+    }
+    toggleSearchbar = () => {
+        const { searchBar } = this.state
+        this.setState({
+            searchBar: !searchBar
+        })
+    }
     render() {
         const styleBackground = { background: "#F7F8FA" }
         const { status, darkMode } = this.props;
         const icon = status ? "align-left" : "align-justify"
-        console.log("status ", status)
         return (
             <div className="content-header" style={ styleBackground }>
-                <div className="content-search">
-                    <FeatherIcon icon="search"></FeatherIcon>
-                    <input type="search" className="form-control" placeholder="Search" />
+                 <div className="content-search">
+                    <FeatherIcon icon="search" className={this.state.searchBar && "search-icon"}></FeatherIcon>
+                    <input type="search" className={this.state.searchBar ? "form-control search-input" : "form-control" } placeholder="Search" />
                 </div>
                 <nav className="nav">
+                    <div className="nav-link search-toggler" onClick={ this.toggleSearchbar } ><FeatherIcon icon="search"></FeatherIcon></div>
                     <div className="nav-link" onClick={ this.props.setDarkMode }>
                         { darkMode ? <img src={"./assets/icons/sunny.svg"} width='18px' />
                             : <img src={"./assets/icons/moon.svg"} width='18px' /> }

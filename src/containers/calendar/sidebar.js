@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CalendarTimePicker from 'react-calendar';
 import FeatherIcon from 'feather-icons-react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class SideBar extends Component {
 
@@ -17,7 +18,7 @@ class SideBar extends Component {
                             <div data-toggle="tooltip" title="Create New Event"><FeatherIcon icon="plus"></FeatherIcon></div>
                         </div>
                     </div>
-                    <div id="calendarSidebarBody" class="calendar-sidebar-body">
+                    <PerfectScrollbar id="calendarSidebarBody" className="calendar-sidebar-body">
                         <div class="calendar-inline">
                             <div id="calendarInline" >
                             <CalendarTimePicker
@@ -56,7 +57,7 @@ class SideBar extends Component {
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </PerfectScrollbar >
                 </div>
         )
     }

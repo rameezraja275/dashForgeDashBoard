@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PerfectScrollbar from 'react-perfect-scrollbar'
+
 
 const ConversationCard = ( props ) => {
     const { name, subject, time, message, nameIntial } = props.conversationinfo;
@@ -55,7 +57,7 @@ class ConversationsList extends Component {
                         <span className="tx-color-03">Sort:</span> <Link to="" className="dropdown-link link-02">Date</Link>
                     </div>
                 </div>
-                <div className="mail-group-body">
+                <PerfectScrollbar className="mail-group-body">
                     <DateLabel date="Toady"/>
                     <ul className="list-unstyled media-list mg-b-0">
                         {
@@ -68,7 +70,7 @@ class ConversationsList extends Component {
                     <div className="pd-t-1 pd-b-5 pd-x-5">
                         <Link to="" className="btn btn-xs btn-block btn-light bd-0 tx-uppercase tx-10 tx-spacing-1 tx-medium mn-ht-0">Load more</Link>
                     </div>
-                </div>
+                </PerfectScrollbar>
             </div>
         )
     }

@@ -12,22 +12,6 @@ export default function(){
   }
 
 
-  const contactSidebar = new PerfectScrollbar('.contact-sidebar-body', {
-    suppressScrollX: true
-  });
-
-  new PerfectScrollbar('.contact-content-body', {
-    suppressScrollX: true
-  });
-
-  new PerfectScrollbar('.contact-content-sidebar', {
-    suppressScrollX: true
-  });
-
-  $('.contact-navleft .nav-link').on('shown.bs.tab', function(e) {
-    contactSidebar.update()
-  })
-
   // UI INTERACTION
   $('.contact-list .media').on('click', function(e) {
     e.preventDefault();
@@ -90,6 +74,7 @@ export default function(){
 
     $('body').removeClass('contact-content-show');
   })
+
 
   $(window).resize(function(){
     $('body').removeClass('contact-options-show');

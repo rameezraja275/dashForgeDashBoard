@@ -12,6 +12,7 @@ import PageVisit from './pagesVisit'
 import BrowserUsed from './browserUsed'
 import Summary from './summaryTable'
 import { setCurrentRoute } from '../../config/commanActions'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class WebAnalytics extends Component {
 
@@ -21,7 +22,7 @@ class WebAnalytics extends Component {
 
     render() {
         return (
-            <div className="content-body">
+            <PerfectScrollbar className="content-body">
                 <div className="container pd-x-0" >
                     <Head />
                     <div className="row row-xs">
@@ -42,7 +43,7 @@ class WebAnalytics extends Component {
                         <Summary />
                     </div>
                 </div>
-            </div>
+            </PerfectScrollbar >
         )
     }
 }

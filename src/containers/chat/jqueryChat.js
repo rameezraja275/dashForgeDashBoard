@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import PerfectScrollbar from 'perfect-scrollbar';
 import { object } from 'prop-types';
 
 export default function () {
@@ -8,14 +7,6 @@ export default function () {
     // $('[data-toggle="tooltip"]').tooltip()
 
     // chat sidebar body scrollbar
-    new PerfectScrollbar('.chat-sidebar-body', {
-        suppressScrollX: true
-    });
-
-    // chat content body scrollbar
-    new PerfectScrollbar('.chat-content-body', {
-        suppressScrollX: true
-    });
 
     // chat sidebar right scrollbar
     // new PerfectScrollbar('.chat-sidebar-right', {
@@ -115,18 +106,33 @@ export default function () {
         }
     })
 
+    // $(document).on('click touchstart', function(e){
+    //     e.stopPropagation();
+    
+    //     // closing of sidebar menu when clicking outside of it
+    //     if(!$(e.target).closest('.burger-menu').length) {
+    //       var sb = $(e.target).closest('.filemgr-sidebar').length;
+    //       if(!sb) {
+    //         console.log("also here in chat ")
+    //         $('body').removeClass('filemgr-sidebar-show');
+    
+    //         $('#filemgrMenu').removeClass('d-none');
+    //         $('#mainMenuOpen').addClass('d-none');
+    //       }
+    //     }
+    //   });
 
 
-$(function(){
-    console.log(typeof document.getElementById('mentionTextarea') == object);
-    if(typeof document.getElementById('mentionTextarea') === object){
-     document.getElementById('mentionTextarea').addEventListener("keydown", function (e) {
-         alert('asd');
-     });
-    }//*/
-// document.getElementById('mentionTextarea').mouseover(function(){
-// alert('tes');
+
+// $(function(){
+//     if(typeof document.getElementById('mentionTextarea') === object){
+//      document.getElementById('mentionTextarea').addEventListener("keydown", function (e) {
+//          alert('asd');
+//      });
+//     }//*/
+// // document.getElementById('mentionTextarea').mouseover(function(){
+// // alert('tes');
+// // });
 // });
-});
 
 }

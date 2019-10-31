@@ -14,7 +14,10 @@ import Channels from '../containers/chat/channels'
 import Contact from '../containers/contact'
 import HelpDesk from '../containers/helpDesk'
 import SaleMonitoring from '../containers/salesMonitoring'
-import Settings from '../containers/settings'
+import PersonalInfo from '../containers/settings/personal-info'
+import Security from '../containers/settings/security'
+import AppSettings from '../containers/settings/app-setting'
+import NotificationSettings from '../containers/settings/notification-setting'
 
 const Routes = () => {
     const ROOT_URL = ""
@@ -27,13 +30,16 @@ const Routes = () => {
         <Route path={ROOT_URL + "/whatsapp"} component={Whatsapp} />
         <Route path={ROOT_URL + "/textMessaging"} component={SMS} />
         <Route path={ROOT_URL + "/contacts"} component={Contact} />
-        <Route path={ROOT_URL + "/filemanager"} component={FileManager} />
+        <Route path={ROOT_URL + "/cloud"} component={FileManager} />
         <Route path={ROOT_URL + "/mail"} component={Mail} />
         <Route path={ROOT_URL + "/facebook"} component={Facebook} />
         <Route path={ROOT_URL + "/instagram"} component={Instagram} />
         <Route path={ROOT_URL + "/twitter"} component={Twitter} />
         <Route path={ROOT_URL + "/teamdiscussions"} component={Channels} />
-        <Route path={ROOT_URL + "/settings"} component={Settings} />
+        <Route path={ROOT_URL + "/personalinformation"} component={PersonalInfo} />
+        <Route path={ROOT_URL + "/security"} component={Security} />
+        <Route path={ROOT_URL + "/applicationsettings"} component={AppSettings} />
+        <Route path={ROOT_URL + "/notificationsettings"} component={NotificationSettings} />
     </Switch>)
 }
 

@@ -4,9 +4,8 @@ import { connect } from 'react-redux'
 import { setCurrentRoute } from '../../config/commanActions'
 import moment from 'moment'
 import $ from 'jquery'
-import calendarJquery from './calendarJquery'
+
 import { setModel } from './actions'
-import PerfectScrollbar from 'perfect-scrollbar';
 import SideBar from './sidebar';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css'
 
@@ -173,11 +172,15 @@ class Calendar extends Component {
 
   }
 
+  componentWillUnmount = () => {
+
+    $('#calendarSidebarShow').off('click');
+    $('div.revealFullCalBtn').off('click');
+    // $('.aside-menu-link').off('click');
+  }
+
   componentDidMount = () => {
     this.props.setCurrentRoute("calendar");
-    new PerfectScrollbar('.calendar-sidebar-body', {
-      suppressScrollX: true
-    });
 
     $('#calendarSidebarShow').on('click', function (e) {
       e.preventDefault()
@@ -201,17 +204,12 @@ class Calendar extends Component {
       cal2.toggleClass('revealCal');
 
     });
-
-
-
   }
 
   render() {
 
-    console.log( "yai hai ",2019,"ya iha i " ,10)
     const { calendarEvents, birthdayEvents, holidayEvents, discoveredEvents, meetupEvents, otherEvents } = this.state
     let view = ""
-    console.log(window.innerWidth)
     view = window.innerWidth > 700 ? "month" : "list"
 
     return (

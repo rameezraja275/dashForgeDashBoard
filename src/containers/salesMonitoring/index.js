@@ -10,6 +10,7 @@ import RecentEarning from './recentEarning'
 import TransactionHistory from './transactionHistory'
 import NewCustomer from './newCustomer'
 import RealTimeSale from './realTimeSales'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 class SalesMonitoring extends Component {
 
@@ -19,7 +20,7 @@ class SalesMonitoring extends Component {
 
   render() {
     return (
-      <div className="content-body">
+      <PerfectScrollbar className="content-body">
         <div class="container pd-x-0" >
           <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
             <div>
@@ -53,7 +54,7 @@ class SalesMonitoring extends Component {
           </div>
 
         </div>
-      </div>
+      </PerfectScrollbar >
     )
   }
 }
