@@ -1,14 +1,27 @@
 import React, { Component } from 'react'
 import { Card,Slider, Row, Col } from 'antd'
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../../config/commanActions'
+import InstagramSetting from './instagram'
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import FacebookSetting from './facebook'
+import WhatsappSetting from './whatsapp'
+import WebchatSetting from './webchat'
+import CalendarSetting from './calendar'
 
 class NotificationSetting extends Component {
     state = {
         currentTab : "instagram"
     }
+
+    componentDidMount = () => {
+        this.props.setCurrentRoute('notificationsettings');
+    }
+
     render() {
-        
+        const { currentTab } = this.state
         return (
-            <div className="content-body ps ps--active-y">
+            <PerfectScrollbar className="content-body ps ps--active-y">
                 <div className="container notifications-setting pd-x-0 pd-lg-x-10 pd-xl-x-0">
                     <div className="notification-header">
                         <nav aria-label="breadcrumb">
@@ -21,7 +34,7 @@ class NotificationSetting extends Component {
                     </div>
 
                     <div>
-                        <Card
+                        <Card className = "notification-tabs"
                             style={{ width: '100%' }}
                             tabList={[ {key: "instagram", tab: "Instagram"}, 
                                 {key: "facebook", tab: "Facebook"}, 
@@ -29,28 +42,21 @@ class NotificationSetting extends Component {
                                 {key: "webchat", tab: "WebSite Chat"}, 
                                 {key: "calendar", tab: "Calendar"}
                             ]}
-                            activeTabKey={this.state.currentTab}
+                            activeTabKey={currentTab}
                             onTabChange={key => this.setState({ currentTab: key })}
                         >
-                            { this.state.currentTab == "instagram" ? 
-                                <div>
-                                    <Row>
-                                        <Col span={4} > Notification rate </Col>
-                                        <Col span={10}><Slider
-                                            min={1}
-                                            max={5}
-                                            onChange={() => console.log("yo")}
-                                            value={0}
-                                        /> </Col>
-                                    </Row>
-                                     
-                                </div> : <h5>Rest </h5> }
+                            {   
+                                currentTab == "instagram" ? <InstagramSetting /> : 
+                                currentTab == "facebook" ? <FacebookSetting /> :
+                                currentTab == "whatsapp" ? <WhatsappSetting /> :
+                                currentTab == "webchat" ? <WebchatSetting /> : <CalendarSetting />  
+                            }
                         </Card>
                     </div>
                 </div>
-            </div>
+            </PerfectScrollbar >
         )
     }
 }
 
-export default NotificationSetting;
+export default connect(null, { setCurrentRoute })(NotificationSetting)

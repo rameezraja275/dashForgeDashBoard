@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../../config/commanActions'
 import { Skeleton, Switch, Card, Icon, Avatar, Row, Col } from 'antd';
 
 const { Meta } = Card;
 
 class SecuritySetting extends Component {
-
+    componentDidMount = () => {
+        this.props.setCurrentRoute('security');
+    }
     render() {
-
+        
         return (
             <PerfectScrollbar className="content-body">
                 <div className="container security-setting pd-x-0 pd-lg-x-10 pd-xl-x-0">
@@ -113,4 +117,4 @@ class SecuritySetting extends Component {
     }
 }
 
-export default SecuritySetting;
+export default connect(null, { setCurrentRoute })(SecuritySetting)

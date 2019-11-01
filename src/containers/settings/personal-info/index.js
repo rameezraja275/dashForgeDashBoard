@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import { connect } from 'react-redux'
+import { setCurrentRoute } from '../../../config/commanActions'
 import {
     Form,
     Input,
@@ -19,17 +21,41 @@ import {
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
+const CustomInput = (props) => {
+    const { label, icon } = props
+    return <Row className="ant-form-item">
+        <Col span={4}>
+            <label >{label}</label>
+        </Col>
+        <Col span={20}>
+            {
+                label == "Password" ? <Input.Password
+                    prefix={<Icon type={icon} style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    placeholder={label}
+                /> : label == "Birthday" ? <DatePicker /> : label == "Gender" ?
+                    <Radio.Group>
+                        <Radio value="male">Male</Radio>
+                        <Radio value="female">Female</Radio>
+                        <Radio value="gay">Rather Not say</Radio>
+                    </Radio.Group> :
+                    <Input
+                        prefix={<Icon type={icon} style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        placeholder={label}
+                    />
+            }
+
+        </Col>
+    </Row>
+}
+
 class PersonalInfo extends Component {
+
+    componentDidMount = () => {
+        this.props.setCurrentRoute('personalinformation');
+    }
 
     render() {
         const { getFieldDecorator } = this.props.form;
-        // const formItemLayout = {
-        //     labelCol: { span: 6 },
-        //     wrapperCol: { span: 14 },
-        // };
-        const config = {
-            rules: [{ type: 'object', required: true, message: 'Please select time!' }],
-        };
 
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '86',
@@ -40,18 +66,6 @@ class PersonalInfo extends Component {
             </Select>,
         );
 
-        // const tailFormItemLayout = {
-        //     wrapperCol: {
-        //         xs: {
-        //             span: 24,
-        //             offset: 0,
-        //         },
-        //         sm: {
-        //             span: 16,
-        //             offset: 8,
-        //         },
-        //     },
-        // };
         return (
             <PerfectScrollbar className="content-body">
                 <div className="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
@@ -73,77 +87,12 @@ class PersonalInfo extends Component {
                                 <p class="mg-b-10 tx-spacing--1" >Here You can View and Edit Yout Personal Information</p>
                             </div>
 
-                            <Row className="ant-form-item">
-                                <Col span={4}>
-
-                                    <label for="username" title="User Name : ">User Name </label>
-                                </Col>
-                                <Col span={20}>
-                                    <Input
-                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        placeholder="User Name"
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className="ant-form-item">
-                                <Col span={4}>
-                                    <label for="firstname" title="First Name : ">First Name </label>
-                                </Col>
-                                <Col span={20}>
-                                    <Input
-                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        placeholder="First Name"
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className="ant-form-item">
-                                <Col span={4}>
-                                    <label for="lastname" title="Last Name : ">Last Name </label>
-                                </Col>
-                                <Col span={20}>
-                                    <Input
-                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        placeholder="Last Name"
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className="ant-form-item">
-                                <Col span={4}>
-                                    <label for="birthday" title="Birthday : ">Birthday </label>
-                                </Col>
-                                <Col span={20}>
-                                    <DatePicker />
-                                </Col>
-                            </Row>
-
-                            <Row className="ant-form-item">
-                                <Col span={4}>
-                                    <label for="gender" title="Gender : ">Gender </label>
-                                </Col>
-                                <Col span={20}>
-                                    <Radio.Group>
-                                        <Radio value="male">Male</Radio>
-                                        <Radio value="female">Female</Radio>
-                                        <Radio value="gay">Rather Not say</Radio>
-                                    </Radio.Group>
-                                </Col>
-                            </Row>
-
-                            <Row className="ant-form-item">
-                                <Col span={4}>
-                                    <label for="password" title="Password : ">Password </label>
-                                </Col>
-                                <Col span={20}>
-                                    <Input.Password
-                                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        placeholder="Password"
-                                    />
-                                </Col>
-                            </Row>
-
+                            <CustomInput label={"User Name"} icon="user" />
+                            <CustomInput label={"First Name"} icon="user" />
+                            <CustomInput label={"Last Name"} icon="user" />
+                            <CustomInput label={"Birthday"} icon={null} />
+                            <CustomInput label={"Gender"} icon={null} />
+                            <CustomInput label={"Password"} icon="lock" />
                             <div className="ant-form-item buttons">
                                 <Button type="primary" >
                                     Save
@@ -156,29 +105,10 @@ class PersonalInfo extends Component {
                                 <h4 class="mg-b-10 tx-spacing--1">Contact Info</h4>
                                 <p class="mg-b-10 tx-spacing--1" >Here You can View and Edit Yout Contact Information</p>
                             </div>
-                            <Row className="ant-form-item">
-                                <Col span={4}>
-                                    <label for="email" title="Email : ">Email </label>
-                                </Col>
-                                <Col span={20}>
-                                    <Input
-                                        prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        placeholder="Email"
-                                    />
-                                </Col>
-                            </Row>
 
-                            <Row className="ant-form-item">
-                                <Col span={4}>
-                                    <label for="phone" title="Phone : ">Phone </label>
-                                </Col>
-                                <Col span={20}>
-                                    <Input
-                                        prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        placeholder="Phone Number"
-                                    />
-                                </Col>
-                            </Row>
+                            <CustomInput label={"Email"} icon="mail" />
+                            <CustomInput label={"Phone"} icon="phone" />
+
                             <div className="ant-form-item buttons">
                                 <Button type="primary" >
                                     Save
@@ -192,4 +122,4 @@ class PersonalInfo extends Component {
     }
 }
 
-export default Form.create()(PersonalInfo)
+export default connect(null, { setCurrentRoute })(Form.create()(PersonalInfo))

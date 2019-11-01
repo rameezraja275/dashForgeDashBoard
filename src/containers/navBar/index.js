@@ -33,19 +33,10 @@ class NavBar extends Component {
   }
 
   changeTab = (tab) => {
-    console.log("yo")
     this.setState({
       currenttab: tab
     })
   }
-
-  // toggleUserInfo = () => {
-  //   const { openUserinfo } = this.state
-  //   console.log(openUserinfo)
-  //   this.setState({
-  //     openUserinfo: !openUserinfo
-  //   })
-  // }
 
   componentDidMount = () => {
     $(jqueryNav())
@@ -53,6 +44,7 @@ class NavBar extends Component {
 
   render() {
     const active = this.props.currentRoute
+    
     let classes = "aside aside-fixed"
     if (window.innerWidth > 800) {
       classes = "aside aside-fixed minimize"
@@ -62,7 +54,14 @@ class NavBar extends Component {
     }
     const { darkMode  } = this.props;
     const { currenttab, openUserinfo } = this.state
-
+    // console.log("yai hai tab", currenttab);
+    // if( active == "personalinformation" || active == "security" || active == "applicationsettings" || active == "notificationsettings" ){
+    //   if( currenttab != "settings" )
+    //     this.changeTab('settings')
+    // }else{
+    //   if( currenttab != "apps" )
+    //     this.changeTab('apps')
+    // }
     return (
       <aside className={classes}>
 
@@ -90,7 +89,7 @@ class NavBar extends Component {
             <div className="aside-loggedin-user" /*onClick={this.toggleUserInfo}*/>
               <div className="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
                 <h6 className="tx-semibold mg-b-0">Katherine Pechon</h6>
-                <div  onClick={ () => this.changeTab("settings") }>
+                <div onClick={ () => this.changeTab("settings") }>
                   <FeatherIcon icon="settings"></FeatherIcon>
                 </div>
                 

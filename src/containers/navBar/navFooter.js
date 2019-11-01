@@ -31,7 +31,7 @@ class NavFooter extends Component {
 
 
                 <div className="sidebar-footer" >
-                    <div class="tabs js-tabs">
+                    <div class="tabs js-tabs js-tabs-init">
 
                         <div class="cover-back cover-back-tabs js-cover-back-tabs"></div>
 

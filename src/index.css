@@ -896,6 +896,18 @@
 .notifications-setting .notification-header {
   margin-bottom: 30px; }
 
+.notifications-setting .notification-tabs .ant-row {
+  display: flex;
+  align-items: center; }
+
+.notifications-setting .notification-tabs .slider {
+  margin-bottom: 30px; }
+
+.notifications-setting .notification-tabs .notifications-ant-row {
+  margin: 30px 0px; }
+  .notifications-setting .notification-tabs .notifications-ant-row .ant-row .ant-col-4 {
+    width: 50%; }
+
 .dark-mode .feather {
   color: #97a3b9; }
 
