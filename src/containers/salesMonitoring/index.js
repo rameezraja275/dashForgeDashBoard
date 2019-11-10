@@ -21,25 +21,25 @@ class SalesMonitoring extends Component {
   render() {
     return (
       <PerfectScrollbar className="content-body">
-        <div class="container pd-x-0" >
-          <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+        <div className="container pd-x-0" style={{ maxWidth: "100%" }}>
+          <div className="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
             <div>
               <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                  <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Sales Monitoring</li>
+                <ol className="breadcrumb breadcrumb-style1 mg-b-10">
+                  <li className="breadcrumb-item"><a href="#">Dashboard</a></li>
+                  <li className="breadcrumb-item active" aria-current="page">Sales Monitoring</li>
                 </ol>
               </nav>
-              <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
+              <h4 className="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
             </div>
-            <div class="d-none d-md-block">
-              <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><FeatherIcon icon="mail" class="wd-10 mg-r-5"></FeatherIcon> Email</button>
-              <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><FeatherIcon icon="printer" class="wd-10 mg-r-5"></FeatherIcon> Print</button>
-              <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><FeatherIcon icon="file" class="wd-10 mg-r-5"></FeatherIcon> Generate Report</button>
+            <div className="d-none d-md-block">
+              <button className="btn btn-sm pd-x-15 btn-white btn-uppercase"><FeatherIcon icon="mail" className="wd-10 mg-r-5"></FeatherIcon> Email</button>
+              <button className="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><FeatherIcon icon="printer" className="wd-10 mg-r-5"></FeatherIcon> Print</button>
+              <button className="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><FeatherIcon icon="file" className="wd-10 mg-r-5"></FeatherIcon> Generate Report</button>
             </div>
           </div>
 
-          <div class="row row-xs">
+          <div className="row row-xs">
             <InfoCard title="Conversion rate" value="0.81%" change="1.2%" increase={true} id={0} />
             <InfoCard title="Unique Purchases" value="3456" change="1.2%" increase={false} id={1} />
             <InfoCard title="AVG Order" value="$3454" change="1.2%" increase={false} id={2} />

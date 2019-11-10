@@ -10,6 +10,7 @@
     "antd": "^3.23.5",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
+    "emoji-picker-react": "^3.0.0",
     "feather-icons": "^4.24.1",
     "feather-icons-react": "^0.3.2",
     "fullcalendar-reactwrapper": "^1.0.7",
@@ -31,6 +32,7 @@
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
+    "react-twemoji": "^0.2.3",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },

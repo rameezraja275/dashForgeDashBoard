@@ -17,12 +17,12 @@ class SecuritySetting extends Component {
                 <div className="container security-setting pd-x-0 pd-lg-x-10 pd-xl-x-0">
                     <div className="setting-header">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                                <li class="breadcrumb-item"><a href="#">Settings</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Security</li>
+                            <ol className="breadcrumb breadcrumb-style1 mg-b-10">
+                                <li className="breadcrumb-item"><a href="#">Settings</a></li>
+                                <li className="breadcrumb-item active" aria-current="page">Security</li>
                             </ol>
                         </nav>
-                        <h4 class="mg-b-0 tx-spacing--1">Security</h4>
+                        <h4 className="mg-b-0 tx-spacing--1">Security</h4>
                     </div>
 
                     <Card
@@ -32,12 +32,12 @@ class SecuritySetting extends Component {
                     >
                         <div className="card-content">
                             <Row>
-                                <Col span={14}>
+                                <Col span={18}>
                                     <h4>Security Issues found</h4>
                                     <p>Protect your account now by resolving these issues</p>
                                 </Col>
-                                <Col span={10}>
-                                    <img className="setting-image" src="https://www.gstatic.com/identity/boq/accountsettingsmobile/securitycheckup_scene_yellow_316x112_8b4f5a4b62762d8765fdb69f5d6b3b76.png" />
+                                <Col span={6}>
+                                    <img className="setting-image" style = {{width:"100%"}} src="https://www.gstatic.com/identity/boq/accountsettingsmobile/securitycheckup_scene_yellow_316x112_8b4f5a4b62762d8765fdb69f5d6b3b76.png" />
                                 </Col>
                             </Row>
                         </div>
@@ -46,12 +46,12 @@ class SecuritySetting extends Component {
                     <Card>
                         <div className="card-content">
                             <Row>
-                                <Col span={14}>
+                                <Col span={18}>
                                     <h4>Ways we can verify it's you</h4>
                                     <p>These can be used to make sure it's really you signing in or to reach you if there's suspicious activity in your account</p>
                                 </Col>
-                                <Col span={10}>
-                                    <img className="setting-image" src="https://www.gstatic.com/identity/boq/accountsettingsmobile/recovery_scene_316x112_a71256f365c17ad4f8a1b82c5b03a173.png" />
+                                <Col span={6}>
+                                    <img className="setting-image" style = {{width:"100%"}} src="https://www.gstatic.com/identity/boq/accountsettingsmobile/recovery_scene_316x112_a71256f365c17ad4f8a1b82c5b03a173.png" />
                                 </Col>
                             </Row>
                         </div>
@@ -86,7 +86,7 @@ class SecuritySetting extends Component {
                     >
                         <div className="card-content">
                             <Row>
-                                <Col span={14}>
+                                <Col span={18}>
                                     <h4>Your devices</h4>
                                     <p>You’re currently signed in to your Google Account on these devices</p>
 
@@ -94,9 +94,9 @@ class SecuritySetting extends Component {
                                         <li>
                                             <Row>
                                                 <Col span={2}>
-                                                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/devicesrealistic_laptop_windows_36x36_10a55c035b5267ea366731d746b48c21.png" />
+                                                    <img style = {{width:"100%"}}  src="https://www.gstatic.com/identity/boq/accountsettingsmobile/devicesrealistic_laptop_windows_36x36_10a55c035b5267ea366731d746b48c21.png" />
                                                 </Col>
-                                                <Col span={6}>
+                                                <Col span={18}>
                                                     <h5>Windows</h5>
                                                     <p>Pakistan-2:00pm</p>
                                                 </Col>
@@ -104,8 +104,8 @@ class SecuritySetting extends Component {
                                         </li>
                                     </ul>
                                 </Col>
-                                <Col span={10}>
-                                    <img className="setting-image" src="https://www.gstatic.com/identity/boq/accountsettingsmobile/securitycheckup_scene_yellow_316x112_8b4f5a4b62762d8765fdb69f5d6b3b76.png" />
+                                <Col span={6}>
+                                    <img className="setting-image" style = {{width:"100%"}}  src="https://www.gstatic.com/identity/boq/accountsettingsmobile/securitycheckup_scene_yellow_316x112_8b4f5a4b62762d8765fdb69f5d6b3b76.png" />
                                 </Col>
                             </Row>
                         </div>

@@ -1,25 +1,50 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import ReactQuill from 'react-quill'; 
 import FeatherIcon from 'feather-icons-react';
+import { connect } from 'react-redux'
+import { setModel } from '../../config/commanActions';
 
 class Compose extends Component{
 
+  state = {
+    shrink : false,
+    minimize : false
+  }
+
+  onShrink = () => {
+    const { shrink } = this.state
+    this.setState({
+      shrink : !shrink
+    })
+  }
+
+  onMinimize = () => {
+    const { minimize } = this.state
+    this.setState({
+      minimize : !minimize
+    })
+  }
+
     render(){
+        const { shrink, minimize } = this.state
         return(
-            <div id="mailCompose" className="mail-compose">
+            <div id="mailCompose" className={ shrink ? "mail-compose show shrink" : minimize ? "mail-compose minimize show" : "mail-compose show"}>
             <div className="mail-compose-dialog">
               <div className="mail-compose-header">
                 <h6 className="mail-compose-title tx-white">New Message</h6>
                 <nav className="nav nav-icon-only">
-                  <Link id="mailComposeMinimize" to="" className="nav-link nav-link-minimize d-none d-lg-block">
+                  <div onClick={ this.onMinimize } className="nav-link nav-link-minimize d-none d-lg-block">
                     <FeatherIcon icon="minus"></FeatherIcon>
                     <FeatherIcon icon="square"></FeatherIcon>
-                  </Link>
-                  <Link id="mailComposeShrink" to="" className="nav-link nav-link-shrink d-none d-lg-block">
+                  </div>
+                  <div onClick={ this.onShrink } className="nav-link nav-link-shrink d-none d-lg-block">
                     <FeatherIcon icon="minimize-2"></FeatherIcon>
                     <FeatherIcon icon="maximize-2"></FeatherIcon>
-                  </Link>
-                  <Link id="mailComposeClose" to="" className="nav-link nav-link-close"><FeatherIcon icon="x"></FeatherIcon></Link>
+                  </div>
+                  <div onClick={ () => this.props.setModel(null) } className="nav-link nav-link-close">
+                    <FeatherIcon icon="x"></FeatherIcon>
+                  </div>
                 </nav>
               </div>
               <div className="mail-compose-body">
@@ -36,19 +61,11 @@ class Compose extends Component{
                     <input type="text" className="form-control bd-0 pd-x-0" placeholder="Enter subject" />
                   </div>
                 </div>
-                <div id="editor-container2" className="ht-150 mg-t-15"></div>
+                <div id="editor-container2" className="ht-150 mg-t-15">
+                  <ReactQuill />
+
+                </div>
                 <div className="d-sm-flex align-items-center justify-content-between mg-t-25">
-                  <div id="toolbar-container2" className="bd-0-f pd-0-f">
-                    <span className="ql-formats">
-                      <button className="ql-bold"></button>
-                      <button className="ql-italic"></button>
-                      <button className="ql-underline"></button>
-                    </span>
-                    <span className="ql-formats">
-                      <button className="ql-link"></button>
-                      <button className="ql-image"></button>
-                    </span>
-                  </div>
                   <div className="tx-13 mg-t-15 mg-sm-t-0">
                     <button className="btn btn-white mg-r-5">Save as Draft</button>
                     <button className="btn btn-primary">Send</button>
@@ -61,4 +78,4 @@ class Compose extends Component{
     }
 }
 
-export default Compose;
+export default connect(null, { setModel })(Compose);

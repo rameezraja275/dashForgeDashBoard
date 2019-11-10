@@ -25,12 +25,12 @@ class NotificationSetting extends Component {
                 <div className="container notifications-setting pd-x-0 pd-lg-x-10 pd-xl-x-0">
                     <div className="notification-header">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                                <li class="breadcrumb-item"><a href="#">Settings</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Notifications</li>
+                            <ol className="breadcrumb breadcrumb-style1 mg-b-10">
+                                <li className="breadcrumb-item"><a href="#">Settings</a></li>
+                                <li className="breadcrumb-item active" aria-current="page">Notifications</li>
                             </ol>
                         </nav>
-                        <h4 class="mg-b-0 tx-spacing--1">Notifications</h4>
+                        <h4 className="mg-b-0 tx-spacing--1">Notifications</h4>
                     </div>
 
                     <div>

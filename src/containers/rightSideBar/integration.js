@@ -7,7 +7,7 @@ const IntegrationCard = (props) => {
     return (
         <div className="card">
             <div className="icon-wrapper">
-                <i class="fas fa-rocket"></i>
+                <i className="fas fa-rocket"></i>
             </div>
             <div className="text">
                 <p className="title">{ title }</p>

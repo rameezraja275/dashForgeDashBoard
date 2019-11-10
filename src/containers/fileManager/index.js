@@ -9,17 +9,20 @@ import FileJquery from './filemanagerJquery'
 class FileManager extends Component {
 
     componentDidMount = () => {
-        $(FileJquery)
+        // $(FileJquery)
         this.props.setCurrentRoute("cloud");
+        // app-filemgr filemgr-sidebar-show
+        document.body.classList.add('app-filemgr')
+        document.body.classList.add('filemgr-sidebar-show')
     }
 
-    componentWillUnmount = () => {
-        $('#mailSidebar').off('click');
-        // $('.aside-menu-link').off('click');
-        $(document).off('click touchstart');
-        $('.important').off('click');
-        $('.download').off('click');
-    }
+    // componentWillUnmount = () => {
+    //     $('#mailSidebar').off('click');
+    //     // $('.aside-menu-link').off('click');
+    //     $(document).off('click touchstart');
+    //     $('.important').off('click');
+    //     $('.download').off('click');
+    // }
     render() {
         return (
             <div className="content-body pd-0">

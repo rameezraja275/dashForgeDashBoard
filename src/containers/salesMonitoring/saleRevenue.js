@@ -5,9 +5,9 @@ const TableRow = (props) => {
     const { city, orders, earnings } = props
     return (
         <tr>
-            <td class="tx-medium">{city}</td>
-            <td class="text-right">{orders}</td>
-            <td class="text-right">${earnings}</td>
+            <td className="tx-medium">{city}</td>
+            <td className="text-right">{orders}</td>
+            <td className="text-right">${earnings}</td>
         </tr>
     )
 }
@@ -37,25 +37,25 @@ class SaleRevenue extends Component {
 
     render() {
         return (
-            <div class="col-md-6 col-xl-4 mg-t-10 order-md-1 order-xl-0">
-                <div class="card ht-lg-100p">
-                    <div class="card-header d-flex align-items-center justify-content-between">
-                        <h6 class="mg-b-0">Sales Revenue</h6>
-                        <div class="tx-13 d-flex align-items-center">
-                            <span class="mg-r-5">Country:</span> <a href="" class="d-flex align-items-center link-03 lh-0">USA <i class="icon ion-ios-arrow-down mg-l-5"></i></a>
+            <div className="col-md-6 col-xl-4 mg-t-10 order-md-1 order-xl-0">
+                <div className="card ht-lg-100p">
+                    <div className="card-header d-flex align-items-center justify-content-between">
+                        <h6 className="mg-b-0">Sales Revenue</h6>
+                        <div className="tx-13 d-flex align-items-center">
+                            <span className="mg-r-5">Country:</span> <a href="" className="d-flex align-items-center link-03 lh-0">USA <i className="icon ion-ios-arrow-down mg-l-5"></i></a>
                         </div>
                     </div>
-                    <div class="card-body pd-0">
-                        <div class="pd-y-25 pd-x-20">
-                            <div id="vmap" class="ht-200"></div> 
+                    <div className="card-body pd-0">
+                        <div className="pd-y-25 pd-x-20">
+                            <div id="vmap" className="ht-200"></div> 
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-borderless table-dashboard table-dashboard-one">
+                        <div className="table-responsive">
+                            <table className="table table-borderless table-dashboard table-dashboard-one">
                                 <thead>
                                     <tr>
-                                        <th class="wd-40">States</th>
-                                        <th class="wd-25 text-right">Orders</th>
-                                        <th class="wd-35 text-right">Earnings</th>
+                                        <th className="wd-40">States</th>
+                                        <th className="wd-25 text-right">Orders</th>
+                                        <th className="wd-35 text-right">Earnings</th>
                                     </tr>
                                 </thead>
                                 <tbody>

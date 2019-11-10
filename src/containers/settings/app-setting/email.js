@@ -16,7 +16,7 @@ class EmailSetting extends Component {
     render() {
         const { syncGoogle, syncOutlook } = this.state
         return (
-            <div className="webchat-setting">
+            <div >
                 <p> - Toggle Email Sync State </p>
                 <Row gutter={4} className = {"notifications-ant-row"}>
                     <Col span={6}><SoundToggle value={syncGoogle} setValue={this.setSound} title={"Sync Google"} type="syncGoogle" /></Col>

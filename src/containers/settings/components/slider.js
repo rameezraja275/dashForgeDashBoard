@@ -5,8 +5,8 @@ const CustomSlider = (props) => {
     const { value, setValue } = props 
     return (
         <Row className="slider">
-            <Col span={4} > Notification rate </Col>
-            <Col span={12}>
+            <Col span={6} > Notification rate </Col>
+            <Col span={10}>
                 <Slider
                     min={1}
                     max={5}
@@ -14,7 +14,7 @@ const CustomSlider = (props) => {
                     value={value}
                 /> 
             </Col>
-            <Col span={4}>
+            <Col span={6}>
                 <InputNumber
                     min={1}
                     max={5}

@@ -4,11 +4,11 @@ const TableRow = (props) => {
     const { browser, sessions, bouncerate, conversionrate } = props
     return (
         <tr>
-            <td><i class="fab fa-chrome tx-primary op-6"></i></td>
-            <td class="tx-medium">{browser}</td>
-            <td class="text-right">{sessions}</td>
-            <td class="text-right">{bouncerate}</td>
-            <td class="text-right">{conversionrate}</td>
+            <td><i className="fab fa-chrome tx-primary op-6"></i></td>
+            <td className="tx-medium">{browser}</td>
+            <td className="text-right">{sessions}</td>
+            <td className="text-right">{bouncerate}</td>
+            <td className="text-right">{conversionrate}</td>
         </tr>
     )
 }
@@ -16,14 +16,14 @@ class BrowserUsed extends Component {
 
     render() {
         return (
-            <table class="table table-borderless table-sm tx-13 tx-nowrap mg-b-0">
+            <table className="table table-borderless table-sm tx-13 tx-nowrap mg-b-0">
                 <thead>
-                    <tr class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase">
-                        <th class="wd-5p">&nbsp;</th>
+                    <tr className="tx-10 tx-spacing-1 tx-color-03 tx-uppercase">
+                        <th className="wd-5p">&nbsp;</th>
                         <th>Browser</th>
-                        <th class="text-right">Sessions</th>
-                        <th class="text-right">Bounce Rate</th>
-                        <th class="text-right">Conversion Rate</th>
+                        <th className="text-right">Sessions</th>
+                        <th className="text-right">Bounce Rate</th>
+                        <th className="text-right">Conversion Rate</th>
                     </tr>
                 </thead>
                 <tbody>

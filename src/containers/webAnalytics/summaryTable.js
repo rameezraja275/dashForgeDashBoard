@@ -52,10 +52,10 @@ class Summary extends Component {
     render() {
         const { Summary } = this.state
         return (
-            <div class="col mg-t-10">
-                <div class="card card-dashboard-table">
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
+            <div className="col mg-t-10">
+                <div className="card card-dashboard-table">
+                    <div className="table-responsive">
+                        <table className="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>&nbsp;</th>

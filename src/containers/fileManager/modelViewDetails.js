@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { setModel } from "./action"
+import { setModel } from "../../config/commanActions"
 
 class ViewDetails extends Component {
   render() {
     const fileDetails = this.props.fileDetails
-    const modelName = this.props.modelName
-    if( fileDetails != null && modelName == "modalViewDetails"){
-      return (<div className={"modal fade effect-scale show"} id="modalViewDetails" tabindex="-1" role="dialog" aria-hidden="true"
-      style={{ display: "block", paddingRight: "17px",backgroundColor: "rgba(15, 21, 32, 0.7)" }}>
+    return (<div className={"modal fade effect-scale show"}  tabindex="-1" role="dialog" aria-hidden="true"
+      style={{ display: "block", paddingRight: "17px", backgroundColor: "rgba(15, 21, 32, 0.7)" }}>
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content">
           <div className="modal-body pd-20 pd-sm-30">
-            <button type="button" onClick={ () => this.props.setModel() } className="close pos-absolute t-15 r-20" data-dismiss="modal" aria-label="Close">
+            <button type="button" onClick={() => this.props.setModel("")} className="close pos-absolute t-15 r-20" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
 
@@ -51,22 +49,18 @@ class ViewDetails extends Component {
 
           </div>
           <div className="modal-footer">
-            <button type="button" onClick={ () => this.props.setModel() } className="btn btn-secondary mg-sm-l-5" data-dismiss="modal">Close</button>
+            <button type="button" onClick={() => this.props.setModel("")} className="btn btn-secondary mg-sm-l-5" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>)
-    }
-    return (
-        <React.Fragment></React.Fragment>
-    )
+
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    fileDetails: state.file.modelData,
-    modelName: state.file.modelName
+    fileDetails: state.commonReducer.modelData,
   }
 }
 

@@ -68,13 +68,13 @@ class Request extends Component {
 
     render() {
         return (
-            <div class="col-md-7">
-                <div class="card">
-                    <div class="card-header pd-b-0 pd-t-20 bd-b-0">
-                        <h6 class="mg-b-0">Tickets By Request Type</h6>
+            <div className="col-md-7">
+                <div className="card">
+                    <div className="card-header pd-b-0 pd-t-20 bd-b-0">
+                        <h6 className="mg-b-0">Tickets By Request Type</h6>
                     </div>
-                    <div class="card-body">
-                        <div class="chart-seventeen"><canvas id="chartBar2"></canvas></div>
+                    <div className="card-body">
+                        <div className="chart-seventeen"><canvas id="chartBar2"></canvas></div>
                     </div>
                 </div>
             </div>

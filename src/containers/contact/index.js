@@ -59,17 +59,20 @@ class Conatct extends Component {
     }
 
     componentDidMount = () => {
-        $(ConatctJquery())
+        // $(ConatctJquery())
         this.props.setCurrentRoute("contacts");
+        document.body.classList.add('app-contact')
+        document.body.classList.add('contact-content-visible')
+        document.body.classList.remove('contact-content-show')
     }
 
-    componentWillUnmount = () => {
-        $('.contact-list .media').off('click');
-        $("#contactContentHide").off('click');
-        $("#contactOptions").off('click');
-        $('#mailSidebar').off('click');
-        // $('.aside-menu-link').off('click');
-    }
+    // componentWillUnmount = () => {
+    //     $('.contact-list .media').off('click');
+    //     $("#contactContentHide").off('click');
+    //     $("#contactOptions").off('click');
+    //     $('#mailSidebar').off('click');
+    //     // $('.aside-menu-link').off('click');
+    // }
 
     renderTab = (dataType) => {
         this.setState({
@@ -82,7 +85,7 @@ class Conatct extends Component {
         const dataType = this.state.dataType
         return (
             <div className="content-body pd-0">
-            <div class="contact-wrapper contact-wrapper-two">
+            <div className="contact-wrapper contact-wrapper-two">
                 <LeftBar renderTab = { this.renderTab }/> 
                 {
                     dataType == "export" ? <Export /> : <ContactList Contacts={contacts} type={ dataType } />

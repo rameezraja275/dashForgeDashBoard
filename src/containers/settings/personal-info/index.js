@@ -24,15 +24,15 @@ const AutoCompleteOption = AutoComplete.Option;
 const CustomInput = (props) => {
     const { label, icon } = props
     return <Row className="ant-form-item">
-        <Col span={4}>
+        <Col span={6}>
             <label >{label}</label>
         </Col>
-        <Col span={20}>
+        <Col span={18}>
             {
-                label == "Password" ? <Input.Password
-                    prefix={<Icon type={icon} style={{ color: 'rgba(0,0,0,.25)' }} />}
-                    placeholder={label}
-                /> : label == "Birthday" ? <DatePicker /> : label == "Gender" ?
+                label == "Password" ? 
+                    <Input.Password prefix={<Icon type={icon} style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        placeholder={label}/> : label == "Birthday" ? <DatePicker /> 
+                : label == "Gender" ?
                     <Radio.Group>
                         <Radio value="male">Male</Radio>
                         <Radio value="female">Female</Radio>
@@ -69,22 +69,22 @@ class PersonalInfo extends Component {
         return (
             <PerfectScrollbar className="content-body">
                 <div className="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
-                    <div class="personalinfo-header">
+                    <div className="personalinfo-header">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                                <li class="breadcrumb-item"><a href="#">Settings</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Personal Info</li>
+                            <ol className="breadcrumb breadcrumb-style1 mg-b-10">
+                                <li className="breadcrumb-item"><a href="#">Settings</a></li>
+                                <li className="breadcrumb-item active" aria-current="page">Personal Info</li>
                             </ol>
                         </nav>
-                        <h4 class="mg-b-0 tx-spacing--1">Personal Info</h4>
+                        <h4 className="mg-b-0 tx-spacing--1">Personal Info</h4>
                     </div>
 
 
                     <Form onSubmit={this.handleSubmit}>
                         <div className="form-personalinfo round-border">
-                            <div class="mg-b-20">
-                                <h4 class="mg-b-10 tx-spacing--1">Profile</h4>
-                                <p class="mg-b-10 tx-spacing--1" >Here You can View and Edit Yout Personal Information</p>
+                            <div className="mg-b-20">
+                                <h4 className="mg-b-10 tx-spacing--1">Profile</h4>
+                                <p className="mg-b-10 tx-spacing--1" >Here You can View and Edit Yout Personal Information</p>
                             </div>
 
                             <CustomInput label={"User Name"} icon="user" />
@@ -101,9 +101,9 @@ class PersonalInfo extends Component {
                         </div>
 
                         <div className="form-contact round-border">
-                            <div class="mg-b-20">
-                                <h4 class="mg-b-10 tx-spacing--1">Contact Info</h4>
-                                <p class="mg-b-10 tx-spacing--1" >Here You can View and Edit Yout Contact Information</p>
+                            <div className="mg-b-20">
+                                <h4 className="mg-b-10 tx-spacing--1">Contact Info</h4>
+                                <p className="mg-b-10 tx-spacing--1" >Here You can View and Edit Yout Contact Information</p>
                             </div>
 
                             <CustomInput label={"Email"} icon="mail" />

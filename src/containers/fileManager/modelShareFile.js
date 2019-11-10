@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { setModel } from "./action"
+import { setModel } from "../../config/commanActions"
 import { Link } from "react-router-dom"
 import FeatherIcon from 'feather-icons-react';
 
@@ -8,14 +8,12 @@ class ShareFile extends Component {
 
     render() {
         const fileDetails = this.props.fileDetails
-        const modelName = this.props.modelName
-        if (modelName == "modalShare") {
             return <div className="modal fade effect-scale show" id="modalShare" tabindex="-1" role="dialog" aria-hidden="true"
                 style={{ display: "block", paddingRight: "17px",backgroundColor: "rgba(15, 21, 32, 0.7)" }}>
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-body pd-20 pd-sm-30">
-                            <button type="button" onClick={ () => this.props.setModel() } className="close pos-absolute t-15 r-20" data-dismiss="modal" aria-label="Close">
+                            <button type="button" onClick={ () => this.props.setModel("") } className="close pos-absolute t-15 r-20" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
 
@@ -36,21 +34,19 @@ class ShareFile extends Component {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" onClick={ () => this.props.setModel() } className="btn btn-primary">Share</button>
+                            <button type="button" className="btn btn-primary">Share</button>
                         </div>
                     </div>
                 </div>
             </div>
-        }
-        return <React.Fragment></React.Fragment>
+
     }
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
+
     return {
         fileDetails: state.file.modelData,
-        modelName: state.file.modelName
     }
 }
 

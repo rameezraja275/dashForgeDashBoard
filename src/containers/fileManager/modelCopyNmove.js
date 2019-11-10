@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { setModel } from "./action"
+import { setModel } from "../../config/commanActions"
 import { Link } from "react-router-dom"
 import FeatherIcon from 'feather-icons-react';
 
@@ -14,10 +14,10 @@ class CopyFile extends Component {
         ]
     }
     render() {
+        const { modelName } = this.props
         const fileDetails = this.props.fileDetails
-        const modelName = this.props.modelName
         const Folders = this.state.Folders
-        if (modelName == "Copy" || modelName == "Move") {
+
             return <div className="modal fade effect-scale show" id="modalCopy" tabindex="-1" role="dialog" aria-hidden="true"
             style={{ display: "block", paddingRight: "17px" ,backgroundColor: "rgba(15, 21, 32, 0.7)"}}>
             <div className="modal-dialog modal-dialog-centered" role="document">
@@ -51,15 +51,12 @@ class CopyFile extends Component {
               </div>
             </div>
           </div>
-        }
-        return <React.Fragment></React.Fragment>
     }
 }
 
 const mapStateToProps = (state) => {
     return {
         fileDetails: state.file.modelData,
-        modelName: state.file.modelName
     }
 }
 

@@ -1,59 +1,41 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import FeatherIcon from 'feather-icons-react';
+const NavFooter = (props) => {
 
-class NavFooter extends Component {
+    const [ FooterNav ,setFooterNav ] = useState(true)
 
-    toggleButtons = () => {
-        var tabs = document.querySelector('.js-tabs');
-        var tabItems = document.querySelectorAll('.js-tab-item:not(.js-tab-item-main-control)');
-        var tabItemMainControl = document.querySelector('.js-tab-item-main-control');
+    let classes = FooterNav ? "tab-item js-tab-item js-tab-item-show" : "tab-item js-tab-item"
+    // let icon = FooterNav ?  <i className="fas fa-times"></i> :  <i className="fas fa-plus"></i>
+    let controllerClass = FooterNav ? "tab-item tab-item--middle js-tab-item js-tab-item-main-control-active" : "tab-item tab-item--middle js-tab-item js-tab-item-main-control";
 
-        if (tabs.classList.contains('js-tabs-init')) {
-            tabs.classList.remove('js-tabs-init');
-            tabItemMainControl.style.transform = 'rotate(45deg)';
-            for (var i = 0; i < tabItems.length; i++) {
-                tabItems[i].classList.add('js-tab-item-show');
-            }
-        } else {
-            for (var i = 0; i < tabItems.length; i++) {
-                tabItems[i].classList.remove('js-tab-item-show');
-            }
-            setTimeout(function () {
-                tabItemMainControl.style.transform = 'rotate(0deg)';
-                tabs.classList.add('js-tabs-init');
-            }, 2000);
-        }
-    }
-
-    render() {
-        const { currenttab } = this.props
         return (
             <React.Fragment>
 
 
-                <div className="sidebar-footer" >
-                    <div class="tabs js-tabs js-tabs-init">
+                <div className="sidebar-footer" onMouseEnter={ () => props.asideHover(true)} onMouseLeave={() => props.asideHover(false)}>
+                    <div className="tabs js-tabs js-tabs-init">
 
-                        <div class="cover-back cover-back-tabs js-cover-back-tabs"></div>
+                        <div className="cover-back cover-back-tabs js-cover-back-tabs"></div>
 
-                        <div class="tabs-container">
-                            <div class="tab-item js-tab-item"  onClick={ () => this.props.changeTab("apps") }>
-                                <i class="fas fa-chart-bar"></i>
+                        <div className="tabs-container">
+                            <div className={ props.currenttab == "apps" ?  classes + " active" : classes }  onClick={ () => props.changeTab("apps") }>
+                                <i className="fas fa-inbox"></i>
                             </div>
 
-                            <div class="tab-item js-tab-item" onClick={ () => this.props.changeTab("integartions") }>
-                                <i class="fas fa-inbox"></i>
+                            <div className={ props.currenttab == "integartions" ?  classes + " active" : classes } onClick={ () => props.changeTab("integartions") }>
+                            <i className="fas fa-chart-bar"></i>
                             </div>
 
-                            <div class="tab-item tab-item--middle js-tab-item js-tab-item-main-control" onClick={this.toggleButtons}>
-                                <i class="fas fa-plus"></i>
+                            <div className={controllerClass} onClick={ () => setFooterNav(!FooterNav) }>
+                                <i className="fas fa-times"></i> 
                             </div>
 
-                            <div class="tab-item js-tab-item" onClick={ () => this.props.changeTab("sequence") }>
-                                <i class="fas fa-users"></i>
+                            <div className={ props.currenttab == "sequence" ?  classes + " active" : classes } onClick={ () => props.changeTab("sequence") }>
+                                <i className="fas fa-address-book"></i>
                             </div>
 
-                            <div class="tab-item js-tab-item" onClick={ () => this.props.changeTab("support") }>
-                                <i class="fas fa-cog"></i>
+                            <div className={ props.currenttab == "support" ?  classes + " active" : classes } onClick={ () => props.changeTab("support") }>
+                                <i className="fas fa-info-circle"></i>
                             </div>
                         </div>
                     </div>
@@ -63,35 +45,34 @@ class NavFooter extends Component {
             // <div className="sidebar-footer" >
             //     <div className="icon-wrapper" onClick={ () => this.props.changeTab("apps") }>
             //         <div className={ currenttab == "apps" ? "button-icon opened-tab" : "button-icon"}>
-            //             <i class="fas fa-chart-bar"></i>
+            //             <i className="fas fa-chart-bar"></i>
             //             {/* <span className="visuallyHidden__StyledWrapperSpan-sc-11zdheu-0 eWSXht">Inbox</span> */}
             //         </div>
             //     </div>
 
             //     <div className="icon-wrapper" onClick={ () => this.props.changeTab("integartions") }>
             //         <div className={ currenttab == "integartions" ? "button-icon opened-tab" : "button-icon"}>
-            //             <i class="fas fa-inbox"></i>
+            //             <i className="fas fa-inbox"></i>
             //             {/* <span className="visuallyHidden__StyledWrapperSpan-sc-11zdheu-0 eWSXht">Inbox</span> */}
             //         </div>
             //     </div>
 
             //     <div className="icon-wrapper" onClick={ () => this.props.changeTab("sequence") }>
             //         <div className={ currenttab == "sequence" ? "button-icon opened-tab" : "button-icon"}>
-            //             <i class="fas fa-users"></i>
+            //             <i className="fas fa-users"></i>
             //             {/* <span className="visuallyHidden__StyledWrapperSpan-sc-11zdheu-0 eWSXht">Inbox</span> */}
             //         </div>
             //     </div>
 
             //     <div className="icon-wrapper" onClick={ () => this.props.changeTab("support") }>
             //         <div className={ currenttab == "support" ? "button-icon opened-tab" : "button-icon"}>
-            //             <i class="fas fa-inbox"></i>
+            //             <i className="fas fa-inbox"></i>
             //             {/* <span className="visuallyHidden__StyledWrapperSpan-sc-11zdheu-0 eWSXht">Inbox</span> */}
             //         </div>
             //     </div>
 
             // </div>
         )
-    }
 }
 
 export default NavFooter;

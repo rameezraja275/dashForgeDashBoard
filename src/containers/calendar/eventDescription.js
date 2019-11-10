@@ -1,44 +1,43 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { setModel } from "./actions"
+import { setModel } from "../../config/commanActions"
 import FeatherIcon from 'feather-icons-react';
 
 class EventDescription extends Component {
 
     render() {
-        const { modelOpen,eventDescription  } = this.props
+        const { eventDescription  } = this.props
+        console.log(eventDescription)
         const {  title, eventStartDate, eventStartTime, eventEndDate, eventEndTime, note} = eventDescription
-        const classes = modelOpen ? " show" : "";
-        const display = modelOpen ? "block" : "none";
         return (
-            <div class={"modal calendar-modal-event fade effect-scale" + classes} id="modalCalendarEvent" role="dialog" aria-hidden="true"
-                style={{ display: display, paddingRight: "17px", backgroundColor: "rgba(15, 21, 32, 0.7)" }}> >
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header" style={{ backgroundColor : '#3a87ad'}}>
-                            <h6 class="event-title">{title}</h6>
-                            <nav class="nav nav-modal-event">
-                                <div class="nav-link"><FeatherIcon icon="external-link"></FeatherIcon></div>
-                                <div class="nav-link"><FeatherIcon icon="trash-2"></FeatherIcon></div>
-                                <div class="nav-link" data-dismiss="modal" onClick={ () => this.props.setModel(null, "eventDescription")}><FeatherIcon icon="x"></FeatherIcon></div>
+            <div className={"modal calendar-modal-event fade effect-scale show"} role="dialog" aria-hidden="true"
+            style={{ display: "block", paddingRight: "17px", backgroundColor: "rgba(15, 21, 32, 0.7)" }}> >
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header" style={{ backgroundColor : '#3a87ad'}}>
+                            <h6 className="event-title">{title}</h6>
+                            <nav className="nav nav-modal-event">
+                                <div className="nav-link"><FeatherIcon icon="external-link"></FeatherIcon></div>
+                                <div className="nav-link"><FeatherIcon icon="trash-2"></FeatherIcon></div>
+                                <div className="nav-link" data-dismiss="modal" onClick={ () => this.props.setModel("")}><FeatherIcon icon="x"></FeatherIcon></div>
                             </nav>
                         </div>
-                        <div class="modal-body">
-                            <div class="row row-sm">
-                                <div class="col-sm-6">
-                                    <label class="tx-uppercase tx-sans tx-11 tx-medium tx-spacing-1 tx-color-03">Start Date</label>
-                                    <p class="event-start-date">{eventStartDate}</p>
+                        <div className="modal-body">
+                            <div className="row row-sm">
+                                <div className="col-sm-6">
+                                    <label className="tx-uppercase tx-sans tx-11 tx-medium tx-spacing-1 tx-color-03">Start Date</label>
+                                    <p className="event-start-date">{eventStartDate}</p>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label class="tx-uppercase tx-sans tx-11 tx-medium tx-spacing-1 tx-color-03">End Date</label>
-                                    <p class="event-end-date">{eventEndDate}</p>
+                                <div className="col-sm-6">
+                                    <label className="tx-uppercase tx-sans tx-11 tx-medium tx-spacing-1 tx-color-03">End Date</label>
+                                    <p className="event-end-date">{eventEndDate}</p>
                                 </div>
                             </div>
 
-                            <label class="tx-uppercase tx-sans tx-11 tx-medium tx-spacing-1 tx-color-03">Description</label>
-                            <p class="event-desc tx-gray-900 mg-b-40">{note}</p>
+                            <label className="tx-uppercase tx-sans tx-11 tx-medium tx-spacing-1 tx-color-03">Description</label>
+                            <p className="event-desc tx-gray-900 mg-b-40">{note}</p>
 
-                            <div class="btn btn-secondary pd-x-20" data-dismiss="modal" onClick={ () => this.props.setModel(null, "eventDescription")}>Close</div >
+                            <div className="btn btn-secondary pd-x-20" data-dismiss="modal" onClick={ () => this.props.setModel("")}>Close</div >
                         </div>
                     </div>
                 </div>
@@ -49,8 +48,7 @@ class EventDescription extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        modelOpen: state.calendar.modelOpen,
-        eventDescription : state.calendar.eventdescription
+        eventDescription : state.commonReducer.modelData
     }
 }
 

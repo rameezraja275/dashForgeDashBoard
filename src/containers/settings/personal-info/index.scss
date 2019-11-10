@@ -10,6 +10,11 @@
 	}
 	.form-personalinfo{
 		margin-right: 20px;
+		margin-bottom: 20px;
+		.ant-calendar-picker{
+			width: 100%;
+		}
+	
 	}
 	.round-border{
 		width: 100%;
@@ -22,4 +27,12 @@
 		display: flex;
 		justify-content: flex-end;
 	}
+}
+
+@media only screen and (max-width: 700px) {
+	.ant-form{
+		display: flex;
+		flex-direction: column;
+	}
+
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import FeatherIcon from 'feather-icons-react';
+import Avatar from '../../config/avatar';
 
 const UserInfo = (props) => {
     const { image, name, onlineStatus } = props.data
@@ -9,8 +10,8 @@ const UserInfo = (props) => {
             <div className="d-flex align-items-center">
                 {
                     onlineStatus
-                        ? <div className="avatar avatar-sm avatar-online mg-r-8"><img src={image} className="rounded-circle" alt="" /></div>
-                        : <div className="avatar avatar-sm avatar-offline mg-r-8"><img src={image} className="rounded-circle" alt="" /></div>
+                        ? <div className="avatar avatar-sm avatar-online mg-r-8"> <Avatar />  </div>
+                        : <div className="avatar avatar-sm avatar-offline mg-r-8"> <Avatar /> </div>
                 }
                 <h6 className="tx-semibold mg-b-0">{name}</h6>
             </div>

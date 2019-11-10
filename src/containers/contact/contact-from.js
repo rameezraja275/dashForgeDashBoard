@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { setModel } from "./actions"
+import { setModel } from "../../config/commanActions"
 
 class ContactForm extends Component {
 
@@ -23,18 +23,18 @@ class ContactForm extends Component {
   }
 
   componentDidMount = () => {
-    const { modelType, modelOpen } = this.props
+    const { modelName, modelOpen } = this.props
     const { FirstName, LastName, MobilePhone, EmailAddress, Notes } = this.props.contactDetail;
-    modelType && this.setState({
+    modelName && this.setState({
       FirstName, LastName, MobilePhone, EmailAddress, Notes
     })
   }
 
   render() {
-    const { modelOpen, modelType } = this.props
+    const {  modelName } = this.props
     const { FirstName, LastName, MobilePhone, EmailAddress, Notes } = this.state;
     return (
-      modelOpen && <div className="modal fade effect-scale show" id="modalNewContact" tabindex="-1" role="dialog" aria-hidden="true"
+     <div className="modal fade effect-scale show" id="modalNewContact" tabindex="-1" role="dialog" aria-hidden="true"
         style={{ display: "block", paddingRight: "17px", backgroundColor: "rgba(15, 21, 32, 0.7)" }}>
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
@@ -45,7 +45,7 @@ class ContactForm extends Component {
               </button>
               {
 
-                modelType === "edit" ? <h5 className="tx-18 tx-sm-20 mg-b-20">Edit Contact</h5> :
+                 modelName === "contactEditForm" ? <h5 className="tx-18 tx-sm-20 mg-b-20">Edit Contact</h5> :
                   <h5 className="tx-18 tx-sm-20 mg-b-20">Create New Contact</h5>
               }
 
@@ -67,7 +67,7 @@ class ContactForm extends Component {
                   <h6 className="mg-b-10">Personal Information</h6>
                   <div className="form-group mg-b-10">
                     {
-                      modelType === "edit" ?
+                       modelName === "contactEditForm" ?
                         <input type="text" id="FirstName" className="form-control" placeholder="Firstname" value={FirstName} onChange={this.onTextFieldChange} /> :
                         <input type="text" id="FirstName" className="form-control" placeholder="Firstname" onChange={this.onTextFieldChange} />
                     }
@@ -75,7 +75,7 @@ class ContactForm extends Component {
                   </div>
                   <div className="form-group mg-b-10">
                     {
-                      modelType === "edit" ? <input type="text" id="LastName" className="form-control" placeholder="Lastname" value={LastName} onChange={this.onTextFieldChange} /> :
+                       modelName === "contactEditForm" ? <input type="text" id="LastName" className="form-control" placeholder="Lastname" value={LastName} onChange={this.onTextFieldChange} /> :
                         <input type="text" id="LastName" className="form-control" placeholder="Lastname" onChange={this.onTextFieldChange} />
                     }
                   </div>
@@ -84,20 +84,20 @@ class ContactForm extends Component {
 
                   <div className="form-group mg-b-10">
                     {
-                      modelType === "edit" ? <input type="text" id="MobilePhone" className="form-control" placeholder="Phone number" value={MobilePhone} onChange={this.onTextFieldChange} /> :
+                       modelName === "contactEditForm" ? <input type="text" id="MobilePhone" className="form-control" placeholder="Phone number" value={MobilePhone} onChange={this.onTextFieldChange} /> :
                         <input type="text" className="form-control" id="MobilePhone" placeholder="Phone number" onChange={this.onTextFieldChange} />
                     }
                   </div>
                   <div className="form-group mg-b-10">
                     {
-                      modelType === "edit" ? <input type="email" id="EmailAddress" className="form-control" placeholder="Email address" value={EmailAddress} onChange={this.onTextFieldChange} /> :
+                       modelName === "contactEditForm" ? <input type="email" id="EmailAddress" className="form-control" placeholder="Email address" value={EmailAddress} onChange={this.onTextFieldChange} /> :
                         <input type="email" className="form-control" id="EmailAddress" placeholder="Email address" onChange={this.onTextFieldChange} />
                     }
                   </div>
 
                   <h6 className="mg-t-20 mg-b-10">Notes</h6>
                   {
-                    modelType === "edit" ? <textarea id="Notes" className="form-control" rows="2" placeholder="Add notes" value={Notes} onChange={this.onTextFieldChange}></textarea> :
+                     modelName === "contactEditForm" ? <textarea id="Notes" className="form-control" rows="2" placeholder="Add notes" value={Notes} onChange={this.onTextFieldChange}></textarea> :
                       <textarea id="Notes" className="form-control" rows="2" placeholder="Add notes" onChange={this.onTextFieldChange}></textarea>
                   }
                 </div>
@@ -128,8 +128,7 @@ class ContactForm extends Component {
 const mapStateToProps = (state) => {
   return {
     contactDetail: state.contact.contactDetail,
-    modelType: state.contact.modelType,
-    modelOpen: state.contact.modelOpen
+    modelName: state.commonReducer.modelName
   }
 }
 

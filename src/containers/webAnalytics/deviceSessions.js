@@ -81,28 +81,28 @@ class DeviceSessions extends Component {
     render() {
         const { Sessions } = this.state
         return (
-            <div class="col-sm-7 col-md-8 col-lg-4 col-xl mg-t-10">
-                <div class="card">
-                    <div class="card-header">
-                        <h6 class="mg-b-0">Device Sessions</h6>
+            <div className="col-sm-7 col-md-8 col-lg-4 col-xl mg-t-10">
+                <div className="card">
+                    <div className="card-header">
+                        <h6 className="mg-b-0">Device Sessions</h6>
                     </div>
-                    <div class="card-body">
-                        <div class="row row-xs">
+                    <div className="card-body">
+                        <div className="row row-xs">
                             {
                                 Sessions.map((Session) => (
-                                    <div class="col-4 col-lg">
-                                        <div class="d-flex align-items-baseline">
-                                            <span class="d-block wd-8 ht-8 rounded-circle bg-primary"></span>
-                                            <span class="d-block tx-10 tx-uppercase tx-medium tx-spacing-1 tx-color-03 mg-l-7">{Session.title}</span>
+                                    <div className="col-4 col-lg">
+                                        <div className="d-flex align-items-baseline">
+                                            <span className="d-block wd-8 ht-8 rounded-circle bg-primary"></span>
+                                            <span className="d-block tx-10 tx-uppercase tx-medium tx-spacing-1 tx-color-03 mg-l-7">{Session.title}</span>
                                         </div>
-                                        <h4 class="tx-normal tx-rubik tx-spacing--1 mg-l-15 mg-b-0">{Session.totalSession}</h4>
+                                        <h4 className="tx-normal tx-rubik tx-spacing--1 mg-l-15 mg-b-0">{Session.totalSession}</h4>
                                     </div>
                                 ))
                             }
                         </div>
 
-                        <div class="chart-nine">
-                            <div id="flotChart2" class="flot-chart"></div>
+                        <div className="chart-nine">
+                            <div id="flotChart2" className="flot-chart"></div>
                         </div>
                     </div>
                 </div>

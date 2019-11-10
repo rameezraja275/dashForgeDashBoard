@@ -1,7 +1,10 @@
-@media (max-width: 1224px) {
+@media (max-width: 1024px) {
 	.RightSideBAr {
 		display: none;
-	}
+  }
+  .content{
+    padding-right : 0px !important;
+  }
 }
 
 .RightSideBAr {
@@ -14,6 +17,7 @@
   right: 0;
   bottom: 0;
   z-index: 1000;
+  
 
   .btn-wrapper {
     position: relative;
@@ -47,12 +51,24 @@
     }
 
     :hover {
-      background-color: #cac9c9;
-      .fas {
-        font-size: 15px;
-        color: white;
+      background-color: white;
+	  .fa-rocket {
+			color: tomato;
       }
-    }
+		.fa-calendar {
+			color: palevioletred;
+      }
+	  .fa-address-book {
+			color: steelblue;
+      }
+		.fa-keyboard {
+			color: darkcyan;
+      }
+	  	.fa-plus {
+			color: #0168fa;
+      }
+	}
+    
 
     .active {
       width: 100%;
@@ -64,6 +80,35 @@
         color: white;
       }
     }
+	
+	.bg-tomato{
+		background-color: tomato;
+		.fas {
+			background-color: tomato;
+      }
+	}
+	
+	.bg-palevioletred{
+		background-color: palevioletred;
+		.fas {
+			background-color: palevioletred;
+      }
+	}
+	
+	.bg-steelblue{
+		background-color: steelblue;
+		.fas {
+			background-color: steelblue;
+      }
+	}
+	
+	.bg-darkcyan{
+		background-color: darkcyan;
+		.fas {
+			background-color: darkcyan;
+      }
+	}
+	
   }
 }
 
@@ -74,6 +119,7 @@
   top: 0px;
   right: 60px;
   z-index: 10000;
+  box-shadow: -9px 2px 20px 0px #888888;
   background-color: #ffffff;
 	border-left: 1px solid #e2e5ed;
 	height: 100%;

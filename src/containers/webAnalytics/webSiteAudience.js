@@ -87,26 +87,26 @@ class AudienceMetrics extends Component{
     render(){
         const { data } = this.state;
         return(
-            <div class="col-lg-8 col-xl-9">
-              <div class="card">
-                <div class="card-header bd-b-0 pd-t-20 pd-lg-t-25 pd-l-20 pd-lg-l-25 d-flex flex-column flex-sm-row align-items-sm-start justify-content-sm-between">
+            <div className="col-lg-8 col-xl-9">
+              <div className="card">
+                <div className="card-header bd-b-0 pd-t-20 pd-lg-t-25 pd-l-20 pd-lg-l-25 d-flex flex-column flex-sm-row align-items-sm-start justify-content-sm-between">
                   <div>
-                    <h6 class="mg-b-5">Website Audience Metrics</h6>
-                    <p class="tx-12 tx-color-03 mg-b-0">Audience to which the users belonged while on the current date range.</p>
+                    <h6 className="mg-b-5">Website Audience Metrics</h6>
+                    <p className="tx-12 tx-color-03 mg-b-0">Audience to which the users belonged while on the current date range.</p>
                   </div>
-                  <div class="btn-group mg-t-20 mg-sm-t-0">
-                    <button class="btn btn-xs btn-white btn-uppercase">Day</button>
-                    <button class="btn btn-xs btn-white btn-uppercase">Week</button>
-                    <button class="btn btn-xs btn-white btn-uppercase active">Month</button>
+                  <div className="btn-group mg-t-20 mg-sm-t-0">
+                    <button className="btn btn-xs btn-white btn-uppercase">Day</button>
+                    <button className="btn btn-xs btn-white btn-uppercase">Week</button>
+                    <button className="btn btn-xs btn-white btn-uppercase active">Month</button>
                   </div>
                 </div>
-                <div class="card-body pd-lg-25">
-                  <div class="row align-items-sm-end">
-                    <div class="col-lg-7 col-xl-8">
-                      <div class="chart-six"><canvas id="chartBar1"></canvas></div>
+                <div className="card-body pd-lg-25">
+                  <div className="row align-items-sm-end">
+                    <div className="col-lg-7 col-xl-8">
+                      <div className="chart-six"><canvas id="chartBar1"></canvas></div>
                     </div>
-                    <div class="col-lg-5 col-xl-4 mg-t-30 mg-lg-t-0">
-                      <div class="row">
+                    <div className="col-lg-5 col-xl-4 mg-t-30 mg-lg-t-0">
+                      <div className="row">
                           {
                               data.map( ( item ,key ) => (
                                 <ProgressBar itemNumber={key} data={item}/>

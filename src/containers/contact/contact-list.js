@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
-import { contactDetails, setModel } from './actions'
+import { contactDetails } from './actions';
+import { setModel, toggleBackButton } from '../../config/commanActions'
 import FeatherIcon from 'feather-icons-react';
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
@@ -10,7 +11,7 @@ const ContactCard = (props) => {
     let avatar = "";
 
     onlineStatus ? avatar = "avatar avatar-sm avatar-online" : avatar = "avatar avatar-sm avatar-offline"
-    props.itemNumber == 0 && props.contactDetails(props.data) 
+    // props.itemNumber == 0 && props.contactDetails(props.data) 
     return (
         <div className="media" onClick={ () => props.contactDetails(props.data) }>
             <div className={avatar}><span className="avatar-initial rounded-circle bg-gray-700">A</span></div>
@@ -28,6 +29,13 @@ const ContactCard = (props) => {
 
 class ConatctList extends Component {
 
+    onContactSelact = () => {
+        document.body.classList.add('app-contact')
+        document.body.classList.add('contact-content-show')
+        document.body.classList.remove('contact-content-visible') 
+        this.props.toggleBackButton(true);    
+        this.props.contactDetails()
+    }
     render() {
         const Conatcts = this.props.Contacts;
         const type = this.props.type;
@@ -38,8 +46,10 @@ class ConatctList extends Component {
                     <div className="search-form">
                         <input type="search" className="form-control" placeholder="Search contacts" />
                     </div>
-                    <div className="btn btn-xs btn-icon btn-primary" data-toggle="modal" onClick={ () => this.props.setModel() } >
-                        <span data-toggle="tooltip" title="Add New Contact"><FeatherIcon icon="user-plus"></FeatherIcon></span>
+                    <div className="btn btn-xs btn-icon btn-primary" onClick={ () => this.props.setModel("contactForm") } >
+                        <span data-toggle="tooltip" title="Add New Contact">
+                            <FeatherIcon icon="user-plus"></FeatherIcon>
+                        </span>
                     </div>
                 </div>
                 <PerfectScrollbar className="contact-sidebar-body">
@@ -49,7 +59,7 @@ class ConatctList extends Component {
                                 <label id="contact-label" className="contact-list-divider">{type}</label>
                                 {
                                     Conatcts.map((item,key)=>(
-                                        <ContactCard data={item} itemNumber={key} contactDetails={ this.props. contactDetails }/>
+                                        <ContactCard data={item} itemNumber={key} contactDetails={ this.onContactSelact }/>
                                     ))  
                                 }
 
@@ -64,4 +74,4 @@ class ConatctList extends Component {
     }
 }
 
-export default connect(null, { contactDetails, setModel })(ConatctList);
+export default connect(null, { contactDetails, setModel, toggleBackButton })(ConatctList);

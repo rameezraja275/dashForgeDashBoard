@@ -9,27 +9,28 @@ import ChatJquery from '../jqueryChat'
 import ChatFooter from '../chatFooter';
 import Attachments from '../attachments';
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import Emojis from '../emojis';
 
 class Facebook extends Component {
 
     componentDidMount = () => {
-        $(ChatJquery())
+        // $(ChatJquery())
         this.props.setCurrentRoute("facebook");
-
     }
 
-    componentWillUnmount = () => {
-        $('#mailSidebar').off('click');
-        $("#showMemberList").off('click');
-        $("#chatDirectMsg .media").off('click');
-        $('#allChannels div').off('click');
-        // $('.aside-menu-link').off('click');
-    }
+    // componentWillUnmount = () => {
+    //     $('#mailSidebar').off('click');
+    //     $("#showMemberList").off('click');
+    //     $("#chatDirectMsg .media").off('click');
+    //     $('#allChannels div').off('click');
+    // }
 
     state = {
         typedMessage: "",
+        textAreaHeight: 60,
         ghostMode: false,
         toggleAttachment: false,
+        toggleEmojis: false,
         User: {
             name: "Rameez Raja",
             onlineStatus: true,
@@ -71,18 +72,21 @@ class Facebook extends Component {
         ],
         ChatList: [
             {
+                id:1,
                 name: "Sher Ali",
                 timeAgo: "5 days ago",
                 newMessages: 2,
                 userOnline: true
             },
             {
+                id: 2,
                 name: "Faizan",
                 timeAgo: "5 days ago",
                 newMessages: 0,
                 userOnline: false
             },
             {
+                id: 3,
                 name: "Ahmed",
                 timeAgo: "5 days ago",
                 newMessages: 0,
@@ -95,16 +99,18 @@ class Facebook extends Component {
 
         e.preventDefault()
         const { ghostMode } = this.state
-        console.log(ghostMode, !ghostMode);
+
         this.setState({
             ghostMode: !ghostMode
         })
     }
 
     onChange = (e, value) => {
-    // console.log('Change:', e ,"" , value);
+        const totalLine = e.split(/\r\n|\r|\n/).length - 1
+  
         this.setState({
-            typedMessage : e
+            typedMessage: e,
+            textAreaHeight: totalLine * 30
         })
     }
 
@@ -129,31 +135,29 @@ class Facebook extends Component {
             this.shiftKeyStatus = true
         }
         if (code === 13) {
-            e.preventDefault()
-            if( this.shiftKeyStatus == true ){
-                console.log("next line")
-                const { typedMessage } = this.state
-                this.setState({
-                    typedMessage : typedMessage + "\n"
-                })
-            }
-            else{
+            if (this.shiftKeyStatus != true) {
+                e.preventDefault();
                 console.log("send text")
             }
-            
         }
     }
 
     toggleAttachment = () => {
         const { toggleAttachment } = this.state
-        console.log("yoo ", toggleAttachment);
         this.setState({
             toggleAttachment: !toggleAttachment
         })
     }
 
+    toggleEmojis = () => {
+        const { toggleEmojis } = this.state
+        this.setState({
+            toggleEmojis: !toggleEmojis
+        })
+    }
+
     render() {
-        const { ChatList, User, Chats, ghostMode, typedMessage, toggleAttachment } = this.state
+        const { ChatList, User, Chats, ghostMode, typedMessage, toggleAttachment, toggleEmojis } = this.state
 
         return (
             <div className="content-body pd-0">
@@ -163,7 +167,10 @@ class Facebook extends Component {
                     <div className="chat-content">
                         <ChatHead User={User} backgroundColor={'#3b5997'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
                         <PerfectScrollbar className="chat-content-body">
-                            <div className="chat-group background-image facebook" style={{ backgroundImage: "url('./facebook.png')" }} >
+
+
+
+                            <div className="chat-group background-image facebook" style={{ backgroundImage: "url('assets/image/facebook.png')" }} >
 
                                 {
                                     Chats.map((item) => (
@@ -171,14 +178,21 @@ class Facebook extends Component {
                                     ))
                                 }
 
-                                {
-                                    toggleAttachment && <Attachments />
-                                }
+
                             </div>
                         </PerfectScrollbar >
 
+                        {
+                            toggleAttachment && <Attachments />
+                        }
+
+                        {
+                            toggleEmojis && <Emojis />
+                        }
+
                         <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
-                            onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />
+                            onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment}
+                            toggleEmojis={this.toggleEmojis} textAreaHeight={this.state.textAreaHeight} />
                     </div>
 
                 </div>

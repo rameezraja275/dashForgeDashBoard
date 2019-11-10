@@ -58,18 +58,18 @@ class AdsAnalytics extends Component {
             color = "tx-teal" : color = "tx-pink"
 
         return (
-            <div class="col-lg-4 col-md-6 mg-t-10">
-                <div class="card">
-                    <div class="card-body pd-y-20 pd-x-25">
-                        <div class="row row-sm">
-                            <div class="col-7">
-                                <h3 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">{number}</h3>
-                                <h6 class={"tx-12 tx-semibold tx-uppercase tx-spacing-1 " + color + " mg-b-5"}>{title}</h6>
-                                <p class="tx-11 tx-color-03 mg-b-0">{description}</p>
+            <div className="col-lg-4 col-md-6 mg-t-10">
+                <div className="card">
+                    <div className="card-body pd-y-20 pd-x-25">
+                        <div className="row row-sm">
+                            <div className="col-7">
+                                <h3 className="tx-normal tx-rubik tx-spacing--1 mg-b-5">{number}</h3>
+                                <h6 className={"tx-12 tx-semibold tx-uppercase tx-spacing-1 " + color + " mg-b-5"}>{title}</h6>
+                                <p className="tx-11 tx-color-03 mg-b-0">{description}</p>
                             </div>
-                            <div class="col-5">
-                                <div class="chart-ten">
-                                    <div id={"flotChartAds"+id} class="flot-chart"></div>
+                            <div className="col-5">
+                                <div className="chart-ten">
+                                    <div id={"flotChartAds"+id} className="flot-chart"></div>
                                 </div>
                             </div>
                         </div>

@@ -9,10 +9,10 @@ const InfoCard = (props) => {
 
     title == "Expansions" ? color = "tx-primary" : color = "tx-danger"
     return (
-        <div class="col-sm">
-            <h4 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">{Amount}</h4>
-            <p class={"tx-11 tx-uppercase tx-spacing-1 tx-semibold mg-b-10 "+color}>{title}</p>
-            <div class="tx-12 tx-color-03">{description}</div>
+        <div className="col-sm">
+            <h4 className="tx-normal tx-rubik tx-spacing--1 mg-b-5">{Amount}</h4>
+            <p className={"tx-11 tx-uppercase tx-spacing-1 tx-semibold mg-b-10 "+color}>{title}</p>
+            <div className="tx-12 tx-color-03">{description}</div>
         </div>
     )
 }
@@ -54,17 +54,17 @@ class AccountRetention extends Component {
     render() {
 
         return (
-            <div class="col-lg-4 col-xl-5 mg-t-10">
-                <div class="card">
-                    <div class="card-header pd-t-20 pd-b-0 bd-b-0">
-                        <h6 class="mg-b-5">Account Retention</h6>
-                        <p class="tx-12 tx-color-03 mg-b-0">Number of customers who have active subscription with you.</p>
+            <div className="col-lg-4 col-xl-5 mg-t-10">
+                <div className="card">
+                    <div className="card-header pd-t-20 pd-b-0 bd-b-0">
+                        <h6 className="mg-b-5">Account Retention</h6>
+                        <p className="tx-12 tx-color-03 mg-b-0">Number of customers who have active subscription with you.</p>
                     </div>
-                    <div class="card-body pd-20">
-                        <div class="chart-two mg-b-20">
-                            <div id="flotChart2" class="flot-chart"></div>
+                    <div className="card-body pd-20">
+                        <div className="chart-two mg-b-20">
+                            <div id="flotChart2" className="flot-chart"></div>
                         </div>
-                        <div class="row">
+                        <div className="row">
                             <InfoCard title="Expansions" Amount={15453.23}  />
                             <InfoCard title="Cancellations" Amount={145233.23}  />
                         </div>

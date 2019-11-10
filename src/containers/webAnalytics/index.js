@@ -23,7 +23,7 @@ class WebAnalytics extends Component {
     render() {
         return (
             <PerfectScrollbar className="content-body">
-                <div className="container pd-x-0" >
+                <div className="container pd-x-0"  style={{ maxWidth: "100%" }}>
                     <Head />
                     <div className="row row-xs">
                         <AudienceMeter />

@@ -4,6 +4,7 @@ import contactReducer from '../containers/contact/reducer'
 import DrawerReducer  from '../containers/rightSideBar/reducer'
 import CalendarReducer from '../containers/calendar/reducer'
 import CommonReducer from './commanReducer'
+
 const rootReducer = combineReducers({
     file: fileCardReducer,
     contact: contactReducer,

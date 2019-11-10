@@ -6,11 +6,13 @@ import ChatList from './ChatList';
 import ChannelListing from './channels/ChannelList'
 import UserInfo from './userInfo'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import Avatar from '../../config/avatar';
 
 class ChatSideBar extends Component {
 
     state = {
-        currentTab: "direct"
+        currentTab: "direct",
+        
     }
 
     render() {
@@ -27,7 +29,9 @@ class ChatSideBar extends Component {
                 <div className="chat-sidebar-header">
                     <Link to="#" data-toggle="dropdown" className="dropdown-link">
                         <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm mg-r-8"><span className="avatar-initial rounded-circle">T</span></div>
+                            <div className="avatar avatar-sm mg-r-8">
+                                <Avatar />
+                            </div>
                             <span className="tx-color-01 tx-semibold">TeamName</span>
                         </div>
                         <span><FeatherIcon icon="chevron-down"></FeatherIcon></span>
@@ -54,7 +58,9 @@ class ChatSideBar extends Component {
                         </div>}
 
                         {
-                            Channels == true ? <ChannelListing Channels={ChannelList}/> : <ChatList Chats={Chats} />
+                            Channels == true ? 
+                                <ChannelListing Channels={ChannelList}/> : 
+                                <ChatList Chats={Chats} />
                         }
                     </div>
                 </PerfectScrollbar >

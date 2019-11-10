@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import FeatherIcon from 'feather-icons-react';
 import { Link } from 'react-router-dom'
+import Avatar from '../../config/avatar';
 class ChatHead extends Component {
 
     render() {
@@ -11,7 +12,9 @@ class ChatHead extends Component {
             <div className="chat-content-header" style={{ backgroundColor: ghostMode ? "#333333" : backgroundColor }}>
                 <div id="directTitle" >
                     <div className="d-flex align-items-center">
-                        <div className="avatar avatar-sm avatar-online"><span className="avatar-initial rounded-circle">b</span></div>
+                        <div className="avatar avatar-sm avatar-online">
+                            <Avatar />
+                        </div>
                         <h6 className="mg-l-10 mg-b-0 chat-head-white-item" >{ User.name }</h6>
                     </div>
                 </div>

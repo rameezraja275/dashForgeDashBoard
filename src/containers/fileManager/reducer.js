@@ -14,10 +14,6 @@ export default (state = initialState, action) => {
         draft.modelData = action.payload.data;
         draft.modelName = action.payload.modelName
         break;
-      case "SET_TOAST":
-          draft.toastData = action.payload.data;
-          draft.toastName = action.payload.toastName
-          break;
       default:
         break;
     }

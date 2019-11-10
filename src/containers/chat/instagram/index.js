@@ -11,26 +11,29 @@ import MessageCard from '../messageCard'
 import Attachments from '../attachments';
 import ChatJquery from '../jqueryChat'
 import ChatFooter from '../chatFooter';
+import Emojis from '../emojis';
 
 class Instagram extends Component {
 
     componentDidMount = () => {
-        $(ChatJquery())
+        // $(ChatJquery())
         this.props.setCurrentRoute("instagram");
     }
 
-    componentWillUnmount = () => {
-        $('#mailSidebar').off('click');
-        $("#showMemberList").off('click');
-        $("#chatDirectMsg .media").off('click');
-        $('#allChannels div').off('click');
-        // $('.aside-menu-link').off('click');
-    }
+    // componentWillUnmount = () => {
+    //     $('#mailSidebar').off('click');
+    //     $("#showMemberList").off('click');
+    //     $("#chatDirectMsg .media").off('click');
+    //     $('#allChannels div').off('click');
+    //     // $('.aside-menu-link').off('click');
+    // }
 
     state = {
         typedMessage: "",
+        textAreaHeight: 60,
         toggleAttachment: false,
         ghostMode: false,
+        toggleEmojis: false,
         User: {
             name: "Rameez Raja",
             onlineStatus: true,
@@ -72,18 +75,21 @@ class Instagram extends Component {
         ],
         ChatList: [
             {
+                id:1,
                 name: "Sher Ali",
                 timeAgo: "5 days ago",
                 newMessages: 2,
                 userOnline: true
             },
             {
+                id: 2,
                 name: "Faizan",
                 timeAgo: "5 days ago",
                 newMessages: 0,
                 userOnline: false
             },
             {
+                id: 3,
                 name: "Ahmed",
                 timeAgo: "5 days ago",
                 newMessages: 0,
@@ -96,18 +102,19 @@ class Instagram extends Component {
 
         e.preventDefault()
         const { ghostMode } = this.state
-        console.log(ghostMode, !ghostMode);
         this.setState({
             ghostMode: !ghostMode
         })
     }
 
     onChange = (e, value) => {
-        // console.log('Change:', e ,"" , value);
-            this.setState({
-                typedMessage : e
-            })
-        }
+        const totalLine = e.split(/\r\n|\r|\n/).length - 1
+   
+        this.setState({
+            typedMessage: e,
+            textAreaHeight: totalLine * 30
+        })
+    }
 
     onSelect = (option) => {
         console.log('select', option);
@@ -130,33 +137,31 @@ class Instagram extends Component {
             this.shiftKeyStatus = true
         }
         if (code === 13) {
-            e.preventDefault()
-            if( this.shiftKeyStatus == true ){
-                console.log("next line")
-                const { typedMessage } = this.state
-                this.setState({
-                    typedMessage : typedMessage + "\n"
-                })
-            }
-            else{
+            if (this.shiftKeyStatus != true) {
+                e.preventDefault();
                 console.log("send text")
             }
-            
+
         }
     }
 
     toggleAttachment = () => {
         const { toggleAttachment } = this.state
-        console.log("yoo ", toggleAttachment);
         this.setState({
             toggleAttachment: !toggleAttachment
         })
     }
 
-    render() {
-        const { ChatList, User, Chats, ghostMode, typedMessage, toggleAttachment } = this.state
+    toggleEmojis = () => {
+        const { toggleEmojis } = this.state
+        this.setState({
+            toggleEmojis: !toggleEmojis
+        })
+    }
 
-        console.log("hai hai beduu", ghostMode);
+    render() {
+        const { ChatList, User, Chats, ghostMode, typedMessage, toggleAttachment, toggleEmojis } = this.state
+
 
         return (
             <div className="content-body pd-0">
@@ -167,7 +172,7 @@ class Instagram extends Component {
                     <div className="chat-content">
                         <ChatHead User={User} backgroundColor={'#E1306C'} toggleMode={this.toggleMode} ghostMode={ghostMode} />
                         <PerfectScrollbar className="chat-content-body">
-                            <div className="chat-group background-image" style={{ backgroundImage: "url('./instagram.png')" }} >
+                            <div className="chat-group background-image" style={{ backgroundImage: "url('assets/image/instagram.png')" }} >
 
                                 {
                                     Chats.map((item) => (
@@ -175,14 +180,19 @@ class Instagram extends Component {
                                     ))
                                 }
 
-{
-                                    toggleAttachment && <Attachments />
-                                }
+
                             </div>
                         </PerfectScrollbar >
+                        {
+                            toggleAttachment && <Attachments />
+                        }
 
+                        {
+                            toggleEmojis && <Emojis />
+                        }
                         <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
-                            onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />
+                            onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment}
+                            toggleEmojis={this.toggleEmojis} textAreaHeight={this.state.textAreaHeight} />
                     </div>
 
                 </div>
@@ -197,4 +207,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { setCurrentRoute })( Instagram );
+export default connect(mapStateToProps, { setCurrentRoute })(Instagram);

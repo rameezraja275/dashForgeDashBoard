@@ -14,24 +14,26 @@ import ChannelHead from './channelHead'
 import ChatFooter from '../chatFooter';
 import ChatJquery from '../jqueryChat'
 import Attachments from '../attachments';
+import Emojis from '../emojis';
 
 class Channels extends Component {
 
     componentDidMount = () => {
-        $(ChatJquery())
+        // $(ChatJquery())
         this.props.setCurrentRoute("teamdiscussions");
     }
 
-    componentWillUnmount = () => {
-        $('#mailSidebar').off('click');
-        $("#showMemberList").off('click');
-        $("#chatDirectMsg .media").off('click');
-        $('#allChannels div').off('click');
-        // $('.aside-menu-link').off('click');
-    }
+    // componentWillUnmount = () => {
+    //     $('#mailSidebar').off('click');
+    //     $("#showMemberList").off('click');
+    //     $("#chatDirectMsg .media").off('click');
+    //     $('#allChannels div').off('click');
+    //     // $('.aside-menu-link').off('click');
+    // }
 
     state = {
         typedMessage: "",
+        textAreaHeight: 60,
         ghostMode: false,
         toggleAttachment: false,
         Channel: {
@@ -80,18 +82,21 @@ class Channels extends Component {
         ],
         ChatList: [
             {
+                id:1,
                 name: "Sher Ali",
                 timeAgo: "5 days ago",
                 newMessages: 2,
                 userOnline: true
             },
             {
+                id: 2,
                 name: "Faizan",
                 timeAgo: "5 days ago",
                 newMessages: 0,
                 userOnline: false
             },
             {
+                id: 3,
                 name: "Ahmed",
                 timeAgo: "5 days ago",
                 newMessages: 0,
@@ -100,11 +105,13 @@ class Channels extends Component {
         ],
         ChannelList: [
             {
+                id: 1,
                 name: "genrel",
                 timeAgo: "5 days ago",
                 newMessages: 2
             },
             {
+                id: 2,
                 name: "Backend Team",
                 timeAgo: "5 days ago",
                 newMessages: 0
@@ -116,16 +123,16 @@ class Channels extends Component {
 
         e.preventDefault()
         const { ghostMode } = this.state
-        console.log(ghostMode, !ghostMode);
         this.setState({
             ghostMode: !ghostMode
         })
     }
 
     onChange = (e, value) => {
-        // console.log('Change:', e ,"" , value);
+        const totalLine = e.split(/\r\n|\r|\n/).length - 1
         this.setState({
-            typedMessage: e
+            typedMessage: e,
+            textAreaHeight: totalLine * 30
         })
     }
 
@@ -150,15 +157,8 @@ class Channels extends Component {
             this.shiftKeyStatus = true
         }
         if (code === 13) {
-            e.preventDefault()
-            if (this.shiftKeyStatus == true) {
-                console.log("next line")
-                const { typedMessage } = this.state
-                this.setState({
-                    typedMessage: typedMessage + "\n"
-                })
-            }
-            else {
+            if (this.shiftKeyStatus != true) {
+                e.preventDefault();
                 console.log("send text")
             }
 
@@ -167,14 +167,20 @@ class Channels extends Component {
 
     toggleAttachment = () => {
         const { toggleAttachment } = this.state
-        console.log("yoo ", toggleAttachment);
         this.setState({
             toggleAttachment: !toggleAttachment
         })
     }
 
+    toggleEmojis = () => {
+        const { toggleEmojis } = this.state
+        this.setState({
+            toggleEmojis: !toggleEmojis
+        })
+    }
+
     render() {
-        const { ChatList, User, Chats, ghostMode, message, ChannelList, Channel, typedMessage, toggleAttachment } = this.state
+        const { ChatList, User, Chats, ghostMode, message, ChannelList, Channel, typedMessage, toggleAttachment, toggleEmojis } = this.state
         return (
             <div className="content-body pd-0">
                 <div className="chat-wrapper chat-wrapper-two">
@@ -192,14 +198,20 @@ class Channels extends Component {
                                     ))
                                 }
 
-                                {
-                                    toggleAttachment && <Attachments />
-                                }
+
                             </div>
                         </PerfectScrollbar >
 
+                        {
+                            toggleAttachment && <Attachments />
+                        }
+
+                        {
+                            toggleEmojis && <Emojis />
+                        }
                         <ChatFooter onKeyPressed={this.onKeyPressed} onKeyUp={this.onKeyUp} toggleMode={this.toggleMode} value={typedMessage}
-                            onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment} />
+                            onChange={this.onChange} onSelect={this.onSelect} ghostMode={ghostMode} toggleAttachment={this.toggleAttachment}
+                            toggleEmojis={this.toggleEmojis} textAreaHeight={this.state.textAreaHeight} />
                     </div>
 
                 </div>
